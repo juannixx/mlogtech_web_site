@@ -95,7 +95,7 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
         >
           <h2 class="h3">Book your demo</h2>
           <p class="mt-2 text-[0.92rem] text-muted">
-            We reply within one working day with a scheduling link.
+            Takes a minute. We reply within one working day with a link to book your slot.
           </p>
           <div class="mt-6 space-y-4">
             <div class="field">
@@ -131,6 +131,51 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
             Prefer email? <a class="textlink" href={`mailto:${SALES_EMAIL}`}>{SALES_EMAIL}</a>
           </p>
         </form>
+
+        <!-- Success state: shown after submit. First-success + clear next steps. -->
+        <div
+          id="demo-success"
+          class="hidden rounded-[var(--r-lg)] border border-hair bg-surface p-8 shadow-[var(--shadow-md)]"
+          role="status"
+          aria-live="polite"
+        >
+          <span
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent"
+            aria-hidden="true"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M4 10.5L8 14.5L16 5.5"
+                stroke="var(--accent-ink)"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <h2 class="h3 mt-4">Request ready, <span id="ds-name">there</span>.</h2>
+          <p class="mt-2 text-[1rem]">
+            We have opened your email app to send it. Once it lands, we reply within one working
+            day at <span id="ds-email" class="font-semibold text-ink">your inbox</span> with a link
+            to book your slot.
+          </p>
+          <ol class="mt-6 space-y-3 text-[0.97rem]">
+            <li class="flex gap-3">
+              <span class="data mt-0.5 text-accent-text">1</span>
+              We reply with a link to pick a 30-minute slot.
+            </li>
+            <li class="flex gap-3">
+              <span class="data mt-0.5 text-accent-text">2</span>
+              On the call we run a route on your own data, end to end.
+            </li>
+            <li class="flex gap-3">
+              <span class="data mt-0.5 text-accent-text">3</span>
+              You leave with a quote priced against your fleet.
+            </li>
+          </ol>
+          <p class="mt-6 text-[0.88rem] text-muted">
+            Nothing opened? Email <a class="textlink" href={`mailto:${SALES_EMAIL}`}>{SALES_EMAIL}</a>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -153,8 +198,8 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
 
     // Demo form: mailto composition until the CRM endpoint exists.
     var form = document.getElementById('demo-form');
-    var status = document.getElementById('demo-status');
-    if (!form) return;
+    var success = document.getElementById('demo-success');
+    if (!form || !success) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form.querySelector('[name="companysite"]').value) return; // honeypot
@@ -162,12 +207,6 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
       var email = form.querySelector('#d-email').value.trim();
       var phone = form.querySelector('#d-phone').value.trim();
       var volume = form.querySelector('#d-volume').value;
-      var btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      status.textContent =
-        'Opening your email app with the request. If nothing happens, write to ' +
-        SALES_EMAIL +
-        '.';
       var body =
         'Name: ' + name + '\nWork email: ' + email + '\nPhone: ' + (phone || 'not provided') +
         '\nDeliveries per month: ' + volume + '\n\nPlease send me a link to schedule a demo.';
@@ -175,9 +214,14 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
         'mailto:' + SALES_EMAIL +
         '?subject=' + encodeURIComponent('Demo request: ' + name) +
         '&body=' + encodeURIComponent(body);
-      setTimeout(function () {
-        btn.disabled = false;
-      }, 4000);
+      // Swap to the success state with the user's own details.
+      var firstName = name.split(' ')[0] || 'there';
+      document.getElementById('ds-name').textContent = firstName;
+      document.getElementById('ds-email').textContent = email;
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      success.focus && success.setAttribute('tabindex', '-1');
+      success.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     });
   })();
 </script>
