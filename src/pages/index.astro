@@ -30,27 +30,6 @@ const pains = [
   },
 ];
 
-const pillars = [
-  {
-    title: 'Plan',
-    body: 'Import orders and build optimized multi-stop routes in minutes, matched to vehicles and shifts.',
-    href: '/solutions/route-planning/',
-    label: 'Route planning',
-  },
-  {
-    title: 'Execute',
-    body: 'Drivers run the route in the app: navigation, order details, signature, photo and barcode at the door.',
-    href: '/solutions/driver-app/',
-    label: 'Driver app and ePOD',
-  },
-  {
-    title: 'Track',
-    body: 'You watch every vehicle live; your customer follows their delivery on a branded tracking page.',
-    href: '/features/live-tracking/',
-    label: 'Tracking and reports',
-  },
-];
-
 const steps = [
   {
     title: 'Import your orders',
@@ -65,8 +44,8 @@ const steps = [
     body: 'Each driver gets their route with navigation and order details, online or offline.',
   },
   {
-    title: 'Customers get proof',
-    body: 'Signature, photo and timestamp are captured at the door and the POD lands in your system instantly.',
+    title: 'Proof closes the loop',
+    body: 'Signature, photo and timestamp are captured at the door, and the POD lands on the order instantly, ready to share with the customer.',
   },
 ];
 ---
@@ -138,24 +117,53 @@ const steps = [
       <div class="reveal max-w-[60ch]">
         <h2 class="h2">Plan it. Run it. Prove it.</h2>
         <p class="lead mt-4">
-          Three parts of the delivery job that usually live in separate tools share one record of
-          every order here.
+          Planning, execution and proof usually live in separate tools. Here they share one record
+          per order.
         </p>
       </div>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        {
-          pillars.map((p, i) => (
-            <a
-              href={p.href}
-              class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7 transition-transform duration-200 hover:-translate-y-1"
-            >
-              <span class="data text-[0.8rem] text-accent-text">{String(i + 1).padStart(2, '0')}</span>
-              <h3 class="h3 mt-2">{p.title}</h3>
-              <p class="mt-3 flex-1 text-[1rem]">{p.body}</p>
-              <span class="textlink mt-5">{p.label}</span>
-            </a>
-          ))
-        }
+      <!-- Bento: the execution tile (driver app + ePOD, the core) is the
+           focal navy panel; Plan and Track stack beside it. De-numbered:
+           these are parallel capabilities, not an ordered sequence. -->
+      <div class="mt-10 grid gap-6 lg:grid-cols-2 lg:grid-rows-2">
+        <!-- Deliberate fixed-dark focal tile (navy in both themes), so it
+             anchors the bento; literal colors, not theme-swapped tokens. -->
+        <a
+          href="/solutions/driver-app/"
+          class="reveal group flex flex-col justify-between rounded-[var(--r)] border border-hair bg-[#0B2740] p-8 lg:row-span-2 lg:p-10"
+        >
+          <div>
+            <h3 class="text-[#F2F6F9] text-[clamp(1.5rem,2.4vw,2rem)] font-bold leading-tight">
+              Execute at the door.
+            </h3>
+            <p class="mt-4 max-w-[38ch] text-[1.02rem] text-[rgba(255,255,255,0.82)]">
+              Drivers run the route in the app: navigation, order details, then signature, photo
+              and barcode capture at the door. Proof lands on the order the moment it happens.
+            </p>
+          </div>
+          <span class="mt-8 font-semibold text-[#C9E837] transition-transform duration-200 group-hover:translate-x-1">
+            Driver app and ePOD &rarr;
+          </span>
+        </a>
+        <a
+          href="/solutions/route-planning/"
+          class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7 transition-transform duration-200 hover:-translate-y-1"
+        >
+          <h3 class="h3">Plan the day in minutes.</h3>
+          <p class="mt-3 flex-1 text-[1rem]">
+            Import orders and build optimized multi-stop routes, matched to vehicles and shifts.
+          </p>
+          <span class="textlink mt-5">Route planning</span>
+        </a>
+        <a
+          href="/features/live-tracking/"
+          class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7 transition-transform duration-200 hover:-translate-y-1"
+        >
+          <h3 class="h3">Track it to the door.</h3>
+          <p class="mt-3 flex-1 text-[1rem]">
+            You watch every vehicle live; your customer follows their delivery on a branded page.
+          </p>
+          <span class="textlink mt-5">Tracking and reports</span>
+        </a>
       </div>
     </div>
   </section>
@@ -275,25 +283,30 @@ const steps = [
           integrations as the catalog rolls out.
         </p>
       </div>
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
-          <h3 class="h3">Spreadsheets and CSV</h3>
-          <p class="mt-2 text-[0.97rem]">
-            Upload the day's orders exactly as they come from your ERP export.
-          </p>
+      <!-- One panel, two available-now columns split by a hairline, with the
+           rollout note as a footer row. Distinct from the card grids above. -->
+      <div class="reveal mt-10 overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface">
+        <div class="grid gap-px bg-hair sm:grid-cols-2">
+          <div class="bg-surface p-8">
+            <span class="data text-[0.75rem] text-accent-text">Available now</span>
+            <h3 class="h3 mt-2">Spreadsheets and CSV</h3>
+            <p class="mt-2 text-[0.97rem]">
+              Upload the day's orders exactly as they come from your ERP export.
+            </p>
+          </div>
+          <div class="bg-surface p-8">
+            <span class="data text-[0.75rem] text-accent-text">Available now</span>
+            <h3 class="h3 mt-2">REST API and webhooks</h3>
+            <p class="mt-2 text-[0.97rem]">
+              Push orders in, get PODs and status events back, keyed to your own IDs.
+            </p>
+          </div>
         </div>
-        <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
-          <h3 class="h3">REST API and webhooks</h3>
-          <p class="mt-2 text-[0.97rem]">
-            Push orders in, get PODs and status events back, keyed to your own IDs.
+        <div class="flex flex-wrap items-center justify-between gap-3 border-t border-hair px-8 py-5">
+          <p class="text-[0.97rem]">
+            Native connectors for e-commerce and ERP platforms are in rollout.
           </p>
-        </div>
-        <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
-          <h3 class="h3">E-commerce and ERP</h3>
-          <p class="mt-2 text-[0.97rem]">
-            Native connectors are in rollout. Tell us which platform you ship from.
-            <!-- [PENDENTE SPEC-02 §7: catálogo de integrações confirmado] -->
-          </p>
+          <a class="textlink shrink-0" href="/integrations/">See the integration paths &rarr;</a>
         </div>
       </div>
     </div>

@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { SALES_EMAIL, OFFICES } from '../data/site';
+
+// Copy adapted from the current mlogtech.com (scrape 07/17/2026), kept
+// factual: no invented history, headcount or founding dates.
+// [PENDENTE: história da empresa e página de careers, se desejadas]
+
+const principles = [
+  {
+    title: 'Built around real operations',
+    body: 'Systems are designed from how teams actually work, not from theoretical processes. We watch the depot before we draw the screen.',
+  },
+  {
+    title: 'Scalable and modular',
+    body: 'Platforms grow with the business and adapt as the operation changes, without a rebuild every two years.',
+  },
+  {
+    title: 'Clear data, timely',
+    body: 'Software should hand people reliable information when the decision is still open, not a report after the fact.',
+  },
+  {
+    title: 'Integration ready',
+    body: 'New software must respect prior investment. We integrate with the tools an operation already runs.',
+  },
+];
+---
+
+<Base
+  title="About | Technology for real operations | MLogTech"
+  description="MLogTech is a software technology company building practical, scalable systems for delivery and logistics operations, with offices in London, Dubai and Brazil."
+>
+  <section class="section">
+    <div class="wrap max-w-[860px]">
+      <h1 class="display max-w-[20ch]">Technology designed for real business operations.</h1>
+      <div class="mt-6 space-y-4 text-[1.05rem]">
+        <p>
+          MLogTech is a software technology company focused on building practical and scalable
+          systems for modern organizations. We work closely with businesses to understand how they
+          operate, and translate that understanding into reliable software.
+        </p>
+        <p>
+          Our delivery management platform is that philosophy applied to logistics: route
+          planning, a driver app, electronic proof of delivery and live tracking, built as one
+          system because that is how the work actually flows.
+        </p>
+        <p>
+          Our approach prioritizes usability, clarity and long-term value rather than unnecessary
+          complexity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface-2">
+    <div class="wrap">
+      <h2 class="h2 reveal max-w-[24ch]">How we build.</h2>
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          principles.map((p) => (
+            <div class="reveal border-t-2 border-hair-strong pt-5">
+              <h3 class="h3 text-[1.15rem]">{p.title}</h3>
+              <p class="mt-2.5 text-[0.96rem]">{p.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid gap-10 md:grid-cols-2">
+      <div class="reveal">
+        <h2 class="h2">Where we are.</h2>
+        <p class="mt-4 text-[1.02rem]">
+          {OFFICES.join(', ')}. The product is built for UK delivery operations first, with the
+          team distributed across the three offices.
+        </p>
+      </div>
+      <div class="reveal">
+        <h2 class="h2">Work with us.</h2>
+        <p class="mt-4 text-[1.02rem]">
+          Interested in joining or partnering?
+          <a class="textlink" href={`mailto:${SALES_EMAIL}`}>{SALES_EMAIL}</a> reaches a person.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Base>

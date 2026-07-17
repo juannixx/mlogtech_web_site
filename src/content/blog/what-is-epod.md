@@ -12,7 +12,7 @@ Electronic proof of delivery, usually shortened to ePOD, is the digital record t
 A complete ePOD ties several pieces of evidence to one order:
 
 - **A signature**, drawn on the driver's screen, with the receiver's name typed alongside it.
-- **A photo**, for doorstep drops, damage records or "left in safe place" situations.
+- **A photo**, for doorstep drops, damage records or "left in a safe place" situations.
 - **A barcode or QR scan**, confirming the physical parcel matches the order before anything is signed.
 - **A timestamp and location**, recorded automatically rather than written by hand.
 

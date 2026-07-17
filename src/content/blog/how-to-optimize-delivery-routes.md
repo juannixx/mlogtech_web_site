@@ -19,7 +19,7 @@ The word "together" is the point. Sequencing changes which allocations make sens
 
 ## The constraints are the plan
 
-An optimized route that ignores reality is worse than a manual one, because drivers stop trusting it. The constraints worth modelling from day one:
+An optimized route that ignores reality is worse than a manual one, because drivers stop trusting it. The constraints worth modeling from day one:
 
 - **Vehicle capacity**, so the plan never loads what does not fit.
 - **Time windows**, so promised slots are planned rather than hoped for.
@@ -34,6 +34,6 @@ Systems learn service times from real execution data. That is one reason plannin
 
 **Watch the exceptions, not the map.** The value of a live board is not seeing dots move; it is seeing the one route that is falling behind while there is still time to shift a stop.
 
-**Close the loop with proof.** A route is not finished when the app says so; it is finished when every stop has [proof of delivery](/features/proof-of-delivery/) attached. Plans, execution and evidence on one record is what makes the metrics trustworthy.
+**Close the loop with proof.** A route is not finished when the app says so; it is finished when every stop has [proof of delivery](/features/proof-of-delivery/) attached. Keeping plans, execution and evidence on one record is what makes the metrics trustworthy.
 
 [MLogTech's route planning](/solutions/route-planning/) does the computing; the habits are yours. Together they turn the morning spreadsheet ritual into a few minutes of review.

@@ -21,7 +21,7 @@ export const featurePages: FeaturePage[] = [
       'Capture signature, photo and barcode at the door, stamped with time and location. Electronic proof of delivery that syncs instantly and works offline.',
     h1: 'Electronic proof of delivery.',
     heroPara:
-      'Every drop closes with evidence: signature, photo, scan, time and location, attached to the order the moment it happens. Paper canhotos stay in the past.',
+      'Every drop closes with evidence: signature, photo, scan, time and location, attached to the order the moment it happens. Paper delivery slips stay in the past.',
     heroMock: 'phone',
     capabilities: [
       {
@@ -58,7 +58,7 @@ export const featurePages: FeaturePage[] = [
       },
       {
         q: 'What if the customer is not there?',
-        a: 'The driver records a non-delivery reason from a configurable list, with photo evidence if needed (safe place, neighbour, refused). The order record shows exactly what happened.',
+        a: 'The driver records a non-delivery reason from a configurable list, with photo evidence if needed (safe place, neighbor, refused). The order record shows exactly what happened.',
       },
       {
         q: 'Can I send the POD to my customer?',
@@ -182,11 +182,11 @@ export const featurePages: FeaturePage[] = [
     capabilities: [
       {
         title: 'Load verification',
-        body: 'Scan at the depot confirms every parcel for the route is actually on the van.',
+        body: 'A scan at the depot confirms every parcel for the route is actually on the van.',
       },
       {
         title: 'Door verification',
-        body: 'Scan at the stop matches parcel to order before proof capture opens.',
+        body: 'A scan at the stop matches the parcel to the order before proof capture opens.',
       },
       {
         title: 'QR and 1D barcodes',
@@ -238,7 +238,7 @@ export const featurePages: FeaturePage[] = [
       },
       {
         title: 'Per-driver reconciliation',
-        body: 'End of shift shows expected versus collected per driver, discrepancy first.',
+        body: 'End of shift shows expected versus collected per driver, discrepancies first.',
       },
       {
         title: 'On the order record',
@@ -435,7 +435,7 @@ export const featurePages: FeaturePage[] = [
     metaTitle: 'Geofencing | Automatic arrival and departure logs | MLogTech',
     metaDescription:
       'Arrival and departure at every stop logged automatically by geofence. Accurate service times without asking drivers to click.',
-    h1: 'Arrivals and departures, logged by themselves.',
+    h1: 'Arrivals and departures, logged automatically.',
     heroPara:
       'A geofence around every stop records when the vehicle arrives and leaves. Service times become real data instead of driver memory.',
     heroMock: 'dashboard',
@@ -474,7 +474,7 @@ export const featurePages: FeaturePage[] = [
       },
       {
         q: 'How large are the geofences?',
-        a: 'Radius is configurable per stop type, so a house and a distribution centre each get a sensible fence.',
+        a: 'Radius is configurable per stop type, so a house and a distribution center each get a sensible fence.',
       },
       {
         q: 'What can trigger from a geofence event?',

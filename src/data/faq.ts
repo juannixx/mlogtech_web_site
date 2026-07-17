@@ -15,7 +15,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: 'Who is it for?',
-        a: 'Operations that deliver with their own drivers or subcontracted fleets: couriers, wholesalers, retailers with own delivery, 3PLs and field distribution. It works from one van to hundreds.',
+        a: 'Operations that deliver with their own drivers or subcontracted fleets: couriers, wholesalers, retailers running their own delivery, 3PLs and field distribution. It works from one van to hundreds.',
       },
       {
         q: 'What is electronic proof of delivery (ePOD)?',
