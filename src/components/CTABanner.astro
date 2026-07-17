@@ -1,0 +1,27 @@
+---
+import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../data/site';
+
+interface Props {
+  title?: string;
+  note?: string;
+}
+const {
+  title = 'Put your next route on MLogTech.',
+  note = `Free trial, no card required. Or see it against your own data first.`,
+} = Astro.props;
+---
+
+<!-- Deliberate fixed-dark band: this is the one drenched moment per page,
+     identical in light and dark themes, so colors are literal here. -->
+<section class="section bg-[#101a1f]">
+  <div class="wrap text-center">
+    <h2 class="h2 reveal mx-auto max-w-[24ch] text-[#f1f6f4]">{title}</h2>
+    <p class="reveal mx-auto mt-4 max-w-[52ch] text-[#aec0c7]">{note}</p>
+    <div class="reveal mt-8 flex flex-wrap justify-center gap-3">
+      <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+      <a href="/demo/" class="btn border-[rgba(241,246,244,0.3)] text-[#f1f6f4] btn-ghost"
+        >{CTA_SECONDARY}</a
+      >
+    </div>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { featured, webPanel, driverApp } from '../../data/features';
+---
+
+<Base
+  title="Features | Web dispatch panel and driver app | MLogTech"
+  description="Everything in the MLogTech delivery platform: route optimization, electronic proof of delivery, live tracking, notifications, reports and a driver app that works offline."
+>
+  <section class="section pb-8">
+    <div class="wrap">
+      <h1 class="display max-w-[22ch]">Everything the route needs, listed.</h1>
+      <p class="lead mt-4">
+        The web panel plans and watches the operation; the driver app executes it. These are the
+        pieces, with the nine most asked-about first.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="wrap grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        featured.map((f) => (
+          <div
+            id={f.slug}
+            class="reveal rounded-[var(--r)] border border-hair bg-surface p-6"
+          >
+            <h2 class="h3">{f.title}</h2>
+            <p class="mt-2 text-[0.96rem]">{f.short}</p>
+            <!-- TODO fase seguinte: linkar para /features/{f.slug}/ quando a página existir (SPEC-01) -->
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section bg-surface-2">
+    <div class="wrap grid gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="h2 reveal">Web dispatch panel</h2>
+        <ul class="mt-6 grid gap-x-8 gap-y-2.5 text-[0.97rem] sm:grid-cols-2">
+          {
+            webPanel.map((item) => (
+              <li class="flex gap-2.5">
+                <svg class="mt-1.5 shrink-0" width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7.5L5.5 11L12 3.5" stroke="var(--accent-text)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h2 class="h2 reveal">Driver app (iOS and Android)</h2>
+        <ul class="mt-6 grid gap-x-8 gap-y-2.5 text-[0.97rem] sm:grid-cols-2">
+          {
+            driverApp.map((item) => (
+              <li class="flex gap-2.5">
+                <svg class="mt-1.5 shrink-0" width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7.5L5.5 11L12 3.5" stroke="var(--accent-text)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Base>

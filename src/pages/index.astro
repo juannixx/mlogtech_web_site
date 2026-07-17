@@ -1,0 +1,304 @@
+---
+import Base from '../layouts/Base.astro';
+import DashboardMock from '../components/DashboardMock.astro';
+import PhoneMock from '../components/PhoneMock.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY, SITE_NAME } from '../data/site';
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: SITE_NAME,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web, iOS, Android',
+  description:
+    'Delivery management software with electronic proof of delivery, live tracking and route optimization.',
+};
+
+const pains = [
+  {
+    title: 'Failed deliveries you find out about tomorrow',
+    body: 'A missed drop only surfaces when the customer complains. By then the van is back and the reroute costs double.',
+  },
+  {
+    title: 'Paper PODs that go missing',
+    body: 'Signatures live on sheets in glove boxes. Proving a delivery for an invoice dispute means digging through paper.',
+  },
+  {
+    title: '"Where is my order?" calls all day',
+    body: 'Without live tracking and notifications, your office becomes a call center for delivery status.',
+  },
+];
+
+const pillars = [
+  {
+    title: 'Plan',
+    body: 'Import orders and build optimized multi-stop routes in minutes, matched to vehicles and shifts.',
+    href: '/solutions/route-planning/',
+    label: 'Route planning',
+  },
+  {
+    title: 'Execute',
+    body: 'Drivers run the route in the app: navigation, order details, signature, photo and barcode at the door.',
+    href: '/solutions/#driver-app',
+    label: 'Driver app and ePOD',
+  },
+  {
+    title: 'Track',
+    body: 'You watch every vehicle live; your customer follows their delivery on a branded tracking page.',
+    href: '/features/#live-tracking',
+    label: 'Tracking and reports',
+  },
+];
+
+const steps = [
+  {
+    title: 'Import your orders',
+    body: 'Upload a spreadsheet or connect the API. Orders land on the dispatch board with addresses validated.',
+  },
+  {
+    title: 'Optimize the routes',
+    body: 'One click builds the day’s routes against vehicles, time windows and capacity. Adjust by drag and drop.',
+  },
+  {
+    title: 'Drivers execute in the app',
+    body: 'Each driver gets their route with navigation and order details, online or offline.',
+  },
+  {
+    title: 'Customers get proof',
+    body: 'Signature, photo and timestamp are captured at the door and the POD lands in your system instantly.',
+  },
+];
+---
+
+<Base
+  title="MLogTech | Delivery management software with electronic proof of delivery"
+  description="Plan optimized routes, run deliveries with a driver app, capture electronic proof of delivery and give customers live tracking. Built by MLogTech."
+  jsonLd={[softwareSchema]}
+>
+  <!-- 1. Hero -->
+  <section class="section pt-12 lg:pt-16">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
+      <div class="reveal">
+        <h1 class="display">
+          Proof of delivery, live tracking and optimized routes. One system.
+        </h1>
+        <p class="lead mt-5 max-w-[46ch]">
+          MLogTech plans your routes, runs them through a driver app and hands you the electronic
+          POD the moment the parcel lands.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+          <a href="/demo/" class="btn btn-ghost">{CTA_SECONDARY}</a>
+        </div>
+        <p class="mt-4 text-[0.9rem] text-muted">Free trial. No card required.</p>
+      </div>
+      <div class="reveal">
+        <DashboardMock />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Social proof -->
+  <section class="border-y border-hair bg-surface py-8">
+    <div class="wrap flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+      <span class="text-[0.95rem] text-muted">Trusted by our partners</span>
+      <img
+        src="/images/molina-express.png"
+        alt="Molina Express"
+        width="140"
+        height="40"
+        loading="lazy"
+        class="h-9 w-auto opacity-80 grayscale"
+      />
+      <!-- [PENDENTE SPEC-03 §10: logos de clientes autorizados] -->
+    </div>
+  </section>
+
+  <!-- 3. Problem -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="h2 reveal max-w-[24ch]">The last mile is where the plan falls apart.</h2>
+      <div class="mt-10 grid gap-8 md:grid-cols-3">
+        {
+          pains.map((p) => (
+            <div class="reveal border-t-2 border-hair-strong pt-5">
+              <h3 class="h3">{p.title}</h3>
+              <p class="mt-3 text-[1rem]">{p.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Three pillars -->
+  <section class="section bg-surface-2">
+    <div class="wrap">
+      <div class="reveal max-w-[60ch]">
+        <h2 class="h2">Plan it. Run it. Prove it.</h2>
+        <p class="lead mt-4">
+          Three parts of the delivery job that usually live in separate tools share one record of
+          every order here.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {
+          pillars.map((p, i) => (
+            <a
+              href={p.href}
+              class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7 transition-transform duration-200 hover:-translate-y-1"
+            >
+              <span class="data text-[0.8rem] text-accent-text">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="h3 mt-2">{p.title}</h3>
+              <p class="mt-3 flex-1 text-[1rem]">{p.body}</p>
+              <span class="textlink mt-5">{p.label}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. How it works -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="h2 reveal">From spreadsheet to signed delivery in four steps.</h2>
+      <ol class="relative mt-12 grid gap-10 md:grid-cols-4">
+        <div
+          class="absolute left-[9px] top-[9px] hidden h-[2px] bg-accent opacity-55 md:block"
+          style="right: calc((100% - 7.5rem) / 4 - 9px)"
+          aria-hidden="true"
+        >
+        </div>
+        {
+          steps.map((s, i) => (
+            <li class="reveal relative md:pt-10">
+              <span
+                class="absolute left-0 top-0 hidden h-[18px] w-[18px] rounded-full border-4 border-bg bg-accent shadow-[0_0_0_1px_var(--accent)] md:block"
+                aria-hidden="true"
+              />
+              <span class="data text-[0.8rem] text-accent-text">Step {i + 1}</span>
+              <h3 class="h3 mt-2">{s.title}</h3>
+              <p class="mt-2 max-w-[34ch] text-[0.97rem]">{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Feature spotlight: ePOD -->
+  <section class="section bg-surface-2" id="epod">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-2">
+      <div class="reveal order-2 lg:order-1">
+        <PhoneMock />
+      </div>
+      <div class="reveal order-1 lg:order-2">
+        <h2 class="h2">Proof of delivery that holds up.</h2>
+        <p class="mt-4 text-[1.02rem]">
+          Signature, photo and barcode scan captured at the door, stamped with time and location.
+          The POD syncs the moment it happens and works offline when the signal does not.
+        </p>
+        <ul class="mt-6 space-y-3 text-[1rem]">
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            Electronic signature and photo proof on every drop
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            QR and barcode scanning against the order
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            Offline capture with automatic sync
+          </li>
+        </ul>
+        <a href="/features/#proof-of-delivery" class="textlink mt-6 inline-block"
+          >More on electronic POD</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Feature spotlight: tracking -->
+  <section class="section">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-2">
+      <div class="reveal">
+        <h2 class="h2">Your customer stops calling. They can see the van.</h2>
+        <p class="mt-4 text-[1.02rem]">
+          Every order gets a live tracking page with your brand on it: position, ETA and status.
+          Notifications go out automatically at dispatch, en route and delivered.
+        </p>
+        <ul class="mt-6 space-y-3 text-[1rem]">
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            Branded tracking page per delivery
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            Live ETA recalculated on the road
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            Email and push notifications per status
+          </li>
+        </ul>
+        <a href="/features/#live-tracking" class="textlink mt-6 inline-block"
+          >More on live tracking</a
+        >
+      </div>
+      <div class="reveal">
+        <img
+          src="/images/route-map.jpg"
+          alt="Stylized route map with a delivery truck and destination pins"
+          width="1200"
+          height="800"
+          loading="lazy"
+          class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Testimonial: intentionally omitted until real quotes exist.
+       [PENDENTE SPEC-03 §10: depoimentos reais com nome, cargo e foto.
+       Nunca publicar depoimento inventado.] -->
+
+  <!-- 9. Integrations -->
+  <section class="section bg-surface-2">
+    <div class="wrap">
+      <div class="reveal max-w-[60ch]">
+        <h2 class="h2">Your orders already live somewhere. Bring them in.</h2>
+        <p class="lead mt-4">
+          Import from spreadsheets today, connect your stack through the API, and use native
+          integrations as the catalog rolls out.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
+          <h3 class="h3">Spreadsheets and CSV</h3>
+          <p class="mt-2 text-[0.97rem]">
+            Upload the day's orders exactly as they come from your ERP export.
+          </p>
+        </div>
+        <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
+          <h3 class="h3">REST API and webhooks</h3>
+          <p class="mt-2 text-[0.97rem]">
+            Push orders in, get PODs and status events back, keyed to your own IDs.
+          </p>
+        </div>
+        <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
+          <h3 class="h3">E-commerce and ERP</h3>
+          <p class="mt-2 text-[0.97rem]">
+            Native connectors are in rollout. Tell us which platform you ship from.
+            <!-- [PENDENTE SPEC-02 §7: catálogo de integrações confirmado] -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Final CTA -->
+  <CTABanner />
+</Base>

@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens (SPEC-03). Light is the default theme; dark mirrors the
+   approved v1 prototype palette. All text pairs validated WCAG AA
+   (ratios in SPEC-03 section 2).
+--------------------------------------------------------------------------- */
+:root {
+  --bg: #f7fafa;
+  --surface: #ffffff;
+  --surface-2: #edf2f3;
+  --ink: #101a1f;
+  --body: #3e5259;
+  --muted: #5b7079;
+  --accent: #ff9e2c;
+  --accent-ink: #101a1f;
+  --accent-text: #a85400;
+  --accent-hover: #f08e14;
+  --hair: rgba(16, 26, 31, 0.1);
+  --hair-strong: rgba(16, 26, 31, 0.22);
+  --ok: #1b7f3b;
+  --err: #c22b2b;
+
+  --shadow-sm: 0 1px 2px rgba(16, 26, 31, 0.06);
+  --shadow-md: 0 4px 16px rgba(16, 26, 31, 0.08);
+  --shadow-lg: 0 12px 40px rgba(16, 26, 31, 0.12);
+
+  --r-sm: 8px;
+  --r: 12px;
+  --r-lg: 20px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+[data-theme="dark"] {
+  --bg: #101a1f;
+  --surface: #17262e;
+  --surface-2: #0b1418;
+  --ink: #f1f6f4;
+  --body: #aec0c7;
+  --muted: #8ca3ac;
+  --accent: #ff9e2c;
+  --accent-ink: #101a1f;
+  --accent-text: #ff9e2c;
+  --accent-hover: #ffb151;
+  --hair: rgba(241, 246, 244, 0.1);
+  --hair-strong: rgba(241, 246, 244, 0.18);
+  --ok: #4cc073;
+  --err: #ff7a7a;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101a1f;
+    --surface: #17262e;
+    --surface-2: #0b1418;
+    --ink: #f1f6f4;
+    --body: #aec0c7;
+    --muted: #8ca3ac;
+    --accent: #ff9e2c;
+    --accent-ink: #101a1f;
+    --accent-text: #ff9e2c;
+    --accent-hover: #ffb151;
+    --hair: rgba(241, 246, 244, 0.1);
+    --hair-strong: rgba(241, 246, 244, 0.18);
+    --ok: #4cc073;
+    --err: #ff7a7a;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+  }
+}
+
+/* Map tokens into Tailwind's theme so utilities never hard-code hex. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-text: var(--accent-text);
+  --color-accent-hover: var(--accent-hover);
+  --color-hair: var(--hair);
+  --color-hair-strong: var(--hair-strong);
+  --color-ok: var(--ok);
+  --color-err: var(--err);
+
+  --font-sans: "Archivo", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r);
+  --radius-lg: var(--r-lg);
+}
+
+/* ---------------------------------------------------------------------------
+   Font: single self-hosted variable family (SPEC-03 section 3 / SPEC-04).
+--------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/archivo-var.woff2") format("woff2");
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: "Archivo", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.display {
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+.h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+}
+.h3 {
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.15;
+}
+.lead {
+  font-size: 1.125rem;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+p {
+  max-width: 70ch;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Buttons (shared across pages) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.82em 1.5em;
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.25s var(--ease),
+    background 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--hair-strong);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.textlink {
+  color: var(--accent-text);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s var(--ease);
+}
+.textlink:hover {
+  border-color: var(--accent-text);
+}
+
+/* Section rhythm */
+.section {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+.wrap {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+@media (max-width: 480px) {
+  .wrap {
+    padding-inline: 16px;
+  }
+}
+
+/* Scroll reveal: content is visible by default; JS only adds the entrance. */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+}
+.js-reveal .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .btn,
+  .textlink {
+    transition: none;
+  }
+  .btn-primary:hover,
+  .btn-ghost:hover {
+    transform: none;
+  }
+}
+
+/* Forms */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.field input,
+.field select,
+.field textarea {
+  background: var(--surface);
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-sm);
+  padding: 0.72em 0.85em;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  width: 100%;
+}
+.field .error {
+  color: var(--err);
+  font-size: 0.88rem;
+  min-height: 1.2em;
+}
+
+/* Data figures (tactical mono, system stack: zero download) */
+.data {
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
