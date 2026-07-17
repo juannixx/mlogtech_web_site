@@ -16,6 +16,17 @@ test('demo form has a honeypot field hidden from users', async ({ page }) => {
   await expect(honeypot).toBeHidden();
 });
 
+test('valid demo submit shows the personalized success state', async ({ page }) => {
+  await page.goto('/demo/');
+  await page.locator('#d-name').fill('Dana Fields');
+  await page.locator('#d-email').fill('dana@fleetco.example');
+  await page.locator('#demo-form button[type="submit"]').click();
+  await expect(page.locator('#demo-success')).toBeVisible();
+  await expect(page.locator('#demo-form')).toBeHidden();
+  await expect(page.locator('#ds-name')).toHaveText('Dana');
+  await expect(page.locator('#ds-email')).toHaveText('dana@fleetco.example');
+});
+
 test('contact form requires a valid email', async ({ page }) => {
   await page.goto('/contact/');
   await page.locator('#c-first').fill('Test');
