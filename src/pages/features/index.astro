@@ -22,14 +22,15 @@ import { featured, webPanel, driverApp } from '../../data/features';
     <div class="wrap grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
         featured.map((f) => (
-          <div
+          <a
             id={f.slug}
-            class="reveal rounded-[var(--r)] border border-hair bg-surface p-6"
+            href={`/features/${f.slug}/`}
+            class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-6 transition-transform duration-200 hover:-translate-y-1"
           >
             <h2 class="h3">{f.title}</h2>
-            <p class="mt-2 text-[0.96rem]">{f.short}</p>
-            <!-- TODO fase seguinte: linkar para /features/{f.slug}/ quando a página existir (SPEC-01) -->
-          </div>
+            <p class="mt-2 flex-1 text-[0.96rem]">{f.short}</p>
+            <span class="textlink mt-4">Explore</span>
+          </a>
         ))
       }
     </div>
