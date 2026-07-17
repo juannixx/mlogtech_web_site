@@ -1,0 +1,57 @@
+---
+import Legal from '../layouts/Legal.astro';
+// [PENDENTE: revisão jurídica; atualizar a tabela quando a ferramenta de
+// analytics (SPEC-04 §4) for escolhida, junto com o banner de consentimento]
+---
+
+<Legal
+  title="Cookie Policy | MLogTech"
+  description="What this website stores in your browser, and why. Spoiler: very little."
+  h1="Cookie Policy."
+  updated="July 17, 2026 (draft)"
+>
+  <h2>1. The short version</h2>
+  <p>
+    This website currently sets no advertising or analytics cookies. It stores one preference in
+    your browser and nothing else.
+  </p>
+
+  <h2>2. What we store</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Purpose</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>theme</td>
+        <td>localStorage (not a cookie)</td>
+        <td>Remembers your light/dark mode choice</td>
+        <td>Until you clear it</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Analytics</h2>
+  <p>
+    If we adopt a web analytics tool, it will be privacy-respecting, this table will be updated,
+    and where consent is required a consent banner will be shown before anything non-essential is
+    set.
+  </p>
+
+  <h2>4. Third-party embeds</h2>
+  <p>
+    Demo videos on this site are loaded from YouTube only after you press play. Until then, no
+    YouTube code runs on the page. When you play a video, YouTube's own cookie practices apply.
+  </p>
+
+  <h2>5. Managing storage</h2>
+  <p>
+    You can clear the stored preference at any time through your browser's site data settings. The
+    site keeps working; it just forgets your theme choice.
+  </p>
+</Legal>
