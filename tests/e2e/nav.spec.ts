@@ -34,6 +34,20 @@ test('escape closes an open dropdown', async ({ page }) => {
   await expect(btn).toHaveAttribute('aria-expanded', 'false');
 });
 
+test('mobile menu opens via hamburger and closes on Escape', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 800 });
+  await page.goto('/');
+  const burger = page.locator('#nav-burger');
+  const menu = page.locator('#mobile-menu');
+  await expect(menu).toBeHidden();
+  await burger.click();
+  await expect(menu).toBeVisible();
+  await expect(burger).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Escape');
+  await expect(menu).toBeHidden();
+  await expect(burger).toHaveAttribute('aria-expanded', 'false');
+});
+
 test('footer legal links resolve', async ({ page }) => {
   await page.goto('/');
   for (const path of ['/terms/', '/privacy/', '/cookies/', '/faq/', '/security/', '/blog/']) {

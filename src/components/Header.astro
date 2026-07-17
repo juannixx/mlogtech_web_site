@@ -181,16 +181,26 @@ import { featured } from '../data/features';
     var burger = document.getElementById('nav-burger');
     var menu = document.getElementById('mobile-menu');
     if (burger && menu) {
+      function closeMenu(refocus) {
+        menu.classList.add('hidden');
+        burger.setAttribute('aria-expanded', 'false');
+        if (refocus) burger.focus();
+      }
       burger.addEventListener('click', function () {
         var open = burger.getAttribute('aria-expanded') === 'true';
         burger.setAttribute('aria-expanded', String(!open));
-        menu.classList.toggle('hidden', !open ? false : true);
+        menu.classList.toggle('hidden', open);
       });
       menu.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
-          menu.classList.add('hidden');
-          burger.setAttribute('aria-expanded', 'false');
+          closeMenu(false);
         });
+      });
+      // Esc closes the sheet and returns focus to the toggle.
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+          closeMenu(true);
+        }
       });
     }
   })();

@@ -149,6 +149,8 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* Long unbreakable strings (URLs, long product names) never overflow. */
+    overflow-wrap: break-word;
   }
   
   h1,
