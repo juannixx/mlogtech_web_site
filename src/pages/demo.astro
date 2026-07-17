@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/site';
+
+// Form delivery: composes an email to sales until the CRM endpoint exists.
+// [PENDENTE SPEC-04 §4/§5: endpoint HubSpot + ferramenta de agendamento]
+---
+
+<Base
+  title="Book a demo | See MLogTech against your own operation | MLogTech"
+  description="Book a 30-minute demo of MLogTech: route optimization, driver app and electronic proof of delivery, walked through against your own delivery operation."
+>
+  <section class="section">
+    <div class="wrap grid gap-14 lg:grid-cols-[1.1fr_1fr]">
+      <div class="reveal">
+        <h1 class="display max-w-[18ch]">See MLogTech working with your data.</h1>
+        <p class="lead mt-4">A 30-minute call, on your operation, not a slide deck.</p>
+        <ul class="mt-8 space-y-4 text-[1.02rem]">
+          <li class="flex gap-3">
+            <span class="data mt-0.5 text-accent-text">01</span>
+            We map how your orders arrive and how routes are planned today.
+          </li>
+          <li class="flex gap-3">
+            <span class="data mt-0.5 text-accent-text">02</span>
+            You watch a route go from import to optimized to dispatched, live.
+          </li>
+          <li class="flex gap-3">
+            <span class="data mt-0.5 text-accent-text">03</span>
+            We show the driver app capturing a POD and where the record lands.
+          </li>
+        </ul>
+
+        <div class="mt-12 space-y-8">
+          <div>
+            <h2 class="h3">Prefer to watch first?</h2>
+            <p class="mt-2 text-[0.95rem] text-muted">
+              Two recorded walkthroughs: the dispatch platform and the driver app.
+            </p>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <button
+              class="video-slot group relative aspect-video overflow-hidden rounded-[var(--r)] border border-hair bg-surface-2 text-left"
+              data-src={VIDEO_PLATFORM_DEMO}
+              aria-label="Play the platform overview video"
+            >
+              <img
+                src="/images/route-map.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-cover opacity-70 transition-opacity group-hover:opacity-90"
+              />
+              <span
+                class="absolute inset-0 m-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent"
+              >
+                <svg width="18" height="20" viewBox="0 0 18 20" fill="none" aria-hidden="true">
+                  <path d="M2 1.5v17l14-8.5L2 1.5z" fill="var(--accent-ink)"></path>
+                </svg>
+              </span>
+              <span
+                class="absolute bottom-0 w-full bg-[#101a1f]/85 px-4 py-2.5 text-[0.9rem] font-semibold text-[#f1f6f4]"
+                >Platform overview</span
+              >
+            </button>
+            <button
+              class="video-slot group relative aspect-video overflow-hidden rounded-[var(--r)] border border-hair bg-surface-2 text-left"
+              data-src={VIDEO_DRIVER_DEMO}
+              aria-label="Play the driver app demo video"
+            >
+              <img
+                src="/images/driver-tablet.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-cover opacity-70 transition-opacity group-hover:opacity-90"
+              />
+              <span
+                class="absolute inset-0 m-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent"
+              >
+                <svg width="18" height="20" viewBox="0 0 18 20" fill="none" aria-hidden="true">
+                  <path d="M2 1.5v17l14-8.5L2 1.5z" fill="var(--accent-ink)"></path>
+                </svg>
+              </span>
+              <span
+                class="absolute bottom-0 w-full bg-[#101a1f]/85 px-4 py-2.5 text-[0.9rem] font-semibold text-[#f1f6f4]"
+                >Driver app demo</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form
+          id="demo-form"
+          class="rounded-[var(--r-lg)] border border-hair bg-surface p-8 shadow-[var(--shadow-md)]"
+        >
+          <h2 class="h3">Book your demo</h2>
+          <p class="mt-2 text-[0.92rem] text-muted">
+            We reply within one working day with a scheduling link.
+          </p>
+          <div class="mt-6 space-y-4">
+            <div class="field">
+              <label for="d-name">Name</label>
+              <input id="d-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="d-email">Work email</label>
+              <input id="d-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="d-phone">Phone (optional)</label>
+              <input id="d-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="field">
+              <label for="d-volume">Deliveries per month</label>
+              <select id="d-volume" name="volume">
+                <option>Up to 500</option>
+                <option>500 to 2,000</option>
+                <option>2,000 to 8,000</option>
+                <option>More than 8,000</option>
+              </select>
+            </div>
+            <!-- honeypot -->
+            <div class="hidden" aria-hidden="true">
+              <label for="d-company-site">Company site</label>
+              <input id="d-company-site" name="companysite" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-6 w-full">Book a demo</button>
+          <p id="demo-status" class="mt-3 min-h-[1.4em] text-[0.92rem] text-accent-text" role="status" aria-live="polite"></p>
+          <p class="mt-2 text-[0.88rem] text-muted">
+            Prefer email? <a class="textlink" href={`mailto:${SALES_EMAIL}`}>{SALES_EMAIL}</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ SALES_EMAIL }}>
+  (function () {
+    // Click-to-load video embeds (no YouTube JS until interaction, SPEC-04 §2).
+    document.querySelectorAll('.video-slot').forEach(function (slot) {
+      slot.addEventListener('click', function () {
+        var iframe = document.createElement('iframe');
+        iframe.src = slot.dataset.src + '?autoplay=1';
+        iframe.title = slot.getAttribute('aria-label') || 'Demo video';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.className = 'absolute inset-0 h-full w-full';
+        slot.replaceChildren(iframe);
+      });
+    });
+
+    // Demo form: mailto composition until the CRM endpoint exists.
+    var form = document.getElementById('demo-form');
+    var status = document.getElementById('demo-status');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.querySelector('[name="companysite"]').value) return; // honeypot
+      var name = form.querySelector('#d-name').value.trim();
+      var email = form.querySelector('#d-email').value.trim();
+      var phone = form.querySelector('#d-phone').value.trim();
+      var volume = form.querySelector('#d-volume').value;
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      status.textContent =
+        'Opening your email app with the request. If nothing happens, write to ' +
+        SALES_EMAIL +
+        '.';
+      var body =
+        'Name: ' + name + '\nWork email: ' + email + '\nPhone: ' + (phone || 'not provided') +
+        '\nDeliveries per month: ' + volume + '\n\nPlease send me a link to schedule a demo.';
+      window.location.href =
+        'mailto:' + SALES_EMAIL +
+        '?subject=' + encodeURIComponent('Demo request: ' + name) +
+        '&body=' + encodeURIComponent(body);
+      setTimeout(function () {
+        btn.disabled = false;
+      }, 4000);
+    });
+  })();
+</script>

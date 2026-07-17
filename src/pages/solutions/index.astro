@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { solutions } from '../../data/solutions';
+---
+
+<Base
+  title="Solutions | Delivery software by operation type | MLogTech"
+  description="Route planning, last mile delivery, driver app, TMS, courier dispatch and vehicle checks: pick the MLogTech solution that matches your operation."
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="display max-w-[20ch]">One platform, six ways in.</h1>
+      <p class="lead mt-4">
+        Every operation enters through a different door: routes, the driver app, compliance.
+        They all land on the same system.
+      </p>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          solutions.map((s) => (
+            <div
+              id={s.slug}
+              class="reveal flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7"
+            >
+              <h2 class="h3">{s.title}</h2>
+              <p class="mt-3 flex-1 text-[0.98rem]">{s.short}</p>
+              {s.hasPage ? (
+                <a href={`/solutions/${s.slug}/`} class="textlink mt-5">
+                  Explore {s.nav.toLowerCase()}
+                </a>
+              ) : (
+                <span class="mt-5 text-[0.9rem] text-muted">Dedicated page in production</span>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <CTABanner />
+</Base>

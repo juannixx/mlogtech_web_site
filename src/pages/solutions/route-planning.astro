@@ -1,0 +1,246 @@
+---
+import Base from '../../layouts/Base.astro';
+import DashboardMock from '../../components/DashboardMock.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import FAQ from '../../components/FAQ.astro';
+import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../../data/site';
+
+// Template page for the 6 solution pages (SPEC-02 §2). The other five reuse
+// this structure with their own keyword, benefits, steps and FAQ.
+
+const benefits = [
+  {
+    title: 'Hours of planning down to minutes',
+    body: 'The day’s orders become optimized routes in one run, instead of a morning in spreadsheets.',
+  },
+  {
+    title: 'More drops per vehicle',
+    body: 'Stops are sequenced against time windows and capacity, so vans finish routes instead of crossing town twice.',
+  },
+  {
+    title: 'Less fuel per route',
+    body: 'Shorter distances per stop cut fuel spend and vehicle wear without touching service levels.',
+  },
+  {
+    title: 'No re-planning chaos',
+    body: 'A cancellation or a priority order re-slots into the route by drag and drop, and the driver sees it live.',
+  },
+];
+
+const steps = [
+  {
+    title: 'Import the orders',
+    body: 'Spreadsheet upload or API. Addresses are validated and geocoded on entry.',
+  },
+  {
+    title: 'Set your constraints',
+    body: 'Vehicles, capacities, shifts, time windows and depot. Set once, reuse daily.',
+  },
+  {
+    title: 'Optimize and adjust',
+    body: 'Routes come out sequenced. Drag stops between routes if reality disagrees.',
+  },
+  {
+    title: 'Dispatch to the app',
+    body: 'Drivers receive the final route with navigation and order details.',
+  },
+];
+
+const faqItems = [
+  {
+    q: 'What is route planning software?',
+    a: 'Route planning software takes a list of deliveries and turns it into ordered routes for each vehicle, deciding which driver visits which stop and in what sequence. Good planners respect real constraints: vehicle capacity, driver shifts, customer time windows and depot location.',
+  },
+  {
+    q: 'Can Google Maps do route planning?',
+    a: 'Google Maps navigates between points but does not plan multi-stop routes across a fleet. It has no concept of vehicle capacity, time windows, driver shifts or proof of delivery. It works for a handful of stops with one vehicle; it stops working at fleet scale.',
+  },
+  {
+    q: 'How much does route planning software cost?',
+    a: 'Pricing is usually per driver or per order volume. MLogTech starts with a free trial and has no driver minimum, so a one-van operation pays for one driver. See the pricing page for current plans.',
+  },
+  {
+    q: 'How many stops can one route have?',
+    a: 'The optimizer handles routes of hundreds of stops per vehicle. The practical limit is your service time per stop and shift length, which the planner respects when sequencing.',
+  },
+  {
+    q: 'Does it work with time windows?',
+    a: 'Yes. Each order can carry a delivery window, and the optimizer sequences stops so drivers arrive inside it. Orders that cannot fit are flagged before dispatch, not discovered on the road.',
+  },
+  {
+    q: 'Can drivers change the route on the road?',
+    a: 'Drivers execute the route in the app, and dispatchers keep control: re-sequencing and reassignments are done on the board and sync to the driver instantly, online or offline.',
+  },
+];
+---
+
+<Base
+  title="Route planning software | Optimized multi-stop routes | MLogTech"
+  description="Plan and optimize multi-stop delivery routes against vehicles, shifts and time windows. Dispatch straight to a driver app with electronic proof of delivery."
+>
+  <!-- 1. Hero -->
+  <section class="section pt-12">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
+      <div class="reveal">
+        <p class="text-[0.9rem] font-semibold text-accent-text">
+          <a href="/solutions/" class="hover:underline">Solutions</a>
+          <span aria-hidden="true"> / </span>
+          Route planning
+        </p>
+        <h1 class="display mt-3">Route planning software for delivery fleets.</h1>
+        <p class="lead mt-5 max-w-[48ch]">
+          Turn the day's orders into optimized routes in minutes, matched to your vehicles, shifts
+          and time windows, and dispatched straight to the driver app.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+          <a href="/demo/" class="btn btn-ghost">{CTA_SECONDARY}</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <DashboardMock />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Social proof -->
+  <section class="border-y border-hair bg-surface py-8">
+    <div class="wrap flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+      <span class="text-[0.95rem] text-muted">Trusted by our partners</span>
+      <img
+        src="/images/molina-express.png"
+        alt="Molina Express"
+        width="140"
+        height="40"
+        loading="lazy"
+        class="h-9 w-auto opacity-80 grayscale"
+      />
+    </div>
+  </section>
+
+  <!-- 3. Four benefits -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="h2 reveal max-w-[26ch]">What changes when the routes plan themselves.</h2>
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          benefits.map((b) => (
+            <div class="reveal border-t-2 border-hair-strong pt-5">
+              <h3 class="h3 text-[1.15rem]">{b.title}</h3>
+              <p class="mt-2.5 text-[0.96rem]">{b.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. How it works -->
+  <section class="section bg-surface-2">
+    <div class="wrap">
+      <h2 class="h2 reveal">How route planning works in MLogTech.</h2>
+      <ol class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        {
+          steps.map((s, i) => (
+            <li class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
+              <span class="data text-[0.8rem] text-accent-text">Step {i + 1}</span>
+              <h3 class="h3 mt-2 text-[1.15rem]">{s.title}</h3>
+              <p class="mt-2 text-[0.95rem]">{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. Features of the solution -->
+  <section class="section">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-2">
+      <div class="reveal">
+        <h2 class="h2">Optimization that respects your constraints.</h2>
+        <p class="mt-4">
+          Capacity by weight or volume, driver shifts, customer windows, multiple depots. The
+          optimizer plans inside your rules, not around them.
+        </p>
+        <a href="/features/" class="textlink mt-5 inline-block">See all planning features</a>
+      </div>
+      <div class="reveal">
+        <img
+          src="/images/warehouse-truck.jpg"
+          alt="A box truck at a warehouse loading bay with pallets ready for dispatch"
+          width="1200"
+          height="800"
+          loading="lazy"
+          class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
+        />
+      </div>
+    </div>
+    <div class="wrap mt-16 grid items-center gap-12 lg:grid-cols-2">
+      <div class="reveal order-2 lg:order-1">
+        <img
+          src="/images/driver-tablet.jpg"
+          alt="A fleet operator in front of trucks reviewing routes on a rugged tablet"
+          width="1200"
+          height="800"
+          loading="lazy"
+          class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
+        />
+      </div>
+      <div class="reveal order-1 lg:order-2">
+        <h2 class="h2">The plan survives contact with the road.</h2>
+        <p class="mt-4">
+          Live tracking shows the route as it actually runs. Reassign a stop, and the driver's app
+          updates before the next turn. Every completed drop returns a POD against the order.
+        </p>
+        <a href="/features/#live-tracking" class="textlink mt-5 inline-block"
+          >More on live tracking</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Educational section (featured snippet target) -->
+  <section class="section bg-surface-2">
+    <div class="wrap max-w-[760px]">
+      <h2 class="h2 reveal">What is route planning and what does it change?</h2>
+      <div class="mt-6 space-y-4 text-[1.02rem]">
+        <p>
+          Route planning is the process of deciding which vehicle delivers which orders and in what
+          sequence. Done by hand, it is a daily puzzle solved in spreadsheets and local knowledge:
+          someone groups orders by postcode, guesses drive times and hopes the vans finish before
+          the shift ends.
+        </p>
+        <p>
+          Route planning software replaces the guessing with optimization. It takes the full list
+          of orders, the fleet's real constraints (vehicle capacity, driver shifts, delivery time
+          windows, depot locations) and computes routes that minimize distance and time while
+          keeping every promise the business made to the customer.
+        </p>
+        <p>
+          The difference shows up in three places. Planning time collapses from hours to minutes,
+          because the sequencing is computed instead of assembled by hand. Cost per delivery falls,
+          because the same fleet completes more drops with less driving. And service improves,
+          because arrival windows are planned rather than hoped for, and the dispatcher can see
+          deviations while there is still time to react.
+        </p>
+        <p>
+          In MLogTech, planning is the first third of a longer loop: the plan dispatches to the
+          driver app, execution reports back through live tracking, and every completed stop
+          returns an electronic proof of delivery attached to the original order. The route is one
+          record from spreadsheet to signature.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA -->
+  <CTABanner
+    title="Plan tomorrow's routes with MLogTech."
+    note="Free trial with the optimizer included. No driver minimum."
+  />
+
+  <!-- 8. Related content: TODO fase 1 restante, blog seed (SPEC-02 §14) -->
+
+  <!-- 9. FAQ -->
+  <FAQ items={faqItems} title="Route planning questions" />
+</Base>

@@ -1,0 +1,56 @@
+---
+interface Item {
+  q: string;
+  a: string;
+}
+interface Props {
+  items: Item[];
+  title?: string;
+  emitSchema?: boolean;
+}
+const { items, title = 'Frequently asked questions', emitSchema = true } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((i) => ({
+    '@type': 'Question',
+    name: i.q,
+    acceptedAnswer: { '@type': 'Answer', text: i.a },
+  })),
+};
+---
+
+<section class="section">
+  <div class="wrap max-w-[820px]">
+    <h2 class="h2 reveal">{title}</h2>
+    <div class="mt-8 divide-y divide-hair border-y border-hair">
+      {
+        items.map((i) => (
+          <details class="group py-1">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-[1.05rem] font-semibold text-ink [&::-webkit-details-marker]:hidden">
+              {i.q}
+              <svg
+                class="shrink-0 transition-transform duration-200 group-open:rotate-45"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8 2v12M2 8h12"
+                  stroke="var(--accent-text)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </summary>
+            <p class="pb-5 pr-8 text-body">{i.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+{emitSchema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

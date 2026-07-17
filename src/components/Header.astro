@@ -1,0 +1,198 @@
+---
+import { SIGNUP_URL, LOGIN_URL, CTA_PRIMARY } from '../data/site';
+import { solutions, solutionHref } from '../data/solutions';
+import { featured } from '../data/features';
+---
+
+<header class="sticky top-0 z-[200] border-b border-hair bg-bg/85 backdrop-blur-md">
+  <div class="wrap flex h-[70px] items-center gap-6">
+    <a href="/" class="flex shrink-0 items-center gap-2.5" aria-label="MLogTech home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" class="h-[26px] w-[26px]">
+        <path
+          d="M4 25V9l6 8 6-8v16"
+          stroke="var(--accent)"
+          stroke-width="2.6"
+          stroke-linejoin="round"
+          stroke-linecap="round"></path>
+        <path
+          d="M20 9l8 8-8 8"
+          stroke="var(--accent)"
+          stroke-width="2.6"
+          stroke-linejoin="round"
+          stroke-linecap="round"></path>
+      </svg>
+      <span class="text-[1.1rem] font-extrabold tracking-wide text-ink">MLOGTECH</span>
+    </a>
+
+    <nav class="ml-auto hidden items-center gap-1 lg:flex" aria-label="Main">
+      <div class="nav-drop relative" data-drop>
+        <button
+          class="flex items-center gap-1 rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Solutions
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"
+            ><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            ></path></svg
+          >
+        </button>
+        <div
+          class="drop-panel absolute left-0 top-full z-[100] hidden w-[340px] rounded-lg border border-hair bg-surface p-2 shadow-[var(--shadow-lg)]"
+        >
+          {
+            solutions.map((s) => (
+              <a
+                href={solutionHref(s)}
+                class="block rounded-md px-3 py-2.5 hover:bg-surface-2"
+              >
+                <span class="block text-[0.95rem] font-semibold text-ink">{s.nav}</span>
+                <span class="block text-[0.85rem] text-muted">{s.short}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="nav-drop relative" data-drop>
+        <button
+          class="flex items-center gap-1 rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Features
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"
+            ><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            ></path></svg
+          >
+        </button>
+        <div
+          class="drop-panel absolute left-0 top-full z-[100] hidden w-[360px] rounded-lg border border-hair bg-surface p-2 shadow-[var(--shadow-lg)]"
+        >
+          {
+            featured.map((f) => (
+              <a href={`/features/#${f.slug}`} class="block rounded-md px-3 py-2 hover:bg-surface-2">
+                <span class="block text-[0.95rem] font-semibold text-ink">{f.title}</span>
+              </a>
+            ))
+          }
+          <a
+            href="/features/"
+            class="mt-1 block rounded-md border-t border-hair px-3 py-2.5 font-semibold text-accent-text"
+            >See all features</a
+          >
+        </div>
+      </div>
+
+      <a href="/pricing/" class="rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink"
+        >Pricing</a
+      >
+      <a href="/demo/" class="rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink">Demo</a>
+
+      <a href={LOGIN_URL} class="ml-2 rounded-md px-3 py-2 text-[0.95rem] font-semibold text-ink"
+        >Log in</a
+      >
+      <a href={SIGNUP_URL} class="btn btn-primary ml-1">{CTA_PRIMARY}</a>
+    </nav>
+
+    <button
+      id="nav-burger"
+      class="ml-auto flex h-11 w-11 items-center justify-center rounded-[10px] border border-hair-strong lg:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="burger-bar relative block h-0.5 w-5 bg-ink"></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-hair bg-surface lg:hidden">
+    <nav class="wrap flex flex-col py-2" aria-label="Mobile">
+      <span class="px-1 pt-3 pb-1 text-[0.8rem] font-semibold uppercase tracking-wide text-muted"
+        >Solutions</span
+      >
+      {
+        solutions.map((s) => (
+          <a href={solutionHref(s)} class="rounded-md px-3 py-2.5 text-ink">
+            {s.nav}
+          </a>
+        ))
+      }
+      <a href="/features/" class="mt-1 border-t border-hair px-3 py-3 font-semibold text-ink"
+        >Features</a
+      >
+      <a href="/pricing/" class="border-t border-hair px-3 py-3 font-semibold text-ink">Pricing</a>
+      <a href="/demo/" class="border-t border-hair px-3 py-3 font-semibold text-ink">Demo</a>
+      <a href={LOGIN_URL} class="border-t border-hair px-3 py-3 font-semibold text-ink">Log in</a>
+      <a href={SIGNUP_URL} class="btn btn-primary my-4">{CTA_PRIMARY}</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .burger-bar::before,
+  .burger-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--ink);
+  }
+  .burger-bar::before {
+    top: -6px;
+  }
+  .burger-bar::after {
+    top: 6px;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    // Dropdowns: click to open, Esc or outside click closes; only one open.
+    var drops = Array.prototype.slice.call(document.querySelectorAll('[data-drop]'));
+    function closeAll(except) {
+      drops.forEach(function (d) {
+        if (d === except) return;
+        d.querySelector('button').setAttribute('aria-expanded', 'false');
+        d.querySelector('.drop-panel').classList.add('hidden');
+      });
+    }
+    drops.forEach(function (d) {
+      var btn = d.querySelector('button');
+      var panel = d.querySelector('.drop-panel');
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        closeAll(d);
+        btn.setAttribute('aria-expanded', String(!open));
+        panel.classList.toggle('hidden', open);
+      });
+      d.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeAll(null);
+          btn.focus();
+        }
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('[data-drop]')) closeAll(null);
+    });
+
+    // Mobile menu
+    var burger = document.getElementById('nav-burger');
+    var menu = document.getElementById('mobile-menu');
+    if (burger && menu) {
+      burger.addEventListener('click', function () {
+        var open = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!open));
+        menu.classList.toggle('hidden', !open ? false : true);
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.classList.add('hidden');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+</script>
