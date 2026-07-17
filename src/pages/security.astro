@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { SUPPORT_EMAIL } from '../data/site';
+
+// SPEC-02 §13: communicate concrete practices without claiming certifications
+// we do not hold. Infra specifics below are marked for confirmation:
+// [PENDENTE: confirmar região de hosting, política de backup e retenção com o time de produto]
+
+const practices = [
+  {
+    title: 'Encryption in transit',
+    body: 'All traffic between browsers, the driver app and our servers runs over TLS. There is no unencrypted path into the platform.',
+  },
+  {
+    title: 'Access control',
+    body: 'Web users have role-based permissions; drivers see only their own routes. Customer portal accounts are scoped to their own orders.',
+  },
+  {
+    title: 'Cloud hosting',
+    body: 'The platform runs on a major cloud provider with managed infrastructure, network isolation and audit logging.',
+  },
+  {
+    title: 'Backups',
+    body: 'Operational data is backed up on a regular schedule, and restores are tested as part of routine operations.',
+  },
+  {
+    title: 'Data separation',
+    body: 'Each customer’s operational data is logically separated. Your orders, proofs and reports are yours alone.',
+  },
+  {
+    title: 'Responsible disclosure',
+    body: `Found a vulnerability? Report it to ${SUPPORT_EMAIL} and we will respond quickly. We appreciate coordinated disclosure.`,
+  },
+];
+---
+
+<Base
+  title="Security and data protection | MLogTech"
+  description="How MLogTech protects delivery data: encryption in transit, role-based access, cloud hosting, backups and UK GDPR commitments."
+>
+  <section class="section">
+    <div class="wrap max-w-[860px]">
+      <h1 class="display max-w-[16ch]">Security, stated plainly.</h1>
+      <p class="lead mt-4">
+        Delivery records are business records: proofs, addresses, customers. This page describes
+        how we protect them, in concrete practices rather than badges.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="wrap grid max-w-[1000px] gap-8 sm:grid-cols-2">
+      {
+        practices.map((p) => (
+          <div class="reveal border-t-2 border-hair-strong pt-5">
+            <h2 class="h3 text-[1.15rem]">{p.title}</h2>
+            <p class="mt-2.5 text-[0.96rem]">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section bg-surface-2">
+    <div class="wrap max-w-[860px]">
+      <h2 class="h2 reveal">Data protection.</h2>
+      <div class="mt-6 space-y-4 text-[1.02rem]">
+        <p>
+          MLogTech processes personal data (names, addresses, signatures, locations) on behalf of
+          the operations that use it. We treat that role seriously: data is processed for the
+          delivery operation and nothing else, and our commitments are set out in the privacy
+          policy and in data processing terms available to customers.
+        </p>
+        <p>
+          We operate under UK GDPR obligations: lawful basis for processing, data subject rights,
+          breach notification duties and retention limits. Questions about data protection go to
+          <a class="textlink" href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+        </p>
+        <p>
+          On certifications: we describe here what we actually do. As formal certifications are
+          completed, they will be listed on this page with their scope, not as logos without
+          context.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Questions security teams ask, answered directly."
+    note="Bring your security questionnaire to the demo. We answer it with the engineers."
+  />
+</Base>
