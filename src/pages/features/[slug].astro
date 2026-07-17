@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import DashboardMock from '../../components/DashboardMock.astro';
+import PhoneMock from '../../components/PhoneMock.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import FAQ from '../../components/FAQ.astro';
+import { SIGNUP_URL, CTA_PRIMARY } from '../../data/site';
+import { featurePages } from '../../data/feature-pages';
+import { featured } from '../../data/features';
+
+export function getStaticPaths() {
+  return featurePages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const navName = featured.find((f) => f.slug === page.slug)?.title ?? page.h1;
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Features',
+      item: new URL('/features/', Astro.site).toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: navName,
+      item: new URL(`/features/${page.slug}/`, Astro.site).toString(),
+    },
+  ],
+};
+---
+
+<Base title={page.metaTitle} description={page.metaDescription} jsonLd={[breadcrumbs]}>
+  <!-- 1. Hero -->
+  <section class="section pt-12">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
+      <div class="reveal">
+        <p class="text-[0.9rem] font-semibold text-accent-text">
+          <a href="/features/" class="hover:underline">Features</a>
+          <span aria-hidden="true"> / </span>
+          {navName}
+        </p>
+        <h1 class="display mt-3 max-w-[18ch]">{page.h1}</h1>
+        <p class="lead mt-5 max-w-[48ch]">{page.heroPara}</p>
+        <div class="mt-8">
+          <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+        </div>
+      </div>
+      <div class="reveal">
+        {page.heroMock === 'phone' ? <PhoneMock /> : <DashboardMock />}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Three capabilities -->
+  <section class="section bg-surface-2">
+    <div class="wrap">
+      <h2 class="h2 reveal">What it does.</h2>
+      <div class="mt-10 grid gap-8 md:grid-cols-3">
+        {
+          page.capabilities.map((c) => (
+            <div class="reveal border-t-2 border-hair-strong pt-5">
+              <h3 class="h3 text-[1.15rem]">{c.title}</h3>
+              <p class="mt-2.5 text-[0.96rem]">{c.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. How it connects to the rest -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="h2 reveal max-w-[26ch]">Where it fits in the system.</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        {
+          page.connects.map((c) => (
+            <a
+              href={c.href}
+              class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7 transition-transform duration-200 hover:-translate-y-1"
+            >
+              <h3 class="h3 text-[1.15rem]">{c.title}</h3>
+              <p class="mt-3 flex-1 text-[0.97rem]">{c.body}</p>
+              <span class="textlink mt-5">{c.label}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA + FAQ -->
+  <CTABanner />
+  <FAQ items={page.faq} title="Common questions" />
+</Base>

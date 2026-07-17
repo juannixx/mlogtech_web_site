@@ -1,0 +1,94 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SALES_EMAIL } from '../data/site';
+// [PENDENTE: revisão jurídica; jurisdição England & Wales a confirmar]
+---
+
+<Legal
+  title="Terms of Service | MLogTech"
+  description="The terms that govern the use of the MLogTech delivery management platform."
+  h1="Terms of Service."
+  updated="July 17, 2026 (draft)"
+>
+  <h2>1. Agreement</h2>
+  <p>
+    These terms govern access to and use of the MLogTech platform: the web application, the driver
+    application and related services (the "Service"). By creating an account or using the Service,
+    you agree to these terms on behalf of yourself and, where applicable, the organization you
+    represent.
+  </p>
+
+  <h2>2. The Service</h2>
+  <p>
+    MLogTech provides delivery management software, including route planning, driver applications,
+    proof of delivery capture, tracking and reporting. We may improve or modify features over
+    time; material reductions in functionality will be communicated in advance.
+  </p>
+
+  <h2>3. Accounts and responsibilities</h2>
+  <ul>
+    <li>You are responsible for the accuracy of the data you load into the Service.</li>
+    <li>You are responsible for safeguarding account credentials and for activity under them.</li>
+    <li>
+      You confirm you have the right to process the personal data (such as customer names and
+      addresses) that you handle through the Service.
+    </li>
+  </ul>
+
+  <h2>4. Acceptable use</h2>
+  <p>
+    The Service may not be used to break the law, to infringe the rights of others, to attempt
+    unauthorized access to systems or data, or to resell access without a written agreement.
+  </p>
+
+  <h2>5. Fees and billing</h2>
+  <p>
+    Paid plans are billed per driver or per order volume, monthly or annually, as described on the
+    pricing page at the time of purchase. Fees are exclusive of taxes unless stated otherwise.
+    Plans renew automatically until cancelled; cancellation stops the next renewal and access
+    continues to the end of the paid period.
+  </p>
+
+  <h2>6. Data</h2>
+  <p>
+    Your operational data remains yours. We process it to provide the Service, as described in the
+    Privacy Policy and applicable data processing terms. On termination you may export your data
+    within a reasonable period before deletion.
+  </p>
+
+  <h2>7. Intellectual property</h2>
+  <p>
+    The Service, including software, design and documentation, is owned by MLogTech and its
+    licensors. These terms grant a limited, non-exclusive, non-transferable right to use the
+    Service during the subscription.
+  </p>
+
+  <h2>8. Availability and support</h2>
+  <p>
+    We work to keep the Service available and performant, with maintenance windows communicated
+    when disruptive. Support channels and response targets depend on the plan.
+  </p>
+
+  <h2>9. Liability</h2>
+  <p>
+    To the extent permitted by law, the Service is provided without warranties of fitness for a
+    particular purpose, and MLogTech's aggregate liability under these terms is limited to the
+    fees paid in the twelve months preceding the claim. Nothing in these terms excludes liability
+    that cannot be excluded by law.
+  </p>
+
+  <h2>10. Termination</h2>
+  <p>
+    You may cancel at any time. We may suspend or terminate accounts for material breach of these
+    terms, with notice where practicable.
+  </p>
+
+  <h2>11. Governing law</h2>
+  <p>
+    These terms are governed by the laws of England and Wales, and disputes are subject to the
+    exclusive jurisdiction of its courts.
+  </p>
+
+  <h2>12. Contact</h2>
+  <p>Questions about these terms: <a class="textlink" href={`mailto:${SALES_EMAIL}`}>{SALES_EMAIL}</a>.</p>
+</Legal>

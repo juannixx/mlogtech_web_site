@@ -1,0 +1,157 @@
+---
+import Base from '../../layouts/Base.astro';
+import DashboardMock from '../../components/DashboardMock.astro';
+import PhoneMock from '../../components/PhoneMock.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import FAQ from '../../components/FAQ.astro';
+import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../../data/site';
+import { solutionPages } from '../../data/solution-pages';
+import { solutions } from '../../data/solutions';
+
+export function getStaticPaths() {
+  return solutionPages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const navName = solutions.find((s) => s.slug === page.slug)?.nav ?? page.h1;
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Solutions',
+      item: new URL('/solutions/', Astro.site).toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: navName,
+      item: new URL(`/solutions/${page.slug}/`, Astro.site).toString(),
+    },
+  ],
+};
+---
+
+<Base title={page.metaTitle} description={page.metaDescription} jsonLd={[breadcrumbs]}>
+  <!-- 1. Hero -->
+  <section class="section pt-12">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
+      <div class="reveal">
+        <p class="text-[0.9rem] font-semibold text-accent-text">
+          <a href="/solutions/" class="hover:underline">Solutions</a>
+          <span aria-hidden="true"> / </span>
+          {navName}
+        </p>
+        <h1 class="display mt-3">{page.h1}</h1>
+        <p class="lead mt-5 max-w-[48ch]">{page.heroSub}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+          <a href="/demo/" class="btn btn-ghost">{CTA_SECONDARY}</a>
+        </div>
+      </div>
+      <div class="reveal">
+        {page.heroMock === 'phone' ? <PhoneMock /> : <DashboardMock />}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Social proof -->
+  <section class="border-y border-hair bg-surface py-8">
+    <div class="wrap flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+      <span class="text-[0.95rem] text-muted">Trusted by our partners</span>
+      <img
+        src="/images/molina-express.png"
+        alt="Molina Express"
+        width="140"
+        height="40"
+        loading="lazy"
+        class="h-9 w-auto opacity-80 grayscale"
+      />
+    </div>
+  </section>
+
+  <!-- 3. Four benefits -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="h2 reveal max-w-[26ch]">What changes.</h2>
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          page.benefits.map((b) => (
+            <div class="reveal border-t-2 border-hair-strong pt-5">
+              <h3 class="h3 text-[1.15rem]">{b.title}</h3>
+              <p class="mt-2.5 text-[0.96rem]">{b.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. How it works -->
+  <section class="section bg-surface-2">
+    <div class="wrap">
+      <h2 class="h2 reveal">{page.stepsTitle}</h2>
+      <ol class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        {
+          page.steps.map((s, i) => (
+            <li class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
+              <span class="data text-[0.8rem] text-accent-text">Step {i + 1}</span>
+              <h3 class="h3 mt-2 text-[1.15rem]">{s.title}</h3>
+              <p class="mt-2 text-[0.95rem]">{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. Solution features (alternating splits) -->
+  <section class="section">
+    {
+      page.splits.map((split, i) => (
+        <div
+          class:list={['wrap grid items-center gap-12 lg:grid-cols-2', i > 0 && 'mt-16']}
+        >
+          <div class:list={['reveal', i % 2 === 1 && 'order-1 lg:order-2']}>
+            <h2 class="h2">{split.title}</h2>
+            <p class="mt-4">{split.body}</p>
+            <a href={split.linkHref} class="textlink mt-5 inline-block">
+              {split.linkLabel}
+            </a>
+          </div>
+          <div class:list={['reveal', i % 2 === 1 && 'order-2 lg:order-1']}>
+            <img
+              src={split.image}
+              alt={split.imageAlt}
+              width="1200"
+              height="800"
+              loading="lazy"
+              class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
+            />
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- 6. Educational section -->
+  <section class="section bg-surface-2">
+    <div class="wrap max-w-[760px]">
+      <h2 class="h2 reveal">{page.eduTitle}</h2>
+      <div class="mt-6 space-y-4 text-[1.02rem]">
+        {page.eduParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA -->
+  <CTABanner title={page.ctaTitle} note={page.ctaNote} />
+
+  <!-- 8. Related content: TODO blog seed (SPEC-02 §14) -->
+
+  <!-- 9. FAQ -->
+  <FAQ items={page.faq} title="Common questions" />
+</Base>
