@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import DashboardMock from '../components/DashboardMock.astro';
 import PhoneMock from '../components/PhoneMock.astro';
+import RouteMap from '../components/RouteMap.astro';
 import CTABanner from '../components/CTABanner.astro';
 import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY, SITE_NAME } from '../data/site';
 
@@ -257,14 +258,7 @@ const steps = [
         >
       </div>
       <div class="reveal">
-        <img
-          src="/images/route-map.jpg"
-          alt="Stylized route map with a delivery truck and destination pins"
-          width="1200"
-          height="800"
-          loading="lazy"
-          class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
-        />
+        <RouteMap />
       </div>
     </div>
   </section>
