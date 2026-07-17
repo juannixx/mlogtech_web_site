@@ -86,7 +86,7 @@ export const solutionPages: SolutionPage[] = [
       },
       {
         title: 'The plan survives contact with the road.',
-        body: "Live tracking shows the route as it actually runs. Reassign a stop, and the driver's app updates before the next turn. Every completed drop returns a POD against the order.",
+        body: "Live tracking shows the route as it actually runs. Reassign a stop, and the driver app updates before the next turn. Every completed drop returns a POD against the order.",
         image: '/images/driver-tablet.jpg',
         imageAlt: 'A fleet operator in front of trucks reviewing routes on a rugged tablet',
         linkHref: '/features/live-tracking/',
@@ -393,7 +393,7 @@ export const solutionPages: SolutionPage[] = [
       'A transport management system coordinates the movement of goods: which orders go on which vehicles, in what sequence, driven by whom, and what happened to each of them. It is the operational memory of a transport business.',
       'Most operations start without one. Orders live in an inbox, planning lives in a spreadsheet, execution lives in phone calls, and proof lives on paper in the cab. That setup works until volume, staff turnover or a big customer audit exposes how much of the operation exists only in someone’s head.',
       'The sign you need a TMS is not company size; it is reconciliation work. If someone spends part of every day matching what was planned against what happened, chasing PODs, or rebuilding yesterday from messages, the operation is already paying for a TMS without having one.',
-      'MLogTech is a TMS scoped to delivery operations: it deliberately ends every cycle with electronic proof of delivery, because an order without proof is not finished, it is just quiet.',
+      'MLogTech is a TMS scoped to delivery operations: it deliberately ends every cycle with electronic proof of delivery, because an order without proof is not finished; it is just quiet.',
     ],
     ctaTitle: 'Run transport as one system.',
     ctaNote: 'Free trial. Import a real day of orders and see the cycle close.',
@@ -541,7 +541,7 @@ export const solutionPages: SolutionPage[] = [
         body: 'Every check is stored, timestamped and searchable. An inspection request is an export, not an archaeology project.',
       },
       {
-        title: 'Unroadworthy stays parked',
+        title: 'Unroadworthy vehicles stay parked',
         body: 'Failed checks flag the vehicle immediately, before it is loaded and gone.',
       },
     ],
