@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { SALES_EMAIL } from '../data/site';
+
+// Integrations hub (SPEC-02 §7), honest version: we list what exists today
+// (import + API) and the categories being prioritized, without naming
+// connectors we cannot ship yet.
+// [PENDENTE: catálogo de integrações nativas confirmado; quando existir,
+// este hub ganha grid de cards por integração e páginas /integrations/{slug}/]
+
+const categories = [
+  {
+    title: 'E-commerce platforms',
+    body: 'Orders flowing straight from your store checkout to the dispatch board.',
+  },
+  {
+    title: 'ERP and order management',
+    body: 'The system of record stays the system of record; deliveries sync both ways.',
+  },
+  {
+    title: 'Marketplaces',
+    body: 'Marketplace orders joining the same routes as everything else you ship.',
+  },
+  {
+    title: 'Accounting and invoicing',
+    body: 'Completed deliveries with proof, ready to bill without re-keying.',
+  },
+  {
+    title: 'Automation tools',
+    body: 'Delivery events triggering the rest of your stack, and vice versa.',
+  },
+];
+---
+
+<Base
+  title="Integrations | CSV, API and connectors | MLogTech"
+  description="How orders get into MLogTech and how results get out: spreadsheet import, REST API and webhooks today, native connectors in rollout."
+>
+  <section class="section">
+    <div class="wrap max-w-[860px]">
+      <h1 class="display max-w-[18ch]">Your orders already live somewhere.</h1>
+      <p class="lead mt-4">
+        MLogTech meets your stack where it is: import today, connect through the API, and native
+        connectors as the catalog rolls out.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="wrap grid gap-6 md:grid-cols-2">
+      <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-8">
+        <span
+          class="inline-block rounded-full bg-accent px-3 py-0.5 text-[0.78rem] font-bold text-accent-ink"
+          >Available now</span
+        >
+        <h2 class="h3 mt-4">Spreadsheet and CSV import</h2>
+        <p class="mt-3 text-[0.98rem]">
+          Upload the day's orders exactly as they come from your current system's export.
+          Addresses are validated and geocoded on entry, and the orders land on the dispatch
+          board ready to plan.
+        </p>
+      </div>
+      <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-8">
+        <span
+          class="inline-block rounded-full bg-accent px-3 py-0.5 text-[0.78rem] font-bold text-accent-ink"
+          >Available now</span
+        >
+        <h2 class="h3 mt-4">REST API and webhooks</h2>
+        <p class="mt-3 text-[0.98rem]">
+          Push orders in and receive statuses, tracking events and PODs back, keyed to your own
+          order IDs. Webhooks notify your systems as deliveries complete. Available on the
+          Advanced plan and above.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface-2">
+    <div class="wrap">
+      <div class="reveal max-w-[62ch]">
+        <h2 class="h2">Native connectors, prioritized with customers.</h2>
+        <p class="lead mt-4">
+          The connector catalog is being built in the order real operations need it. These are
+          the categories in rollout; tell us which platform you ship from and we will tell you
+          where it sits.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          categories.map((c) => (
+            <div class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
+              <h3 class="h3 text-[1.15rem]">{c.title}</h3>
+              <p class="mt-2 text-[0.95rem]">{c.body}</p>
+            </div>
+          ))
+        }
+        <div
+          class="reveal flex flex-col justify-center rounded-[var(--r)] border border-hair-strong border-dashed p-6"
+        >
+          <h3 class="h3 text-[1.15rem]">Your platform?</h3>
+          <p class="mt-2 text-[0.95rem]">
+            <a class="textlink" href={`mailto:${SALES_EMAIL}`}>Tell us what you run</a> and we
+            will answer with the integration path, honestly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid items-center gap-10 rounded-[var(--r-lg)] border border-hair bg-surface p-10 md:grid-cols-[1.3fr_1fr]">
+      <div class="reveal">
+        <h2 class="h2">Building it yourself? Use the API.</h2>
+        <p class="mt-4 text-[1.02rem]">
+          Everything the platform does with orders is reachable through the REST API: create
+          orders, fetch route assignments, subscribe to delivery events, pull PODs. Bring your
+          integration question to a demo and we will walk the endpoints with you.
+        </p>
+      </div>
+      <div class="reveal md:text-right">
+        <a href="/demo/" class="btn btn-primary">Book a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Base>
