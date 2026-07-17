@@ -11,15 +11,17 @@ const {
 } = Astro.props;
 ---
 
-<!-- Deliberate fixed-dark band: this is the one drenched moment per page,
-     identical in light and dark themes, so colors are literal here. -->
-<section class="section bg-[#0a1520]">
+<!-- Deliberate fixed-dark band: the one drenched moment per page, identical
+     in light and dark. Colors come from the theme-independent fixed-* tokens. -->
+<section class="section bg-[color:var(--fixed-dark)]">
   <div class="wrap text-center">
-    <h2 class="h2 reveal mx-auto max-w-[24ch] text-[#f2f6f9]">{title}</h2>
-    <p class="reveal mx-auto mt-4 max-w-[52ch] text-[#a9bdcb]">{note}</p>
+    <h2 class="h2 reveal mx-auto max-w-[24ch] text-[color:var(--fixed-ink)]">{title}</h2>
+    <p class="reveal mx-auto mt-4 max-w-[52ch] text-[color:var(--fixed-body)]">{note}</p>
     <div class="reveal mt-8 flex flex-wrap justify-center gap-3">
       <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
-      <a href="/demo/" class="btn border-[rgba(242,246,249,0.3)] text-[#f2f6f9] btn-ghost"
+      <a
+        href="/demo/"
+        class="btn btn-ghost border-[color:var(--fixed-hair)] text-[color:var(--fixed-ink)] hover:border-accent"
         >{CTA_SECONDARY}</a
       >
     </div>

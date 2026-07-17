@@ -26,7 +26,7 @@ import { featured } from '../data/features';
     <nav class="ml-auto hidden items-center gap-1 lg:flex" aria-label="Main">
       <div class="nav-drop relative" data-drop>
         <button
-          class="flex items-center gap-1 rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink"
+          class="flex min-h-[44px] items-center gap-1 rounded-md px-3 text-[0.95rem] text-body hover:text-ink"
           aria-expanded="false"
           aria-haspopup="true"
         >
@@ -55,7 +55,7 @@ import { featured } from '../data/features';
 
       <div class="nav-drop relative" data-drop>
         <button
-          class="flex items-center gap-1 rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink"
+          class="flex min-h-[44px] items-center gap-1 rounded-md px-3 text-[0.95rem] text-body hover:text-ink"
           aria-expanded="false"
           aria-haspopup="true"
         >
@@ -83,12 +83,12 @@ import { featured } from '../data/features';
         </div>
       </div>
 
-      <a href="/pricing/" class="rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink"
+      <a href="/pricing/" class="inline-flex min-h-[44px] items-center rounded-md px-3 text-[0.95rem] text-body hover:text-ink"
         >Pricing</a
       >
-      <a href="/demo/" class="rounded-md px-3 py-2 text-[0.95rem] text-body hover:text-ink">Demo</a>
+      <a href="/demo/" class="inline-flex min-h-[44px] items-center rounded-md px-3 text-[0.95rem] text-body hover:text-ink">Demo</a>
 
-      <a href={LOGIN_URL} class="ml-2 rounded-md px-3 py-2 text-[0.95rem] font-semibold text-ink"
+      <a href={LOGIN_URL} class="ml-2 inline-flex min-h-[44px] items-center rounded-md px-3 text-[0.95rem] font-semibold text-ink"
         >Log in</a
       >
       <a href={SIGNUP_URL} class="btn btn-primary ml-1">{CTA_PRIMARY}</a>
