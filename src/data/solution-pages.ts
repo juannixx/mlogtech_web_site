@@ -180,8 +180,8 @@ export const solutionPages: SolutionPage[] = [
       {
         title: 'Your brand at the customer’s door.',
         body: 'The tracking page carries your logo and colors, not ours. Notifications go out in your name at dispatch, en route and delivered.',
-        image: '/images/route-map.jpg',
-        imageAlt: 'A stylized route map with a delivery truck and destination pins',
+        image: '/images/highway-sunset.jpg',
+        imageAlt: 'A delivery truck on a motorway at sunset',
         linkHref: '/features/notifications/',
         linkLabel: 'More on notifications',
       },
@@ -479,8 +479,8 @@ export const solutionPages: SolutionPage[] = [
       {
         title: 'Let clients book and watch their own jobs.',
         body: 'The customer portal takes bookings and shows clients their own job status, cutting the phone traffic that eats a dispatcher’s day.',
-        image: '/images/route-map.jpg',
-        imageAlt: 'A stylized map with routes and destination pins',
+        image: '/images/fleet-row.jpg',
+        imageAlt: 'A row of white delivery vans with shallow depth of field',
         linkHref: '/features/customer-portal/',
         linkLabel: 'More on the customer portal',
       },
