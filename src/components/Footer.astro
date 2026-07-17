@@ -54,7 +54,11 @@ const year = new Date().getFullYear();
       class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-hair pt-6 text-[0.86rem]"
     >
       <span>&copy; {year} MLogTech. All rights reserved.</span>
-      <!-- TODO fase 1 restante: Terms, Privacy, Cookies pages (SPEC-01 legal) -->
+      <nav aria-label="Legal" class="flex gap-4">
+        <a class="hover:text-ink" href="/terms/">Terms</a>
+        <a class="hover:text-ink" href="/privacy/">Privacy</a>
+        <a class="hover:text-ink" href="/cookies/">Cookies</a>
+      </nav>
       <button
         id="theme-toggle"
         class="flex items-center gap-2 rounded-md border border-hair-strong px-3 py-1.5 text-[0.86rem] text-ink"

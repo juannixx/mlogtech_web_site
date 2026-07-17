@@ -1,0 +1,79 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SUPPORT_EMAIL } from '../data/site';
+// [PENDENTE: revisão jurídica; entidade controladora, endereço registrado e
+// prazos de retenção a confirmar]
+---
+
+<Legal
+  title="Privacy Policy | MLogTech"
+  description="How MLogTech collects, uses and protects personal data, and the rights you have under UK GDPR."
+  h1="Privacy Policy."
+  updated="July 17, 2026 (draft)"
+>
+  <h2>1. Who we are</h2>
+  <p>
+    MLogTech provides delivery management software. For data you submit on this website (for
+    example, the demo or contact forms), MLogTech is the controller. For operational data our
+    customers process through the platform (their customers' names, addresses, signatures), the
+    customer is the controller and MLogTech is a processor acting on instructions.
+  </p>
+
+  <h2>2. Data we collect on this website</h2>
+  <ul>
+    <li>Contact details you send us: name, work email, phone, message content.</li>
+    <li>Operational context you volunteer, such as fleet size or delivery volume.</li>
+    <li>Technical basics needed to serve the site, such as IP address in server logs.</li>
+  </ul>
+  <p>This site does not run advertising trackers.</p>
+
+  <h2>3. What we use it for</h2>
+  <ul>
+    <li>Responding to demo and contact requests (legitimate interest / pre-contract steps).</li>
+    <li>Providing and securing the service for customers (contract).</li>
+    <li>Meeting legal obligations, such as accounting records (legal obligation).</li>
+  </ul>
+
+  <h2>4. Data in the platform</h2>
+  <p>
+    Delivery records processed through MLogTech (addresses, proof of delivery, driver locations
+    during shifts) are processed on behalf of the customer that operates the account, under data
+    processing terms. We do not sell personal data, and we do not use customer operational data
+    for purposes other than providing the service.
+  </p>
+
+  <h2>5. Retention</h2>
+  <p>
+    Website enquiries are kept for as long as needed to handle the conversation and reasonable
+    follow-up. Platform data is retained while the account is active and deleted or returned after
+    termination, subject to legal retention duties.
+  </p>
+
+  <h2>6. Sharing</h2>
+  <p>
+    We share data with the service providers needed to run the product (such as cloud hosting),
+    under contracts that restrict their use of it. We do not share personal data with third
+    parties for their own marketing.
+  </p>
+
+  <h2>7. Your rights</h2>
+  <p>
+    Under UK GDPR you can request access, correction, deletion, restriction or portability of your
+    personal data, and object to certain processing. Write to
+    <a class="textlink" href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> and we will respond
+    within the statutory period. You can also complain to the Information Commissioner's Office
+    (ICO).
+  </p>
+
+  <h2>8. Security</h2>
+  <p>
+    Practices are described on the <a class="textlink" href="/security/">security page</a>:
+    encryption in transit, access control, backups and responsible disclosure.
+  </p>
+
+  <h2>9. Changes</h2>
+  <p>
+    We will post updates to this policy here, with the date above. Material changes affecting
+    customers will be communicated directly.
+  </p>
+</Legal>
