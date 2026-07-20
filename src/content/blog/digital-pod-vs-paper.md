@@ -9,7 +9,7 @@ Paper delivery notes are not stupid. They are cheap, they need no battery, every
 
 ## Where paper genuinely holds up
 
-For a tiny operation with a handful of trusted regular customers, paper's failure modes may simply never trigger: few disputes, short routes, one driver who hands the notes over every evening. If reconciliation takes five minutes a day, digitizing it is not urgent.
+For a tiny operation with a handful of trusted regular customers, paper's failure modes may simply never trigger: few disputes, short routes, one driver who hands the notes over every evening. If reconciliation takes five minutes a day, digitising it is not urgent.
 
 ## Where paper fails, structurally
 

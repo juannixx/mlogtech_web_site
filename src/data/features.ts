@@ -22,7 +22,7 @@ export const featured: Feature[] = [
 export const webPanel: string[] = [
   'Delivery management board',
   'Drag-and-drop route planning',
-  'Route optimization',
+  'Route optimisation',
   'Real-time map',
   'Vehicle tracking',
   'Fleet and shift management',

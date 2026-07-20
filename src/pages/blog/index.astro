@@ -6,12 +6,12 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-const fmt = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' });
+const fmt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' });
 ---
 
 <Base
   title="Blog | Delivery operations, explained | MLogTech"
-  description="Plain-language writing on delivery operations: proof of delivery, route optimization, last mile cost and transport management."
+  description="Plain-language writing on delivery operations: proof of delivery, route optimisation, last mile cost and transport management."
 >
   <section class="section">
     <div class="wrap">

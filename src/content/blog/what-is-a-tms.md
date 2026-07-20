@@ -26,6 +26,6 @@ Company size is a poor signal; operations with three vans can drown in coordinat
 
 ## What changes with a TMS
 
-Planning compresses from hours to minutes because [route optimization](/solutions/route-planning/) computes what was previously assembled by hand. Execution becomes visible because [live tracking](/features/live-tracking/) replaces the call to the driver. And the operation becomes auditable, because every stop ends with [electronic proof of delivery](/features/proof-of-delivery/) on the order record.
+Planning compresses from hours to minutes because [route optimisation](/solutions/route-planning/) computes what was previously assembled by hand. Execution becomes visible because [live tracking](/features/live-tracking/) replaces the call to the driver. And the operation becomes auditable, because every stop ends with [electronic proof of delivery](/features/proof-of-delivery/) on the order record.
 
 [MLogTech](/solutions/tms/) is a TMS scoped to delivery operations, and it is opinionated about the ending: an order is not done when it leaves the depot; it is done when the proof lands.
