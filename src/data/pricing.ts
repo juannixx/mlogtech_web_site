@@ -1,16 +1,23 @@
 // ============================================================================
-// PRICING DATA: 100% MOCK (SPEC-05).
-// No value in this file is a commercial decision. Everything here exists so
-// the /pricing/ page can be built and tested. Replace with real numbers when
-// the commercial strategy lands, then flip MOCK_PRICING to false.
-// While MOCK_PRICING is true the page shows a "mock" badge in dev builds and
-// no Product/Offer JSON-LD is emitted (mock prices must never be indexed).
+// PRICING DATA: PROVISIONAL, benchmarked on Track-POD (SPEC-05).
+// Manager direction (20/07/2026): base pricing on the competitor Track-POD.
+// Values below are derived from Track-POD's published plans (captured in
+// web-scraping-track-POD/output/pricing-plans.json), adapted to GBP and to
+// our structure, and positioned as the challenger: a no-minimum entry tier
+// below their floor, and per-order rates a touch under theirs.
+//   Track-POD per driver (USD): $49/$69/$89 (min 3 drivers).
+//   Track-POD per order (USD):  $285/1.5k, $510/3k, $900/6k, $1440/12k.
+// These are NOT yet the company's officially signed-off prices, so
+// PRICING_CONFIRMED stays false: no Product/Offer JSON-LD is emitted and a
+// "provisional pricing" badge shows in dev. Flip to true after sign-off.
 // ============================================================================
 
+// Kept the export name MOCK_PRICING for the page's import; semantics now =
+// "not final". True while prices await commercial sign-off.
 export const MOCK_PRICING = true;
 export const CURRENCY = '£';
-export const TRIAL_DAYS = 14; // [MOCK]
-export const ANNUAL_DISCOUNT_LABEL = 'save ~17%'; // [MOCK]
+export const TRIAL_DAYS = 14; // [PENDENTE: confirmar; Track-POD usa trial curto]
+export const ANNUAL_DISCOUNT_LABEL = 'save ~17%'; // matches Track-POD annual vs monthly
 
 export interface DriverPlan {
   name: string;
@@ -87,15 +94,18 @@ export interface OrderPlan {
   cta: 'trial' | 'sales';
 }
 
+// Volumes mirror Track-POD (1.5k / 3k / 6k / 12k); GBP monthly set just under
+// their USD figures, so the effective per-order rate undercuts theirs.
 export const orderPlans: OrderPlan[] = [
-  { name: 'S', monthly: 199, orders: 1000, perOrder: '0.20', cta: 'trial' },
-  { name: 'M', monthly: 349, orders: 2000, perOrder: '0.175', popular: true, cta: 'trial' },
-  { name: 'L', monthly: 599, orders: 4000, perOrder: '0.15', cta: 'trial' },
-  { name: 'XL', monthly: 999, orders: 8000, perOrder: '0.125', cta: 'sales' },
+  { name: 'S', monthly: 245, orders: 1500, perOrder: '0.16', cta: 'trial' },
+  { name: 'M', monthly: 445, orders: 3000, perOrder: '0.15', popular: true, cta: 'trial' },
+  { name: 'L', monthly: 795, orders: 6000, perOrder: '0.13', cta: 'trial' },
+  { name: 'XL', monthly: 1245, orders: 12000, perOrder: '0.10', cta: 'sales' },
 ];
 
-// Comparison matrix, grouped in the 12 categories mapped from the market
-// (SPEC-05 section 4). Values are MOCK until the product catalog is confirmed.
+// Comparison matrix, grouped in the 12 categories mapped from Track-POD
+// (SPEC-05 section 4). The category structure is benchmark-confirmed; the
+// per-plan cell values still await our own product catalog confirmation.
 export type Cell = boolean | string;
 export interface CompareRow {
   label: string;
