@@ -98,7 +98,7 @@ const steps = [
           pains.map((p) => (
             <div class="reveal border-t-2 border-hair-strong pt-5">
               <h3 class="h3">{p.title}</h3>
-              <p class="mt-3 text-[1rem]">{p.body}</p>
+              <p class="mt-3 text-[1.02rem]">{p.body}</p>
             </div>
           ))
         }
@@ -144,7 +144,7 @@ const steps = [
           class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7 transition-transform duration-200 hover:-translate-y-1"
         >
           <h3 class="h3">Plan the day in minutes.</h3>
-          <p class="mt-3 flex-1 text-[1rem]">
+          <p class="mt-3 flex-1 text-[1.02rem]">
             Import orders and build optimized multi-stop routes, matched to vehicles and shifts.
           </p>
           <span class="textlink mt-5">Route planning</span>
@@ -154,7 +154,7 @@ const steps = [
           class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-7 transition-transform duration-200 hover:-translate-y-1"
         >
           <h3 class="h3">Track it to the door.</h3>
-          <p class="mt-3 flex-1 text-[1rem]">
+          <p class="mt-3 flex-1 text-[1.02rem]">
             You watch every vehicle live; your customer follows their delivery on a branded page.
           </p>
           <span class="textlink mt-5">Tracking and reports</span>
@@ -187,11 +187,11 @@ const steps = [
                 class="absolute left-0 top-0 hidden h-[22px] w-[22px] items-center justify-center rounded-full border-4 border-bg bg-accent shadow-[0_0_0_1px_var(--accent)] md:flex"
                 aria-hidden="true"
               >
-                <span class="data text-[0.7rem] font-bold text-accent-ink">{i + 1}</span>
+                <span class="data text-[0.75rem] font-bold text-accent-ink">{i + 1}</span>
               </span>
               <span class="data text-[0.8rem] text-accent-text md:hidden">Step {i + 1}</span>
               <h3 class="h3 mt-2 md:mt-0">{s.title}</h3>
-              <p class="mt-2 max-w-[34ch] text-[0.97rem]">{s.body}</p>
+              <p class="mt-2 max-w-[34ch] text-[0.95rem]">{s.body}</p>
             </li>
           ))
         }
@@ -211,7 +211,7 @@ const steps = [
           Signature, photo and barcode scan captured at the door, stamped with time and location.
           The POD syncs the moment it happens and works offline when the signal does not.
         </p>
-        <ul class="mt-6 space-y-3 text-[1rem]">
+        <ul class="mt-6 space-y-3 text-[1.02rem]">
           <li class="flex gap-3">
             <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
             Electronic signature and photo proof on every drop
@@ -241,7 +241,7 @@ const steps = [
           Every order gets a live tracking page with your brand on it: position, ETA and status.
           Notifications go out automatically at dispatch, en route and delivered.
         </p>
-        <ul class="mt-6 space-y-3 text-[1rem]">
+        <ul class="mt-6 space-y-3 text-[1.02rem]">
           <li class="flex gap-3">
             <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
             Branded tracking page per delivery
@@ -302,28 +302,28 @@ const steps = [
         </p>
         <div class="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <h3 class="text-[1.05rem] font-bold text-ink">Onboarding &amp; compliance</h3>
+            <h3 class="text-[1.02rem] font-bold text-ink">Onboarding &amp; compliance</h3>
             <p class="mt-1 text-[0.95rem]">
               An 8-step first run captures documents, right-to-work and a DVLA licence check, with
               training records kept per driver.
             </p>
           </div>
           <div>
-            <h3 class="text-[1.05rem] font-bold text-ink">Workforce &amp; pay</h3>
+            <h3 class="text-[1.02rem] font-bold text-ink">Workforce &amp; pay</h3>
             <p class="mt-1 text-[0.95rem]">
               Schedules turn into driver invoices; the app shows pay as pending, flips it to paid
               on the date, and holds the official payslip.
             </p>
           </div>
           <div>
-            <h3 class="text-[1.05rem] font-bold text-ink">Fleet &amp; maintenance</h3>
+            <h3 class="text-[1.02rem] font-bold text-ink">Fleet &amp; maintenance</h3>
             <p class="mt-1 text-[0.95rem]">
               A full vehicle registry with inspections, insurance renewals, service reminders and
               odometer history.
             </p>
           </div>
           <div>
-            <h3 class="text-[1.05rem] font-bold text-ink">Safety &amp; incidents</h3>
+            <h3 class="text-[1.02rem] font-bold text-ink">Safety &amp; incidents</h3>
             <p class="mt-1 text-[0.95rem]">
               Drivers log accidents and vehicle damage from the road; offences and quality roll up
               in one view.
@@ -351,20 +351,20 @@ const steps = [
           <div class="bg-surface p-8">
             <span class="data text-[0.75rem] text-accent-text">Available now</span>
             <h3 class="h3 mt-2">Spreadsheets and CSV</h3>
-            <p class="mt-2 text-[0.97rem]">
+            <p class="mt-2 text-[0.95rem]">
               Upload the day's orders exactly as they come from your ERP export.
             </p>
           </div>
           <div class="bg-surface p-8">
             <span class="data text-[0.75rem] text-accent-text">Available now</span>
             <h3 class="h3 mt-2">REST API and webhooks</h3>
-            <p class="mt-2 text-[0.97rem]">
+            <p class="mt-2 text-[0.95rem]">
               Push orders in, get PODs and status events back, keyed to your own IDs.
             </p>
           </div>
         </div>
         <div class="flex flex-wrap items-center justify-between gap-3 border-t border-hair px-8 py-5">
-          <p class="text-[0.97rem]">
+          <p class="text-[0.95rem]">
             Native connectors for e-commerce and ERP platforms are in rollout.
           </p>
           <a class="textlink shrink-0" href="/integrations/">See the integration paths &rarr;</a>
