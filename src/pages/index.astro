@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import DashboardMock from '../components/DashboardMock.astro';
-import PhoneMock from '../components/PhoneMock.astro';
 import RouteMap from '../components/RouteMap.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import CTABanner from '../components/CTABanner.astro';
@@ -202,8 +201,20 @@ const steps = [
   <!-- 6. Feature spotlight: ePOD -->
   <section class="section bg-surface-2" id="epod">
     <div class="wrap grid items-center gap-12 lg:grid-cols-2">
-      <div class="reveal order-2 lg:order-1">
-        <PhoneMock />
+      <div class="reveal order-2 flex justify-center lg:order-1">
+        <figure
+          class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-lg)]"
+          style="max-width:400px"
+        >
+          <img
+            src="/images/doorstep-signature.jpg"
+            alt="A courier capturing proof of delivery on a handheld device at the customer’s door"
+            width="908"
+            height="1360"
+            loading="lazy"
+            class="block w-full"
+          />
+        </figure>
       </div>
       <div class="reveal order-1 lg:order-2">
         <h2 class="h2">Proof of delivery that holds up.</h2>
