@@ -97,17 +97,20 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
           <p class="mt-2 text-[0.92rem] text-muted">
             Takes a minute. We reply within one working day with a link to book your slot.
           </p>
+          <p class="mt-1 text-[0.85rem] text-muted">All fields are required unless marked optional.</p>
           <div class="mt-6 space-y-4">
             <div class="field">
               <label for="d-name">Name</label>
-              <input id="d-name" name="name" type="text" autocomplete="name" required />
+              <input id="d-name" name="name" type="text" autocomplete="name" required aria-describedby="d-name-error" />
+              <p class="error" id="d-name-error" role="alert"></p>
             </div>
             <div class="field">
               <label for="d-email">Work email</label>
-              <input id="d-email" name="email" type="email" autocomplete="email" required />
+              <input id="d-email" name="email" type="email" autocomplete="email" required aria-describedby="d-email-error" />
+              <p class="error" id="d-email-error" role="alert"></p>
             </div>
             <div class="field">
-              <label for="d-phone">Phone (optional)</label>
+              <label for="d-phone">Phone <span class="font-normal text-muted">(optional)</span></label>
               <input id="d-phone" name="phone" type="tel" autocomplete="tel" />
             </div>
             <div class="field">
@@ -200,9 +203,50 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
     var form = document.getElementById('demo-form');
     var success = document.getElementById('demo-success');
     if (!form || !success) return;
+
+    // Inline validation: show errors next to the field, not as native bubbles.
+    // Without JS the native required/type validation still applies.
+    form.noValidate = true;
+    var messages = {
+      'd-name': 'Enter your name.',
+      'd-email': 'Enter your work email.',
+    };
+    var fields = Object.keys(messages).map(function (id) { return form.querySelector('#' + id); });
+    function messageFor(input) {
+      var v = input.validity;
+      if (v.valid) return '';
+      if (v.typeMismatch && input.type === 'email') return 'Enter a valid email address, like name@company.com.';
+      if (v.valueMissing) return messages[input.id];
+      return 'Please check this field.';
+    }
+    function showError(input, msg) {
+      var box = document.getElementById(input.id + '-error');
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      if (box) box.textContent = msg || '';
+    }
+    fields.forEach(function (input) {
+      input.addEventListener('input', function () {
+        if (input.getAttribute('aria-invalid') === 'true') showError(input, messageFor(input));
+      });
+    });
+    function firstInvalid() {
+      var first = null;
+      fields.forEach(function (input) {
+        var msg = messageFor(input);
+        showError(input, msg);
+        if (msg && !first) first = input;
+      });
+      return first;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form.querySelector('[name="companysite"]').value) return; // honeypot
+      var invalid = firstInvalid();
+      if (invalid) {
+        invalid.focus();
+        return;
+      }
       var name = form.querySelector('#d-name').value.trim();
       var email = form.querySelector('#d-email').value.trim();
       var phone = form.querySelector('#d-phone').value.trim();

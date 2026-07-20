@@ -39,22 +39,27 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
           class="rounded-[var(--r-lg)] border border-hair bg-surface p-8 shadow-[var(--shadow-md)]"
         >
           <h2 class="h3">Send a message</h2>
+          <p class="mt-2 text-[0.85rem] text-muted">All fields are required.</p>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             <div class="field">
               <label for="c-first">First name</label>
-              <input id="c-first" name="first" type="text" autocomplete="given-name" required />
+              <input id="c-first" name="first" type="text" autocomplete="given-name" required aria-describedby="c-first-error" />
+              <p class="error" id="c-first-error" role="alert"></p>
             </div>
             <div class="field">
               <label for="c-last">Last name</label>
-              <input id="c-last" name="last" type="text" autocomplete="family-name" required />
+              <input id="c-last" name="last" type="text" autocomplete="family-name" required aria-describedby="c-last-error" />
+              <p class="error" id="c-last-error" role="alert"></p>
             </div>
             <div class="field sm:col-span-2">
               <label for="c-email">Email address</label>
-              <input id="c-email" name="email" type="email" autocomplete="email" required />
+              <input id="c-email" name="email" type="email" autocomplete="email" required aria-describedby="c-email-error" />
+              <p class="error" id="c-email-error" role="alert"></p>
             </div>
             <div class="field sm:col-span-2">
               <label for="c-message">Comments or questions</label>
-              <textarea id="c-message" name="message" rows="5" required></textarea>
+              <textarea id="c-message" name="message" rows="5" required aria-describedby="c-message-error"></textarea>
+              <p class="error" id="c-message-error" role="alert"></p>
             </div>
             <div class="hidden" aria-hidden="true">
               <label for="c-company-site">Company site</label>
@@ -74,9 +79,54 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
     var form = document.getElementById('contact-form');
     var status = document.getElementById('contact-status');
     if (!form) return;
+
+    // Take over validation from the browser so errors show inline, next to the
+    // field, instead of as a native bubble. Without JS the native validation
+    // (the required/type attributes) still applies.
+    form.noValidate = true;
+    var messages = {
+      'c-first': 'Enter your first name.',
+      'c-last': 'Enter your last name.',
+      'c-email': 'Enter your email address.',
+      'c-message': 'Add a short message.',
+    };
+    var fields = Object.keys(messages).map(function (id) { return form.querySelector('#' + id); });
+    function messageFor(input) {
+      var v = input.validity;
+      if (v.valid) return '';
+      if (v.typeMismatch && input.type === 'email') return 'Enter a valid email address, like name@company.com.';
+      if (v.valueMissing) return messages[input.id];
+      return 'Please check this field.';
+    }
+    function showError(input, msg) {
+      var box = document.getElementById(input.id + '-error');
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      if (box) box.textContent = msg || '';
+    }
+    fields.forEach(function (input) {
+      input.addEventListener('input', function () {
+        if (input.getAttribute('aria-invalid') === 'true') showError(input, messageFor(input));
+      });
+    });
+    function firstInvalid() {
+      var first = null;
+      fields.forEach(function (input) {
+        var msg = messageFor(input);
+        showError(input, msg);
+        if (msg && !first) first = input;
+      });
+      return first;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form.querySelector('[name="companysite"]').value) return;
+      var invalid = firstInvalid();
+      if (invalid) {
+        status.textContent = '';
+        invalid.focus();
+        return;
+      }
       var first = form.querySelector('#c-first').value.trim();
       var last = form.querySelector('#c-last').value.trim();
       var email = form.querySelector('#c-email').value.trim();
