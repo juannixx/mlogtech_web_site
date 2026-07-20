@@ -1,63 +1,17 @@
 ---
-// Stylized route-map illustration (SVG, token-driven, theme-aware).
-// Replaces the off-palette 3D stock render on the live-tracking section:
-// route line in hi-vis, stops in steel, one active stop in hi-vis, on the
-// surface palette. Same SVG language as the dashboard/phone mocks.
+// Real MLogTech live tracking map (replaces the earlier stylized SVG).
+// Below the fold on the home live-tracking section, so it loads lazily.
 ---
 
 <figure
-  class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface-2 shadow-[var(--shadow-md)]"
-  role="img"
-  aria-label="Illustrative map of a delivery route: a highlighted path through several stops, with the next stop and a live vehicle marked"
+  class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-md)]"
 >
-  <svg viewBox="0 0 720 460" fill="none" aria-hidden="true" class="block w-full">
-    <!-- map ground + faint street grid -->
-    <rect width="720" height="460" fill="var(--surface-2)"></rect>
-    <g stroke="var(--hair)" stroke-width="1">
-      <path d="M0 92h720M0 184h720M0 276h720M0 368h720"></path>
-      <path d="M120 0v460M240 0v460M360 0v460M480 0v460M600 0v460"></path>
-    </g>
-    <!-- a couple of block shapes for map texture -->
-    <g fill="var(--hair)" opacity="0.6">
-      <rect x="150" y="120" width="80" height="52" rx="4"></rect>
-      <rect x="410" y="210" width="120" height="60" rx="4"></rect>
-      <rect x="250" y="300" width="70" height="44" rx="4"></rect>
-    </g>
-
-    <!-- the route path -->
-    <path
-      d="M70 380 C 150 360, 150 250, 230 240 S 360 250, 400 180 S 520 150, 560 96 L 650 70"
-      stroke="var(--accent)"
-      stroke-width="4"
-      stroke-linecap="round"></path>
-
-    <!-- completed stops (steel), then the next stop (hi-vis, larger) -->
-    <g>
-      <circle cx="70" cy="380" r="9" fill="var(--surface)" stroke="var(--brand)" stroke-width="3"></circle>
-      <circle cx="230" cy="240" r="9" fill="var(--surface)" stroke="var(--brand)" stroke-width="3"></circle>
-      <circle cx="400" cy="180" r="9" fill="var(--surface)" stroke="var(--brand)" stroke-width="3"></circle>
-    </g>
-
-    <!-- live vehicle marker on the path -->
-    <g transform="translate(300 214)">
-      <circle r="16" fill="var(--brand)" opacity="0.18"></circle>
-      <circle r="7" fill="var(--brand)" stroke="var(--surface)" stroke-width="2.5"></circle>
-    </g>
-
-    <!-- next stop: pin in hi-vis -->
-    <g transform="translate(650 70)">
-      <path
-        d="M0 -26 C 14 -26, 24 -16, 24 -2 C 24 12, 8 22, 0 34 C -8 22, -24 12, -24 -2 C -24 -16, -14 -26, 0 -26 Z"
-        fill="var(--accent)"></path>
-      <circle cy="-2" r="8" fill="var(--accent-ink)"></circle>
-    </g>
-
-    <!-- ETA chip -->
-    <g transform="translate(360 300)">
-      <rect x="0" y="0" width="188" height="56" rx="10" fill="var(--surface)" stroke="var(--hair-strong)"></rect>
-      <circle cx="26" cy="28" r="8" fill="var(--accent)"></circle>
-      <rect x="44" y="15" width="84" height="9" rx="3" fill="var(--hair-strong)"></rect>
-      <rect x="44" y="32" width="120" height="8" rx="3" fill="var(--hair)"></rect>
-    </g>
-  </svg>
+  <img
+    src="/images/product/panel-tracking.jpg"
+    alt="MLogTech live tracking map: a driver's route across the region with delivery progress at 46 of 46 parcels"
+    width="1500"
+    height="782"
+    loading="lazy"
+    class="block w-full"
+  />
 </figure>
