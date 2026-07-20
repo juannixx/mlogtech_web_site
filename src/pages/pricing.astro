@@ -91,7 +91,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
             ]}
           >
             {p.popular && (
-              <span class="absolute -top-3 left-6 rounded-full bg-accent px-3 py-0.5 text-[0.78rem] font-bold text-accent-ink">
+              <span class="absolute -top-3 left-6 rounded-full bg-accent px-3 py-0.5 text-[0.8rem] font-bold text-accent-ink">
                 Most popular
               </span>
             )}
@@ -104,7 +104,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
                   <span class="data price-value text-[2.1rem] font-bold text-ink" data-annual={p.annual} data-monthly={p.monthly}>
                     {CURRENCY}{p.annual}
                   </span>
-                  <span class="block text-[0.88rem] text-muted">per driver / month</span>
+                  <span class="block text-[0.9rem] text-muted">per driver / month</span>
                 </>
               )}
             </p>
@@ -145,7 +145,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
             ]}
           >
             {p.popular && (
-              <span class="absolute -top-3 left-6 rounded-full bg-accent px-3 py-0.5 text-[0.78rem] font-bold text-accent-ink">
+              <span class="absolute -top-3 left-6 rounded-full bg-accent px-3 py-0.5 text-[0.8rem] font-bold text-accent-ink">
                 Most popular
               </span>
             )}
@@ -154,7 +154,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
               <span class="data text-[2.1rem] font-bold text-ink">
                 {CURRENCY}{p.monthly}
               </span>
-              <span class="block text-[0.88rem] text-muted">per month</span>
+              <span class="block text-[0.9rem] text-muted">per month</span>
             </p>
             <ul class="mt-4 flex-1 space-y-2.5 text-[0.95rem]">
               <li>{p.orders.toLocaleString('en-GB')} orders / month included</li>
@@ -186,12 +186,12 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
   <section class="section bg-surface-2" id="compare">
     <div class="wrap">
       <h2 class="h2 reveal">Compare plans in full.</h2>
-      <p class="mt-3 text-muted text-[0.92rem]">
+      <p class="mt-3 text-muted text-[0.95rem]">
         Feature matrix per plan (per-driver model).
         <span class="lg:hidden"> Scroll sideways to compare plans &rarr;</span>
       </p>
       <div class="mt-8 overflow-x-auto rounded-[var(--r)] border border-hair bg-surface">
-        <table class="w-full min-w-[760px] border-collapse text-[0.93rem]">
+        <table class="w-full min-w-[760px] border-collapse text-[0.95rem]">
           <thead>
             <tr class="border-b border-hair-strong text-left">
               <th class="sticky left-0 z-[1] border-r border-hair bg-surface px-5 py-4 font-semibold text-ink">Feature</th>
@@ -223,7 +223,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
                             &mdash;
                           </span>
                         ) : (
-                          <span class="data text-[0.88rem] text-ink">{v}</span>
+                          <span class="data text-[0.9rem] text-ink">{v}</span>
                         )}
                       </td>
                     ))}

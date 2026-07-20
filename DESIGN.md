@@ -50,6 +50,33 @@ typography:
     fontSize: "0.8rem"
     fontWeight: 500
     letterSpacing: "0.02em"
+  # Supporting scale for body/caption text below the six semantic roles above.
+  # These are the rationalized steps used across the pages (Archivo, weight 400
+  # unless the element sets otherwise); one canonical value per step, no drift.
+  subhead:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "1.15rem"
+    lineHeight: 1.3
+  bodyLarge:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "1.02rem"
+    lineHeight: 1.55
+  bodySmall:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "0.95rem"
+    lineHeight: 1.5
+  caption:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "0.9rem"
+    lineHeight: 1.45
+  fine:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "0.85rem"
+    lineHeight: 1.4
+  micro:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "0.75rem"
+    lineHeight: 1.35
 rounded:
   sm: "8px"
   md: "12px"
