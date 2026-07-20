@@ -12,7 +12,7 @@ export const solutions: Solution[] = [
     slug: 'route-planning',
     title: 'Route planning software',
     nav: 'Route planning',
-    short: 'Build and optimize multi-stop routes in minutes, not spreadsheets.',
+    short: 'Build and optimise multi-stop routes in minutes, not spreadsheets.',
     hasPage: true,
   },
   {

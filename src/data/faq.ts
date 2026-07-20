@@ -11,7 +11,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: 'What is MLogTech?',
-        a: 'MLogTech is delivery management software: route planning and optimization, a driver app with electronic proof of delivery, live tracking for you and your customers, and reporting, all working on one record per order.',
+        a: 'MLogTech is delivery management software: route planning and optimisation, a driver app with electronic proof of delivery, live tracking for you and your customers, and reporting, all working on one record per order.',
       },
       {
         q: 'Who is it for?',
@@ -36,7 +36,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: 'How long does it take to get running?',
-        a: 'A small fleet can import orders and dispatch its first optimized routes on day one. Larger rollouts usually phase by depot or team over a few weeks.',
+        a: 'A small fleet can import orders and dispatch its first optimised routes on day one. Larger rollouts usually phase by depot or team over a few weeks.',
       },
       {
         q: 'Do I need training for drivers?',

@@ -1,25 +1,25 @@
 ---
-title: 'How to optimize delivery routes (beyond drawing lines on a map)'
-description: 'What route optimization actually means for a delivery fleet: constraints, sequencing, and the habits that make optimized plans survive the road.'
+title: 'How to optimise delivery routes (beyond drawing lines on a map)'
+description: 'What route optimisation actually means for a delivery fleet: constraints, sequencing, and the habits that make optimised plans survive the road.'
 pubDate: 2026-07-17
 category: 'Route planning'
 ---
 
-Everyone who plans routes by hand develops the same instincts: group orders by area, keep the early time windows early, do not send the small van to the pallet job. Route optimization is those instincts, formalized and computed across every order and every vehicle at once, which is exactly where human planning runs out of working memory.
+Everyone who plans routes by hand develops the same instincts: group orders by area, keep the early time windows early, do not send the small van to the pallet job. Route optimisation is those instincts, formalised and computed across every order and every vehicle at once, which is exactly where human planning runs out of working memory.
 
-## What the optimizer actually decides
+## What the optimiser actually decides
 
-Given the day's orders and the fleet's constraints, optimization answers three questions together:
+Given the day's orders and the fleet's constraints, optimisation answers three questions together:
 
 1. **Which vehicle takes which orders**, respecting capacity by weight or volume.
 2. **In what sequence**, respecting customer time windows and shift lengths.
-3. **On what path**, minimizing distance and drive time between stops.
+3. **On what path**, minimising distance and drive time between stops.
 
 The word "together" is the point. Sequencing changes which allocations make sense; allocations change which sequences are feasible. Solving the pieces separately, as manual planning must, leaves efficiency on the table in every direction.
 
 ## The constraints are the plan
 
-An optimized route that ignores reality is worse than a manual one, because drivers stop trusting it. The constraints worth modeling from day one:
+An optimised route that ignores reality is worse than a manual one, because drivers stop trusting it. The constraints worth modelling from day one:
 
 - **Vehicle capacity**, so the plan never loads what does not fit.
 - **Time windows**, so promised slots are planned rather than hoped for.
@@ -28,9 +28,9 @@ An optimized route that ignores reality is worse than a manual one, because driv
 
 Systems learn service times from real execution data. That is one reason planning and execution belong in the same tool: measured stop durations from [live tracking](/features/live-tracking/) feed back into tomorrow's plan.
 
-## Habits that keep optimized routes working
+## Habits that keep optimised routes working
 
-**Re-plan when reality changes, not tomorrow.** A cancellation at 9:10 should re-slot the route at 9:11. Optimization that only runs overnight turns every disruption into improvisation.
+**Re-plan when reality changes, not tomorrow.** A cancellation at 9:10 should re-slot the route at 9:11. Optimisation that only runs overnight turns every disruption into improvisation.
 
 **Watch the exceptions, not the map.** The value of a live board is not seeing dots move; it is seeing the one route that is falling behind while there is still time to shift a stop.
 

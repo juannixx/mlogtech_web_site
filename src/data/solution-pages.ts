@@ -39,19 +39,19 @@ export interface SolutionPage {
 export const solutionPages: SolutionPage[] = [
   {
     slug: 'route-planning',
-    metaTitle: 'Route planning software | Optimized multi-stop routes | MLogTech',
+    metaTitle: 'Route planning software | Optimised multi-stop routes | MLogTech',
     metaDescription:
-      'Plan and optimize multi-stop delivery routes against vehicles, shifts and time windows. Dispatch straight to a driver app with electronic proof of delivery.',
+      'Plan and optimise multi-stop delivery routes against vehicles, shifts and time windows. Dispatch straight to a driver app with electronic proof of delivery.',
     h1: 'Route planning software for delivery fleets.',
     heroSub:
-      "Turn the day's orders into optimized routes in minutes, matched to your vehicles, shifts and time windows, and dispatched straight to the driver app.",
+      "Turn the day's orders into optimised routes in minutes, matched to your vehicles, shifts and time windows, and dispatched straight to the driver app.",
     heroMock: 'dashboard',
-    benefitsTitle: 'What the optimizer buys you.',
+    benefitsTitle: 'What the optimiser buys you.',
     sections: ['benefits', 'steps', 'splits', 'edu'],
     benefits: [
       {
         title: 'Hours of planning down to minutes',
-        body: 'The day’s orders become optimized routes in one run, instead of a morning in spreadsheets.',
+        body: 'The day’s orders become optimised routes in one run, instead of a morning in spreadsheets.',
       },
       {
         title: 'More drops per vehicle',
@@ -77,7 +77,7 @@ export const solutionPages: SolutionPage[] = [
         body: 'Vehicles, capacities, shifts, time windows and depot. Set once, reuse daily.',
       },
       {
-        title: 'Optimize and adjust',
+        title: 'Optimise and adjust',
         body: 'Routes come out sequenced. Drag stops between routes if reality disagrees.',
       },
       {
@@ -87,10 +87,10 @@ export const solutionPages: SolutionPage[] = [
     ],
     splits: [
       {
-        title: 'Optimization that respects your constraints.',
-        body: 'Capacity by weight or volume, driver shifts, customer windows, multiple depots. The optimizer plans inside your rules, not around them.',
+        title: 'Optimisation that respects your constraints.',
+        body: 'Capacity by weight or volume, driver shifts, customer windows, multiple depots. The optimiser plans inside your rules, not around them.',
         image: '/images/truck-loaded.jpg',
-        imageAlt: 'A delivery truck loaded at the depot, ready to run the planned route',
+        imageAlt: 'A delivery lorry loaded at the depot, ready to run the planned route',
         linkHref: '/features/',
         linkLabel: 'See all planning features',
       },
@@ -107,12 +107,12 @@ export const solutionPages: SolutionPage[] = [
     eduTitle: 'What is route planning and what does it change?',
     eduParagraphs: [
       'Route planning is the process of deciding which vehicle delivers which orders and in what sequence. Done by hand, it is a daily puzzle solved in spreadsheets and local knowledge: someone groups orders by postcode, guesses drive times and hopes the vans finish before the shift ends.',
-      "Route planning software replaces the guessing with optimization. It takes the full list of orders, the fleet's real constraints (vehicle capacity, driver shifts, delivery time windows, depot locations) and computes routes that minimize distance and time while keeping every promise the business made to the customer.",
+      "Route planning software replaces the guessing with optimisation. It takes the full list of orders, the fleet's real constraints (vehicle capacity, driver shifts, delivery time windows, depot locations) and computes routes that minimise distance and time while keeping every promise the business made to the customer.",
       'The difference shows up in three places. Planning time collapses from hours to minutes, because the sequencing is computed instead of assembled by hand. Cost per delivery falls, because the same fleet completes more drops with less driving. And service improves, because arrival windows are planned rather than hoped for, and the dispatcher can see deviations while there is still time to react.',
       'In MLogTech, planning is the first third of a longer loop: the plan dispatches to the driver app, execution reports back through live tracking, and every completed stop returns an electronic proof of delivery attached to the original order. The route is one record from spreadsheet to signature.',
     ],
     ctaTitle: "Plan tomorrow's routes with MLogTech.",
-    ctaNote: 'Free trial with the optimizer included. No driver minimum.',
+    ctaNote: 'Free trial with the optimiser included. No driver minimum.',
     faq: [
       {
         q: 'What is route planning software?',
@@ -128,11 +128,11 @@ export const solutionPages: SolutionPage[] = [
       },
       {
         q: 'How many stops can one route have?',
-        a: 'The optimizer handles routes of hundreds of stops per vehicle. The practical limit is your service time per stop and shift length, which the planner respects when sequencing.',
+        a: 'The optimiser handles routes of hundreds of stops per vehicle. The practical limit is your service time per stop and shift length, which the planner respects when sequencing.',
       },
       {
         q: 'Does it work with time windows?',
-        a: 'Yes. Each order can carry a delivery window, and the optimizer sequences stops so drivers arrive inside it. Orders that cannot fit are flagged before dispatch, not discovered on the road.',
+        a: 'Yes. Each order can carry a delivery window, and the optimiser sequences stops so drivers arrive inside it. Orders that cannot fit are flagged before dispatch, not discovered on the road.',
       },
       {
         q: 'Can drivers change the route on the road?',
@@ -174,7 +174,7 @@ export const solutionPages: SolutionPage[] = [
     steps: [
       {
         title: 'Orders become routes',
-        body: 'Import the day’s deliveries and optimize them across the fleet.',
+        body: 'Import the day’s deliveries and optimise them across the fleet.',
       },
       {
         title: 'Customers get notified',
@@ -192,7 +192,7 @@ export const solutionPages: SolutionPage[] = [
     splits: [
       {
         title: 'Your brand at the customer’s door.',
-        body: 'The tracking page carries your logo and colors, not ours. Notifications go out in your name at dispatch, en route and delivered.',
+        body: 'The tracking page carries your logo and colours, not ours. Notifications go out in your name at dispatch, en route and delivered.',
         image: '/images/doorstep-handover.jpg',
         imageAlt: 'A delivery driver in a hi-vis vest handing a parcel to a customer at the door',
         linkHref: '/features/notifications/',
@@ -211,7 +211,7 @@ export const solutionPages: SolutionPage[] = [
     eduParagraphs: [
       'Last mile delivery is the final movement of an order: from the depot or store to the customer’s address. It is the shortest leg of the journey and usually the most expensive one, because it is the only leg where every parcel needs its own stop, its own door and its own few minutes of a driver’s day.',
       'It is also the only leg the customer sees. A supply chain can run perfectly for a thousand miles and still fail in the last one: a missed window, a parcel left in the wrong place, a driver who cannot find the entrance. That failure is what gets remembered and reviewed.',
-      'Last mile software attacks the cost and the experience at the same time. Optimized routes reduce miles and time per drop. Live tracking and notifications remove the uncertainty that causes missed deliveries and support calls. Electronic proof of delivery closes every stop with evidence, so disputes are resolved by looking at a record instead of arguing about memory.',
+      'Last mile software attacks the cost and the experience at the same time. Optimised routes reduce miles and time per drop. Live tracking and notifications remove the uncertainty that causes missed deliveries and support calls. Electronic proof of delivery closes every stop with evidence, so disputes are resolved by looking at a record instead of arguing about memory.',
       'MLogTech covers the loop end to end: plan, notify, deliver, prove. One system, one record per order.',
     ],
     ctaTitle: 'Fix the mile that customers remember.',
@@ -353,7 +353,7 @@ export const solutionPages: SolutionPage[] = [
       'A TMS for delivery operations: orders, routes, drivers, live tracking, proof of delivery and reporting in one system, with API access.',
     h1: 'A transport management system that ends at proof, not at dispatch.',
     heroSub:
-      'Orders in, optimized routes out, live execution in the middle, and a POD against every order at the end. That is the whole transport cycle in one system.',
+      'Orders in, optimised routes out, live execution in the middle, and a POD against every order at the end. That is the whole transport cycle in one system.',
     heroMock: 'dashboard',
     benefitsTitle: 'What one system replaces.',
     sections: ['benefits', 'splits', 'steps', 'edu'],
@@ -383,7 +383,7 @@ export const solutionPages: SolutionPage[] = [
       },
       {
         title: 'Plan and dispatch',
-        body: 'Optimize across the fleet and publish routes to the driver app.',
+        body: 'Optimise across the fleet and publish routes to the driver app.',
       },
       {
         title: 'Execute with visibility',
@@ -620,7 +620,7 @@ export const solutionPages: SolutionPage[] = [
     ],
     eduTitle: 'Why digital walkaround checks beat paper.',
     eduParagraphs: [
-      'A daily walkaround check is the driver’s inspection of the vehicle before it goes out: tires, lights, brakes, load security, and everything else that decides whether the vehicle is safe and legal. In the UK, operators of commercial vehicles are expected to have these checks done and to keep records that prove it.',
+      'A daily walkaround check is the driver’s inspection of the vehicle before it goes out: tyres, lights, brakes, load security, and everything else that decides whether the vehicle is safe and legal. In the UK, operators of commercial vehicles are expected to have these checks done and to keep records that prove it.',
       'Paper checklists have two failure modes. They get pencil-whipped: ticked in the cab in ten seconds without a walk. And they get lost: the one sheet that matters is the one missing when an incident or an inspection asks for it.',
       'Digital checks fix both. The app guides the driver item by item, defects require a photo, and every check is timestamped and stored automatically. The record exists because the work happened, not because someone filed a form afterwards.',
       'In MLogTech, checks are part of the same system as routes and deliveries, so a defect does not end in a drawer: it queues for the workshop, and the vehicle’s compliance history lives next to its operational history.',
@@ -633,7 +633,7 @@ export const solutionPages: SolutionPage[] = [
         a: 'Yes. What matters is that checks are actually carried out and that you can produce reliable records of them. Digital records with timestamps, photos and driver identity are strong evidence of both.',
       },
       {
-        q: 'Can I customize the checklist?',
+        q: 'Can I customise the checklist?',
         a: 'Checklists can be tailored to vehicle type, so a van, a 7.5-tonner and a trailer each get the right items.',
       },
       {

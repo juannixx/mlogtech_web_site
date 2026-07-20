@@ -100,7 +100,7 @@ export const featurePages: FeaturePage[] = [
       },
       {
         title: 'Branded tracking page',
-        body: 'Each order gets a link with your logo and colors showing position, ETA and status.',
+        body: 'Each order gets a link with your logo and colours showing position, ETA and status.',
       },
       {
         title: 'ETAs recalculated on the road',
@@ -526,7 +526,7 @@ export const featurePages: FeaturePage[] = [
       },
       {
         q: 'How large are the geofences?',
-        a: 'Radius is configurable per stop type, so a house and a distribution center each get a sensible fence.',
+        a: 'Radius is configurable per stop type, so a house and a distribution centre each get a sensible fence.',
       },
       {
         q: 'What can trigger from a geofence event?',

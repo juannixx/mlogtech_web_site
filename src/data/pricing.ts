@@ -36,7 +36,7 @@ export const driverPlans: DriverPlan[] = [
     highlights: [
       'No driver minimum',
       '1 web user',
-      'Route planning and optimization',
+      'Route planning and optimisation',
       'Driver app with ePOD',
       'Live tracking',
     ],
@@ -134,7 +134,7 @@ export const compare: CompareGroup[] = [
     ],
   },
   {
-    group: 'Organization',
+    group: 'Organisation',
     rows: [
       { label: 'Multiple depots', values: [false, true, true, true] },
       { label: 'Multi-company', values: [false, false, true, true] },
@@ -166,7 +166,7 @@ export const compare: CompareGroup[] = [
   {
     group: 'Route planning',
     rows: [
-      { label: 'Route optimization', values: [true, true, true, true] },
+      { label: 'Route optimisation', values: [true, true, true, true] },
       { label: 'Recurring routes', values: [false, true, true, true] },
     ],
   },
@@ -199,7 +199,7 @@ export const compare: CompareGroup[] = [
   {
     group: 'Support',
     rows: [
-      { label: 'Help center and email', values: [true, true, true, true] },
+      { label: 'Help centre and email', values: [true, true, true, true] },
       { label: 'Priority support', values: [false, false, true, true] },
       { label: 'Dedicated onboarding', values: [false, false, false, true] },
     ],
