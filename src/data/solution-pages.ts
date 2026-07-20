@@ -19,6 +19,8 @@ export interface SolutionPage {
   h1: string;
   heroSub: string;
   heroMock: 'dashboard' | 'phone';
+  /** Real hero image (app screenshot or photo), framed at natural aspect; replaces the mock. */
+  heroImage?: { src: string; alt: string; width: number; height: number; max: string };
   /** Section heading over the four benefits; varied per page (not a shared refrain). */
   benefitsTitle: string;
   benefits: { title: string; body: string }[];
@@ -247,6 +249,13 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       'Routes, navigation, order details and proof capture in one app. Built for gloves, low signal and a hundred stops a day.',
     heroMock: 'phone',
+    heroImage: {
+      src: '/images/product/app-onboarding.png',
+      alt: 'MLogTech driver app: guided first-run onboarding on a phone',
+      width: 414,
+      height: 852,
+      max: '300px',
+    },
     benefitsTitle: "What the driver's shift feels like.",
     sections: ['steps', 'splits', 'benefits', 'edu'],
     benefits: [
@@ -545,6 +554,13 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       'Daily walkaround inspections in the driver app: guided checklist, photos on defects, timestamped records. No paper, no "I’ll do it later".',
     heroMock: 'phone',
+    heroImage: {
+      src: '/images/vehicle-check-hero.jpg',
+      alt: 'A technician inspecting a commercial vehicle in the workshop',
+      width: 1360,
+      height: 906,
+      max: '560px',
+    },
     benefitsTitle: 'What digital checks put right.',
     sections: ['splits', 'steps', 'benefits', 'edu'],
     benefits: [

@@ -64,6 +64,20 @@ const breadcrumbs = {
                 class="block w-full"
               />
             </figure>
+          ) : page.heroImage ? (
+            <figure
+              class="mx-auto overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-lg)]"
+              style={`max-width:${page.heroImage.max}`}
+            >
+              <img
+                src={page.heroImage.src}
+                alt={page.heroImage.alt}
+                width={page.heroImage.width}
+                height={page.heroImage.height}
+                loading="eager"
+                class="block w-full"
+              />
+            </figure>
           ) : page.heroMock === 'phone' ? (
             <PhoneMock />
           ) : (
