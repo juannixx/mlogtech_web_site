@@ -173,8 +173,9 @@ export const compare: CompareGroup[] = [
   {
     group: 'Notifications',
     rows: [
-      { label: 'Email notifications', values: [true, true, true, true] },
-      { label: 'Push and SMS', values: [false, true, true, true] },
+      { label: 'Recipient status emails', values: [true, true, true, true] },
+      { label: 'Branded, switchable per company', values: [false, true, true, true] },
+      { label: 'Driver push with deep-link', values: [true, true, true, true] },
     ],
   },
   {

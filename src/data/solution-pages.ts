@@ -8,6 +8,8 @@ export interface Split {
   imageAlt: string;
   linkHref: string;
   linkLabel: string;
+  /** true when image is a product screenshot: framed at natural aspect, not cropped. */
+  shot?: boolean;
 }
 
 export interface SolutionPage {
@@ -373,15 +375,16 @@ export const solutionPages: SolutionPage[] = [
     splits: [
       {
         title: 'Built for operations, not just orders.',
-        body: 'Multiple depots, driver shifts, vehicle capacities and recurring routes. The operational reality of a transport business is first-class data here, not a workaround.',
-        image: '/images/truck-loaded.jpg',
-        imageAlt: 'An open trailer loaded with wrapped pallets ready for dispatch',
+        body: 'Depots, driver schedules, vehicle capacities and recurring routes. The operational reality of a transport business is first-class data here, planned in one panel, not a workaround.',
+        image: '/images/product/panel-schedule.jpg',
+        imageAlt: 'MLogTech work schedule: drivers across the week with availability and assigned routes for a depot',
+        shot: true,
         linkHref: '/features/',
         linkLabel: 'See the full feature list',
       },
       {
         title: 'Reports your customers can receive.',
-        body: 'Delivery performance per customer, exportable and schedulable. 3PL clients can watch their own orders through the customer portal instead of emailing you for updates.',
+        body: 'Delivery performance per customer, exportable to your own tools. 3PL clients can watch their own orders through the customer portal instead of emailing you for updates.',
         image: '/images/warehouse-truck.jpg',
         imageAlt: 'A box truck at a warehouse loading bay',
         linkHref: '/features/customer-portal/',

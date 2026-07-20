@@ -8,6 +8,8 @@ export interface FeaturePage {
   h1: string;
   heroPara: string;
   heroMock: 'dashboard' | 'phone';
+  /** Optional real product screenshot for the hero, framed instead of the mock. */
+  heroShot?: { src: string; alt: string; width: number; height: number };
   capabilities: { title: string; body: string }[];
   connects: { title: string; body: string; href: string; label: string }[];
   faq: { q: string; a: string }[];
@@ -129,16 +131,16 @@ export const featurePages: FeaturePage[] = [
     heroMock: 'dashboard',
     capabilities: [
       {
-        title: 'Status-triggered sends',
-        body: 'Dispatched, en route, next stop, delivered, failed: each status can trigger its own message.',
+        title: 'Recipient emails, by status',
+        body: 'Out-for-delivery, delivered and failed each send a branded email to the recipient, with a per-company on/off switch.',
       },
       {
-        title: 'Email and push',
-        body: 'Messages go where your customer is, with delivery confirmations carrying the POD.',
+        title: 'A tracking link in every message',
+        body: 'Each email carries the branded public tracking page, so the recipient can follow the delivery themselves.',
       },
       {
-        title: 'Your templates, your voice',
-        body: 'Message content is configurable per status, in your brand’s tone.',
+        title: 'Driver push with deep-link',
+        body: 'The driver’s own push notifications open the exact document or screen they point to, not a generic inbox.',
       },
     ],
     connects: [
@@ -150,7 +152,7 @@ export const featurePages: FeaturePage[] = [
       },
       {
         title: 'Closes with proof',
-        body: 'The delivered notification can attach the electronic POD, closing the loop with the customer.',
+        body: 'The delivered email can carry the electronic POD, closing the loop with the customer.',
         href: '/features/proof-of-delivery/',
         label: 'Electronic POD',
       },
@@ -158,15 +160,15 @@ export const featurePages: FeaturePage[] = [
     faq: [
       {
         q: 'Which channels are supported?',
-        a: 'Email and push notifications today. Additional channels are on the roadmap; tell us which one your operation needs.',
+        a: 'Recipients are updated by branded email today (out-for-delivery, delivered and failed), each switchable per company. Drivers get in-app push. More recipient channels are on the roadmap; tell us which one your operation needs.',
       },
       {
         q: 'Can I control when messages are sent?',
-        a: 'Yes. Each status transition has its own toggle and template, so you send exactly as much as your customers want.',
+        a: 'Yes. Each status has its own switch and template per company, so you send exactly as much as your customers want.',
       },
       {
         q: 'Do notifications reduce failed deliveries?',
-        a: 'Notified customers with a live ETA are far more likely to be available at the door, which is the single biggest lever on first-attempt success.',
+        a: 'A recipient who gets an out-for-delivery email with a live tracking link is far more likely to be there, which is the single biggest lever on first-attempt success.',
       },
     ],
   },
@@ -233,16 +235,16 @@ export const featurePages: FeaturePage[] = [
     heroMock: 'phone',
     capabilities: [
       {
-        title: 'Amount at the stop',
-        body: 'The app shows what to collect and records what was collected, with the proof.',
+        title: 'Expected amount at the stop',
+        body: 'The app shows what to collect and records the amount and the payment method used.',
       },
       {
-        title: 'Per-driver reconciliation',
-        body: 'End of shift shows expected versus collected per driver, discrepancies first.',
+        title: 'A note when it differs',
+        body: 'If the collected value does not match what was expected, the driver records why, on the spot.',
       },
       {
         title: 'On the order record',
-        body: 'Payments live on the same record as the delivery and the POD.',
+        body: 'The COD amount, method and note sit on the same record as the delivery and the POD.',
       },
     ],
     connects: [
@@ -261,16 +263,16 @@ export const featurePages: FeaturePage[] = [
     ],
     faq: [
       {
-        q: 'Can drivers accept partial payments?',
-        a: 'The collected amount is recorded as entered, so partials and adjustments are visible in reconciliation instead of hidden.',
+        q: 'What if the collected amount differs?',
+        a: 'The driver records the actual amount and a note explaining the difference, so a short payment is visible on the order instead of hidden.',
       },
       {
-        q: 'How do I see what a driver owes?',
-        a: 'The reconciliation view shows expected versus collected per driver per shift, with every order behind the numbers one click away.',
+        q: 'How do I total what was collected?',
+        a: 'Every COD event carries amount, method and note on its order, so collections total up per driver, route or day from the same records.',
       },
       {
         q: 'Does it handle card or digital payments?',
-        a: 'COD records the collection event regardless of method. Direct payment-terminal integrations are on the roadmap.',
+        a: 'COD records the collection event and the method used. Direct payment-terminal integrations are on the roadmap.',
       },
     ],
   },
@@ -283,18 +285,24 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Every stop, proof and exception is already a record. Reports turn them into answers: performance per driver, cost per route, service per customer.',
     heroMock: 'dashboard',
+    heroShot: {
+      src: '/images/product/panel-quality.jpg',
+      alt: 'MLogTech quality overview: overall score, safety and compliance, delivery completion rate and performance over time',
+      width: 1500,
+      height: 724,
+    },
     capabilities: [
       {
         title: 'Operational dashboards',
-        body: 'Completion rates, failed-delivery reasons, time per stop and route efficiency, live.',
+        body: 'Completion rates, failed-delivery reasons and route performance, read straight from what happened.',
       },
       {
-        title: 'Per customer and per driver',
-        body: 'Slice the same data by what the question needs: a client review or a team huddle.',
+        title: 'Delivery ratings and quality',
+        body: 'Recipients rate deliveries one to five; a quality overview aggregates ratings and performance across drivers and routes.',
       },
       {
-        title: 'Export and schedule',
-        body: 'CSV export for your BI, scheduled sends for the people who just need the summary.',
+        title: 'Export to your stack',
+        body: 'Export the underlying records to CSV for your own BI, or read them through the API.',
       },
     ],
     connects: [
@@ -314,15 +322,15 @@ export const featurePages: FeaturePage[] = [
     faq: [
       {
         q: 'Can I export the raw data?',
-        a: 'Yes, CSV export is available on reports, and the API exposes the underlying records for your own BI stack.',
+        a: 'Yes. Export the underlying records to CSV, or read them through the REST API for your own BI stack.',
       },
       {
-        q: 'Can reports be sent automatically?',
-        a: 'Yes. Scheduled reports go out by email at the cadence you set, per recipient.',
+        q: 'Where do the ratings come from?',
+        a: 'Recipients leave a one-to-five rating after delivery. Those roll up into the quality overview alongside completion and performance, so you see service quality by driver and route.',
       },
       {
         q: 'What metrics matter most for delivery?',
-        a: 'First-attempt success rate, time per stop, stops per route and failed-delivery reasons are the four that move cost and service fastest. All are on the default dashboard.',
+        a: 'First-attempt success, failed-delivery reasons, completion rate and delivery ratings are the ones that move cost and service fastest, and they sit on the default dashboards.',
       },
     ],
   },
@@ -333,48 +341,48 @@ export const featurePages: FeaturePage[] = [
       'Let shippers and 3PL clients create orders and follow their own deliveries in a portal, instead of emailing your dispatchers.',
     h1: 'A portal that answers your clients’ emails for you.',
     heroPara:
-      'Shippers and 3PL clients create their own orders, watch their own deliveries and pull their own PODs. Your dispatchers dispatch.',
+      'Give verified shippers and 3PL clients their own login to follow their deliveries and pull their own proof, instead of emailing your dispatchers for updates.',
     heroMock: 'dashboard',
     capabilities: [
       {
-        title: 'Self-service orders',
-        body: 'Clients enter or upload their orders directly; dispatch sees them arrive on the board.',
+        title: 'Scoped web access',
+        body: 'Verified customers get their own login to the dashboard, seeing only what belongs to them.',
       },
       {
         title: 'Their deliveries only',
-        body: 'Each client sees their own orders, statuses and proofs, and nothing else.',
+        body: 'Each client sees their own orders, statuses and proofs, and nothing from anyone else.',
       },
       {
         title: 'POD self-service',
-        body: 'Proof of delivery downloads without an email to your team.',
+        body: 'Clients download proof of delivery for their own orders without an email to your team.',
       },
     ],
     connects: [
       {
-        title: 'Orders flow to planning',
-        body: 'Portal orders join the same board and optimization as everything else.',
-        href: '/solutions/route-planning/',
-        label: 'Route planning',
+        title: 'One record, both sides',
+        body: 'Clients read the same order record your dispatchers work from, so nobody reconciles two views.',
+        href: '/solutions/tms/',
+        label: 'The transport cycle',
       },
       {
-        title: 'Built for courier work',
-        body: 'Same-day clients book jobs through the portal and watch them run.',
-        href: '/solutions/courier-dispatch/',
-        label: 'Courier dispatch',
+        title: 'Orders in by import or API',
+        body: 'Bring client orders in by spreadsheet or the import API; they land on the same board.',
+        href: '/integrations/',
+        label: 'Integrations',
       },
     ],
     faq: [
       {
         q: 'Can I control what each client sees?',
-        a: 'Yes. Access is scoped per client account: their orders, their statuses, their proofs.',
+        a: 'Yes. Access is scoped per client account: their orders, their statuses, their proofs, and nothing else.',
       },
       {
-        q: 'Do portal orders need re-entry?',
-        a: 'No. They land directly on the dispatch board, ready to be planned like any other order.',
+        q: 'How do a client’s orders get in?',
+        a: 'Orders are brought in by spreadsheet import or the import API and land on the dispatch board; the client then follows them in the portal.',
       },
       {
         q: 'Is the portal branded?',
-        a: 'The portal carries your brand, consistent with the tracking pages your customers already see.',
+        a: 'It carries your brand, consistent with the public tracking pages your customers already see.',
       },
     ],
   },
@@ -389,16 +397,16 @@ export const featurePages: FeaturePage[] = [
     heroMock: 'dashboard',
     capabilities: [
       {
-        title: 'Configurable layout',
-        body: 'Fields, sizes and branding set to your operation and your printers.',
+        title: '4×6 or A4, Code128',
+        body: 'Labels print at 4×6 or A4 with a Code128 barcode the driver app scans against the order.',
       },
       {
-        title: 'Scannable by design',
-        body: 'Every label carries the barcode or QR the driver app validates against.',
+        title: 'Delivery note per route',
+        body: 'A delivery note (BOL) generates with the route, alongside the labels.',
       },
       {
-        title: 'Batch printing',
-        body: 'Print the whole route’s labels in one go, in stop order.',
+        title: 'Documents for signature',
+        body: 'Upload a document, place signature fields on it and collect signatures at the door.',
       },
     ],
     connects: [
