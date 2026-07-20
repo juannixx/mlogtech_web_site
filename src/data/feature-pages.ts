@@ -10,6 +10,8 @@ export interface FeaturePage {
   heroMock: 'dashboard' | 'phone';
   /** Optional real product screenshot for the hero, framed instead of the mock. */
   heroShot?: { src: string; alt: string; width: number; height: number };
+  /** Real hero image (app screenshot or photo), framed at natural aspect; replaces the mock. */
+  heroImage?: { src: string; alt: string; width: number; height: number; max: string };
   /** Section headings, varied per page instead of a shared "What it does." refrain. */
   capabilitiesTitle: string;
   connectsTitle: string;
@@ -28,6 +30,13 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Every drop closes with evidence: signature, photo, scan, time and location, attached to the order the moment it happens. Paper delivery slips stay in the past.',
     heroMock: 'phone',
+    heroImage: {
+      src: '/images/doorstep-signature.jpg',
+      alt: 'A courier capturing proof of delivery on a handheld device at the customer’s door',
+      width: 908,
+      height: 1360,
+      max: '380px',
+    },
     capabilitiesTitle: 'What the proof captures.',
     connectsTitle: 'Where the proof goes next.',
     capabilities: [
@@ -190,6 +199,13 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'The camera on the driver’s phone is the scanner. Parcels are validated against the order at loading and again at the door, so the wrong box never gets signed for.',
     heroMock: 'phone',
+    heroImage: {
+      src: '/images/phone-scan.jpg',
+      alt: 'A driver scanning a labelled parcel with the phone in the vehicle',
+      width: 906,
+      height: 1360,
+      max: '380px',
+    },
     capabilitiesTitle: 'Where the scan happens.',
     connectsTitle: 'How scanning links in.',
     capabilities: [
@@ -244,6 +260,13 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'COD amounts are captured at the stop, tied to the order and reconciled per driver at end of shift. No envelopes, no memory, no end-of-week surprises.',
     heroMock: 'phone',
+    heroImage: {
+      src: '/images/product/app-payments.png',
+      alt: 'MLogTech driver app: money handled in the app, with amounts and statements',
+      width: 405,
+      height: 832,
+      max: '300px',
+    },
     capabilitiesTitle: 'What the collection records.',
     connectsTitle: 'Where COD shows up.',
     capabilities: [
