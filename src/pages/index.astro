@@ -277,12 +277,77 @@ const steps = [
     </div>
   </section>
 
-  <!-- 8. Testimonial: intentionally omitted until real quotes exist.
-       [PENDENTE SPEC-03 §10: depoimentos reais com nome, cargo e foto.
-       Nunca publicar depoimento inventado.] -->
+  <!-- 8. Beyond the route: the driver operation a pure router won't run.
+       Real differentiators from the product catalogue, shown with two real
+       driver-app screens (onboarding + pay). -->
+  <section class="section bg-surface-2">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="reveal flex justify-center gap-4">
+        <figure class="w-1/2 max-w-[220px]">
+          <img
+            src="/images/product/app-onboarding.png"
+            alt="MLogTech driver app: guided onboarding, step 1 of 8, pick your place"
+            width="414"
+            height="852"
+            loading="lazy"
+            class="w-full rounded-[var(--r)] border border-hair shadow-[var(--shadow-lg)]"
+          />
+          <figcaption class="mt-2 text-center text-[0.8rem] text-muted">Guided onboarding</figcaption>
+        </figure>
+        <figure class="mt-8 w-1/2 max-w-[220px]">
+          <img
+            src="/images/product/app-payments.png"
+            alt="MLogTech driver app: weekly driver pay with pending and paid statements"
+            width="405"
+            height="832"
+            loading="lazy"
+            class="w-full rounded-[var(--r)] border border-hair shadow-[var(--shadow-lg)]"
+          />
+          <figcaption class="mt-2 text-center text-[0.8rem] text-muted">Driver pay, in the app</figcaption>
+        </figure>
+      </div>
+      <div class="reveal">
+        <h2 class="h2 max-w-[20ch]">A pure router stops at the depot gate.</h2>
+        <p class="lead mt-4">
+          MLogTech also runs the people, compliance and vehicles behind every route, in the same
+          system. That is what a routing tool alone will not do.
+        </p>
+        <div class="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div>
+            <h3 class="text-[1.05rem] font-bold text-ink">Onboarding &amp; compliance</h3>
+            <p class="mt-1 text-[0.95rem]">
+              An 8-step first run captures documents, right-to-work and a DVLA licence check, with
+              training records kept per driver.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-[1.05rem] font-bold text-ink">Workforce &amp; pay</h3>
+            <p class="mt-1 text-[0.95rem]">
+              Schedules turn into driver invoices; the app shows pay as pending, flips it to paid
+              on the date, and holds the official payslip.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-[1.05rem] font-bold text-ink">Fleet &amp; maintenance</h3>
+            <p class="mt-1 text-[0.95rem]">
+              A full vehicle registry with inspections, insurance renewals, service reminders and
+              odometer history.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-[1.05rem] font-bold text-ink">Safety &amp; incidents</h3>
+            <p class="mt-1 text-[0.95rem]">
+              Drivers log accidents and vehicle damage from the road; offences and quality roll up
+              in one view.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- 9. Integrations -->
-  <section class="section bg-surface-2">
+  <section class="section">
     <div class="wrap">
       <div class="reveal max-w-[60ch]">
         <h2 class="h2">Your orders already live somewhere. Bring them in.</h2>
