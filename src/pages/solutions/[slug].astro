@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import DashboardMock from '../../components/DashboardMock.astro';
 import PhoneMock from '../../components/PhoneMock.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import FAQ from '../../components/FAQ.astro';
 import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../../data/site';
@@ -59,19 +60,7 @@ const breadcrumbs = {
   </section>
 
   <!-- 2. Social proof -->
-  <section class="border-y border-hair bg-surface py-8">
-    <div class="wrap flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-      <span class="text-[0.95rem] text-muted">Trusted by our partners</span>
-      <img
-        src="/images/molina-express.png"
-        alt="Molina Express"
-        width="140"
-        height="40"
-        loading="lazy"
-        class="h-9 w-auto opacity-80 grayscale"
-      />
-    </div>
-  </section>
+  <TrustStrip />
 
   <!-- 3. Four benefits -->
   <section class="section">
