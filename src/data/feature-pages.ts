@@ -10,6 +10,9 @@ export interface FeaturePage {
   heroMock: 'dashboard' | 'phone';
   /** Optional real product screenshot for the hero, framed instead of the mock. */
   heroShot?: { src: string; alt: string; width: number; height: number };
+  /** Section headings, varied per page instead of a shared "What it does." refrain. */
+  capabilitiesTitle: string;
+  connectsTitle: string;
   capabilities: { title: string; body: string }[];
   connects: { title: string; body: string; href: string; label: string }[];
   faq: { q: string; a: string }[];
@@ -25,6 +28,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Every drop closes with evidence: signature, photo, scan, time and location, attached to the order the moment it happens. Paper delivery slips stay in the past.',
     heroMock: 'phone',
+    capabilitiesTitle: 'What the proof captures.',
+    connectsTitle: 'Where the proof goes next.',
     capabilities: [
       {
         title: 'Signature and photo',
@@ -77,6 +82,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Dispatch sees every vehicle on one map. Customers see their own delivery on a page with your brand. Both stop calling to ask where the van is.',
     heroMock: 'dashboard',
+    capabilitiesTitle: 'What goes on the map.',
+    connectsTitle: 'What tracking feeds.',
     capabilities: [
       {
         title: 'Fleet map, live',
@@ -129,6 +136,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Customers are told when the order ships, when the van is near and when the parcel lands, automatically, with a tracking link in every message.',
     heroMock: 'dashboard',
+    capabilitiesTitle: 'What gets sent, and when.',
+    connectsTitle: 'What sets the messages off.',
     capabilities: [
       {
         title: 'Recipient emails, by status',
@@ -181,6 +190,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'The camera on the driver’s phone is the scanner. Parcels are validated against the order at loading and again at the door, so the wrong box never gets signed for.',
     heroMock: 'phone',
+    capabilitiesTitle: 'Where the scan happens.',
+    connectsTitle: 'How scanning links in.',
     capabilities: [
       {
         title: 'Load verification',
@@ -233,6 +244,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'COD amounts are captured at the stop, tied to the order and reconciled per driver at end of shift. No envelopes, no memory, no end-of-week surprises.',
     heroMock: 'phone',
+    capabilitiesTitle: 'What the collection records.',
+    connectsTitle: 'Where COD shows up.',
     capabilities: [
       {
         title: 'Expected amount at the stop',
@@ -291,6 +304,8 @@ export const featurePages: FeaturePage[] = [
       width: 1500,
       height: 724,
     },
+    capabilitiesTitle: 'What you can measure.',
+    connectsTitle: 'Where the numbers come from.',
     capabilities: [
       {
         title: 'Operational dashboards',
@@ -343,6 +358,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Give verified shippers and 3PL clients their own login to follow their deliveries and pull their own proof, instead of emailing your dispatchers for updates.',
     heroMock: 'dashboard',
+    capabilitiesTitle: 'What clients do themselves.',
+    connectsTitle: 'How it fits the operation.',
     capabilities: [
       {
         title: 'Scoped web access',
@@ -395,6 +412,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Labels are generated from the same orders the route was planned from, carrying the codes the scanner expects. Print at the depot and load.',
     heroMock: 'dashboard',
+    capabilitiesTitle: 'What prints with the route.',
+    connectsTitle: 'How labels link up.',
     capabilities: [
       {
         title: '4×6 or A4, Code128',
@@ -447,6 +466,8 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'A geofence around every stop records when the vehicle arrives and leaves. Service times become real data instead of driver memory.',
     heroMock: 'dashboard',
+    capabilitiesTitle: 'What gets logged, automatically.',
+    connectsTitle: 'What the timestamps feed.',
     capabilities: [
       {
         title: 'Automatic timestamps',

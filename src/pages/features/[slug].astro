@@ -77,7 +77,7 @@ const breadcrumbs = {
   <!-- 2. Three capabilities -->
   <section class="section bg-surface-2">
     <div class="wrap">
-      <h2 class="h2 reveal">What it does.</h2>
+      <h2 class="h2 reveal">{page.capabilitiesTitle}</h2>
       <div class="mt-10 grid gap-8 md:grid-cols-3">
         {
           page.capabilities.map((c) => (
@@ -94,7 +94,7 @@ const breadcrumbs = {
   <!-- 3. How it connects to the rest -->
   <section class="section">
     <div class="wrap">
-      <h2 class="h2 reveal max-w-[26ch]">Where it fits in the system.</h2>
+      <h2 class="h2 reveal max-w-[26ch]">{page.connectsTitle}</h2>
       <div class="mt-10 grid gap-6 md:grid-cols-2">
         {
           page.connects.map((c) => (

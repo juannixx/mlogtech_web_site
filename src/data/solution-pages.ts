@@ -19,6 +19,8 @@ export interface SolutionPage {
   h1: string;
   heroSub: string;
   heroMock: 'dashboard' | 'phone';
+  /** Section heading over the four benefits; varied per page (not a shared refrain). */
+  benefitsTitle: string;
   benefits: { title: string; body: string }[];
   stepsTitle: string;
   steps: { title: string; body: string }[];
@@ -40,6 +42,7 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       "Turn the day's orders into optimized routes in minutes, matched to your vehicles, shifts and time windows, and dispatched straight to the driver app.",
     heroMock: 'dashboard',
+    benefitsTitle: 'What the optimizer buys you.',
     benefits: [
       {
         title: 'Hours of planning down to minutes',
@@ -142,6 +145,7 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       'The final leg is where promises are kept or broken. MLogTech gives you live visibility of every van, notified customers and proof at the door.',
     heroMock: 'dashboard',
+    benefitsTitle: 'What the final mile stops costing.',
     benefits: [
       {
         title: 'Fewer failed deliveries',
@@ -239,6 +243,7 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       'Routes, navigation, order details and proof capture in one app. Built for gloves, low signal and a hundred stops a day.',
     heroMock: 'phone',
+    benefitsTitle: "What the driver's shift feels like.",
     benefits: [
       {
         title: 'One app for the whole shift',
@@ -336,6 +341,7 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       'Orders in, optimized routes out, live execution in the middle, and a POD against every order at the end. That is the whole transport cycle in one system.',
     heroMock: 'dashboard',
+    benefitsTitle: 'What one system replaces.',
     benefits: [
       {
         title: 'One record per order',
@@ -434,6 +440,7 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       'Jobs come in all day; your board keeps up. Assign in seconds, watch execution live, and close every job with proof.',
     heroMock: 'dashboard',
+    benefitsTitle: 'What the board changes.',
     benefits: [
       {
         title: 'Assign in seconds',
@@ -531,6 +538,7 @@ export const solutionPages: SolutionPage[] = [
     heroSub:
       'Daily walkaround inspections in the driver app: guided checklist, photos on defects, timestamped records. No paper, no "I’ll do it later".',
     heroMock: 'phone',
+    benefitsTitle: 'What digital checks put right.',
     benefits: [
       {
         title: 'Checks happen every day',
