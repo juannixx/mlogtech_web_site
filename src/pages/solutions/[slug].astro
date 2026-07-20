@@ -123,14 +123,22 @@ const breadcrumbs = {
             </a>
           </div>
           <div class:list={['reveal', i % 2 === 1 && 'order-2 lg:order-1']}>
-            <img
-              src={split.image}
-              alt={split.imageAlt}
-              width="1200"
-              height="800"
-              loading="lazy"
-              class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
-            />
+            {
+              split.shot ? (
+                <figure class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-md)]">
+                  <img src={split.image} alt={split.imageAlt} width="1500" height="778" loading="lazy" class="block w-full" />
+                </figure>
+              ) : (
+                <img
+                  src={split.image}
+                  alt={split.imageAlt}
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
+                />
+              )
+            }
           </div>
         </div>
       ))

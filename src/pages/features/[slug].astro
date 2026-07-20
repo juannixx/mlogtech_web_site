@@ -52,7 +52,24 @@ const breadcrumbs = {
         </div>
       </div>
       <div class="reveal">
-        {page.heroMock === 'phone' ? <PhoneMock /> : <DashboardMock />}
+        {
+          page.heroShot ? (
+            <figure class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-lg)]">
+              <img
+                src={page.heroShot.src}
+                alt={page.heroShot.alt}
+                width={page.heroShot.width}
+                height={page.heroShot.height}
+                loading="eager"
+                class="block w-full"
+              />
+            </figure>
+          ) : page.heroMock === 'phone' ? (
+            <PhoneMock />
+          ) : (
+            <DashboardMock />
+          )
+        }
       </div>
     </div>
   </section>
