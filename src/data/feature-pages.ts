@@ -30,7 +30,7 @@ export const featurePages: FeaturePage[] = [
       },
       {
         title: 'Barcode against the order',
-        body: 'Scanning validates that the right parcel reached the right address before the stop can close.',
+        body: 'A Code128 or QR scan is checked against the tracking number before the stop can close, so the right parcel reaches the right address.',
       },
       {
         title: 'Offline capture',
