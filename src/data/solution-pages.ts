@@ -25,6 +25,8 @@ export interface SolutionPage {
   stepsTitle: string;
   steps: { title: string; body: string }[];
   splits: Split[];
+  /** Order of the middle content modules, varied per page so the six solution pages are not one template. */
+  sections: ('benefits' | 'steps' | 'splits' | 'edu')[];
   eduTitle: string;
   eduParagraphs: string[];
   ctaTitle: string;
@@ -43,6 +45,7 @@ export const solutionPages: SolutionPage[] = [
       "Turn the day's orders into optimized routes in minutes, matched to your vehicles, shifts and time windows, and dispatched straight to the driver app.",
     heroMock: 'dashboard',
     benefitsTitle: 'What the optimizer buys you.',
+    sections: ['benefits', 'steps', 'splits', 'edu'],
     benefits: [
       {
         title: 'Hours of planning down to minutes',
@@ -146,6 +149,7 @@ export const solutionPages: SolutionPage[] = [
       'The final leg is where promises are kept or broken. MLogTech gives you live visibility of every van, notified customers and proof at the door.',
     heroMock: 'dashboard',
     benefitsTitle: 'What the final mile stops costing.',
+    sections: ['splits', 'benefits', 'steps', 'edu'],
     benefits: [
       {
         title: 'Fewer failed deliveries',
@@ -244,6 +248,7 @@ export const solutionPages: SolutionPage[] = [
       'Routes, navigation, order details and proof capture in one app. Built for gloves, low signal and a hundred stops a day.',
     heroMock: 'phone',
     benefitsTitle: "What the driver's shift feels like.",
+    sections: ['steps', 'splits', 'benefits', 'edu'],
     benefits: [
       {
         title: 'One app for the whole shift',
@@ -342,6 +347,7 @@ export const solutionPages: SolutionPage[] = [
       'Orders in, optimized routes out, live execution in the middle, and a POD against every order at the end. That is the whole transport cycle in one system.',
     heroMock: 'dashboard',
     benefitsTitle: 'What one system replaces.',
+    sections: ['benefits', 'splits', 'steps', 'edu'],
     benefits: [
       {
         title: 'One record per order',
@@ -441,6 +447,7 @@ export const solutionPages: SolutionPage[] = [
       'Jobs come in all day; your board keeps up. Assign in seconds, watch execution live, and close every job with proof.',
     heroMock: 'dashboard',
     benefitsTitle: 'What the board changes.',
+    sections: ['steps', 'benefits', 'splits', 'edu'],
     benefits: [
       {
         title: 'Assign in seconds',
@@ -539,6 +546,7 @@ export const solutionPages: SolutionPage[] = [
       'Daily walkaround inspections in the driver app: guided checklist, photos on defects, timestamped records. No paper, no "I’ll do it later".',
     heroMock: 'phone',
     benefitsTitle: 'What digital checks put right.',
+    sections: ['splits', 'steps', 'benefits', 'edu'],
     benefits: [
       {
         title: 'Checks happen every day',
