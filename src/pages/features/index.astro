@@ -2,6 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { featured, webPanel, driverApp } from '../../data/features';
+
+// Lead with ePOD as the focal navy tile (the through-line capability, echoing
+// the home), so the grid has a hierarchy instead of nine identical cards.
+const LEAD = 'proof-of-delivery';
+const lead = featured.find((f) => f.slug === LEAD)!;
+const rest = featured.filter((f) => f.slug !== LEAD);
 ---
 
 <Base
@@ -11,7 +17,7 @@ import { featured, webPanel, driverApp } from '../../data/features';
   <section class="section pb-8">
     <div class="wrap">
       <h1 class="display max-w-[22ch]">Everything the route needs, listed.</h1>
-      <p class="lead mt-4">
+      <p class="lead mt-4 max-w-[60ch]">
         The web panel plans and watches the operation; the driver app executes it. These are the
         pieces, with the nine most asked-about first.
       </p>
@@ -20,8 +26,28 @@ import { featured, webPanel, driverApp } from '../../data/features';
 
   <section class="pb-16">
     <div class="wrap grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Focal tile: ePOD, the capability the whole system closes on. -->
+      <a
+        id={lead.slug}
+        href={`/features/${lead.slug}/`}
+        class="reveal group flex flex-col justify-between rounded-[var(--r)] border border-hair bg-[color:var(--fixed-dark)] p-8 md:col-span-2 lg:row-span-2 lg:p-10"
+      >
+        <div>
+          <h2 class="text-[clamp(1.4rem,2.4vw,1.9rem)] font-bold leading-tight text-[color:var(--fixed-ink)]">
+            {lead.title}
+          </h2>
+          <p class="mt-4 max-w-[42ch] text-[1.02rem] text-[color:var(--fixed-body)]">
+            Signature, photo and barcode captured at the door, stamped with time and location. The
+            proof syncs the moment it happens and keeps working when the signal does not.
+          </p>
+        </div>
+        <span class="mt-8 font-semibold text-accent transition-transform duration-200 group-hover:translate-x-1">
+          Explore electronic POD &rarr;
+        </span>
+      </a>
+
       {
-        featured.map((f) => (
+        rest.map((f) => (
           <a
             id={f.slug}
             href={`/features/${f.slug}/`}
