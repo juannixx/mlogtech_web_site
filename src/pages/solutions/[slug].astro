@@ -62,87 +62,81 @@ const breadcrumbs = {
   <!-- 2. Social proof -->
   <TrustStrip />
 
-  <!-- 3. Four benefits -->
-  <section class="section">
-    <div class="wrap">
-      <h2 class="h2 reveal max-w-[26ch]">{page.benefitsTitle}</h2>
-      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {
-          page.benefits.map((b) => (
-            <div class="reveal border-t-2 border-hair-strong pt-5">
-              <h3 class="h3 text-[1.15rem]">{b.title}</h3>
-              <p class="mt-2.5 text-[0.96rem]">{b.body}</p>
+  <!-- 3-6. Middle modules, rendered in page.sections order so the six solution
+       pages are not one template. Background alternates by POSITION, keeping the
+       zebra rhythm regardless of the order chosen. -->
+  {
+    page.sections.map((key, idx) => (
+      <section class:list={['section', idx % 2 === 1 && 'bg-surface-2']}>
+        {key === 'benefits' && (
+          <div class="wrap">
+            <h2 class="h2 reveal max-w-[26ch]">{page.benefitsTitle}</h2>
+            <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {page.benefits.map((b) => (
+                <div class="reveal border-t-2 border-hair-strong pt-5">
+                  <h3 class="h3 text-[1.15rem]">{b.title}</h3>
+                  <p class="mt-2.5 text-[0.96rem]">{b.body}</p>
+                </div>
+              ))}
             </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. How it works -->
-  <section class="section bg-surface-2">
-    <div class="wrap">
-      <h2 class="h2 reveal">{page.stepsTitle}</h2>
-      <ol class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-        {
-          page.steps.map((s, i) => (
-            <li class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
-              <span class="data text-[0.8rem] text-accent-text">Step {i + 1}</span>
-              <h3 class="h3 mt-2 text-[1.15rem]">{s.title}</h3>
-              <p class="mt-2 text-[0.95rem]">{s.body}</p>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
-  <!-- 5. Solution features (alternating splits) -->
-  <section class="section">
-    {
-      page.splits.map((split, i) => (
-        <div
-          class:list={['wrap grid items-center gap-12 lg:grid-cols-2', i > 0 && 'mt-16']}
-        >
-          <div class:list={['reveal', i % 2 === 1 && 'order-1 lg:order-2']}>
-            <h2 class="h2">{split.title}</h2>
-            <p class="mt-4">{split.body}</p>
-            <a href={split.linkHref} class="textlink mt-5 inline-block">
-              {split.linkLabel}
-            </a>
           </div>
-          <div class:list={['reveal', i % 2 === 1 && 'order-2 lg:order-1']}>
-            {
-              split.shot ? (
-                <figure class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-md)]">
-                  <img src={split.image} alt={split.imageAlt} width="1500" height="778" loading="lazy" class="block w-full" />
-                </figure>
-              ) : (
-                <img
-                  src={split.image}
-                  alt={split.imageAlt}
-                  width="1200"
-                  height="800"
-                  loading="lazy"
-                  class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
-                />
-              )
-            }
-          </div>
-        </div>
-      ))
-    }
-  </section>
+        )}
 
-  <!-- 6. Educational section -->
-  <section class="section bg-surface-2">
-    <div class="wrap max-w-[760px]">
-      <h2 class="h2 reveal">{page.eduTitle}</h2>
-      <div class="mt-6 space-y-4 text-[1.02rem]">
-        {page.eduParagraphs.map((p) => <p>{p}</p>)}
-      </div>
-    </div>
-  </section>
+        {key === 'steps' && (
+          <div class="wrap">
+            <h2 class="h2 reveal">{page.stepsTitle}</h2>
+            <ol class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+              {page.steps.map((s, i) => (
+                <li class="reveal rounded-[var(--r)] border border-hair bg-surface p-6">
+                  <span class="data text-[0.8rem] text-accent-text">Step {i + 1}</span>
+                  <h3 class="h3 mt-2 text-[1.15rem]">{s.title}</h3>
+                  <p class="mt-2 text-[0.95rem]">{s.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
+        {key === 'splits' &&
+          page.splits.map((split, i) => (
+            <div class:list={['wrap grid items-center gap-12 lg:grid-cols-2', i > 0 && 'mt-16']}>
+              <div class:list={['reveal', i % 2 === 1 && 'order-1 lg:order-2']}>
+                <h2 class="h2">{split.title}</h2>
+                <p class="mt-4">{split.body}</p>
+                <a href={split.linkHref} class="textlink mt-5 inline-block">
+                  {split.linkLabel}
+                </a>
+              </div>
+              <div class:list={['reveal', i % 2 === 1 && 'order-2 lg:order-1']}>
+                {split.shot ? (
+                  <figure class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-md)]">
+                    <img src={split.image} alt={split.imageAlt} width="1500" height="778" loading="lazy" class="block w-full" />
+                  </figure>
+                ) : (
+                  <img
+                    src={split.image}
+                    alt={split.imageAlt}
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                    class="h-[360px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[430px]"
+                  />
+                )}
+              </div>
+            </div>
+          ))}
+
+        {key === 'edu' && (
+          <div class="wrap max-w-[760px]">
+            <h2 class="h2 reveal">{page.eduTitle}</h2>
+            <div class="mt-6 space-y-4 text-[1.02rem]">
+              {page.eduParagraphs.map((p) => <p>{p}</p>)}
+            </div>
+          </div>
+        )}
+      </section>
+    ))
+  }
 
   <!-- 7. CTA -->
   <CTABanner title={page.ctaTitle} note={page.ctaNote} />
