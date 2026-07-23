@@ -1,0 +1,40 @@
+---
+// Home hero visual: the web dispatch panel with the driver app in front.
+// This is the "One system." payoff made literal — the same operation on the
+// desk and in the driver's hand. Above the fold, so every layer loads eager.
+---
+
+<div class="hero-devices relative mx-auto w-full max-w-[560px] pb-[24%] sm:pb-[18%] lg:max-w-none lg:pb-[14%]">
+  <!-- Back plane: the dispatch dashboard (web) -->
+  <figure
+    class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-lg)]"
+  >
+    <img
+      src="/images/product/panel-dashboard.jpg"
+      alt="The MLogTech dispatch dashboard for a depot: this week's routes, fleet overview, inspections needing attention, document renewals and pending driver requests"
+      width="1500"
+      height="732"
+      loading="eager"
+      class="block w-full"
+    />
+  </figure>
+
+  <!-- Front: the driver app, two screens fanned over the lower-left corner.
+       The address screen sits behind; the sign-in screen leads. -->
+  <img
+    src="/images/product/app-address.png"
+    alt="MLogTech driver app during onboarding: search an address, then drag the map pin to the exact door"
+    width="540"
+    height="1200"
+    loading="eager"
+    class="absolute bottom-[6%] left-[16%] z-10 w-[23%] max-w-[150px] rotate-[4deg] rounded-[1.4rem] border border-hair-strong bg-surface shadow-[var(--shadow-lg)] ring-1 ring-black/5"
+  />
+  <img
+    src="/images/product/app-login.png"
+    alt="MLogTech driver app sign-in: 'Your route, sorted', with a Start my shift button"
+    width="540"
+    height="1200"
+    loading="eager"
+    class="absolute bottom-[-6%] left-[1%] z-20 w-[25%] max-w-[164px] -rotate-[4deg] rounded-[1.4rem] border border-hair-strong bg-surface shadow-[var(--shadow-lg)] ring-1 ring-black/5"
+  />
+</div>
