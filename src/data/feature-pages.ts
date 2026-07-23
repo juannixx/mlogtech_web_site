@@ -30,12 +30,11 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Every drop closes with evidence: signature, photo, scan, time and location, attached to the order the moment it happens. Paper delivery slips stay in the past.',
     heroMock: 'phone',
-    heroImage: {
-      src: '/images/doorstep-signature.jpg',
-      alt: 'A courier capturing proof of delivery on a handheld device at the customer’s door',
-      width: 908,
-      height: 1360,
-      max: '380px',
+    heroShot: {
+      src: '/images/epod-workflow.jpg',
+      alt: 'Four moments of electronic proof of delivery: a signature captured on a tablet at the door, a photo of parcels left safely, the paper slips it replaces, and the route on an in-cab tablet',
+      width: 1400,
+      height: 763,
     },
     capabilitiesTitle: 'What the proof captures.',
     connectsTitle: 'Where the proof goes next.',
@@ -91,6 +90,12 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Dispatch sees every vehicle on one map. Customers see their own delivery on a page with your brand. Both stop calling to ask where the van is.',
     heroMock: 'dashboard',
+    heroShot: {
+      src: '/images/live-tracking-customer.jpg',
+      alt: 'A customer at home following her delivery on the MLogTech app on her phone',
+      width: 1400,
+      height: 763,
+    },
     capabilitiesTitle: 'What goes on the map.',
     connectsTitle: 'What tracking feeds.',
     capabilities: [
@@ -322,10 +327,10 @@ export const featurePages: FeaturePage[] = [
       'Every stop, proof and exception is already a record. Reports turn them into answers: performance per driver, cost per route, service per customer.',
     heroMock: 'dashboard',
     heroShot: {
-      src: '/images/product/panel-quality.jpg',
-      alt: 'MLogTech quality overview: overall score, safety and compliance, delivery completion rate and performance over time',
-      width: 1500,
-      height: 724,
+      src: '/images/reports-analytics.jpg',
+      alt: 'A manager reviewing delivery performance reports on a laptop: on-time rate, cost per route and customer service scores',
+      width: 1400,
+      height: 763,
     },
     capabilitiesTitle: 'What you can measure.',
     connectsTitle: 'Where the numbers come from.',
@@ -435,6 +440,12 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'Labels are generated from the same orders the route was planned from, carrying the codes the scanner expects. Print at the depot and load.',
     heroMock: 'dashboard',
+    heroShot: {
+      src: '/images/shipping-labels-depot.jpg',
+      alt: 'A depot worker applying a barcoded shipping label to a parcel beside a label printer, with an MLogTech delivery van loading behind',
+      width: 1400,
+      height: 764,
+    },
     capabilitiesTitle: 'What prints with the route.',
     connectsTitle: 'How labels link up.',
     capabilities: [
@@ -489,6 +500,12 @@ export const featurePages: FeaturePage[] = [
     heroPara:
       'A geofence around every stop records when the vehicle arrives and leaves. Service times become real data instead of driver memory.',
     heroMock: 'dashboard',
+    heroShot: {
+      src: '/images/geofencing-arrival.jpg',
+      alt: 'A geofence drawn around a delivery van at a stop, with an arrival and departure time logged automatically for the stop',
+      width: 1400,
+      height: 874,
+    },
     capabilitiesTitle: 'What gets logged, automatically.',
     connectsTitle: 'What the timestamps feed.',
     capabilities: [

@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import DashboardMock from '../components/DashboardMock.astro';
+import HeroDevices from '../components/HeroDevices.astro';
 import RouteMap from '../components/RouteMap.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import CTABanner from '../components/CTABanner.astro';
@@ -80,7 +80,7 @@ const steps = [
         <p class="mt-4 text-[0.9rem] text-muted">Free trial. No card required.</p>
       </div>
       <div class="reveal">
-        <DashboardMock />
+        <HeroDevices />
       </div>
     </div>
   </section>
@@ -201,16 +201,15 @@ const steps = [
   <!-- 6. Feature spotlight: ePOD -->
   <section class="section bg-surface-2" id="epod">
     <div class="wrap grid items-center gap-12 lg:grid-cols-2">
-      <div class="reveal order-2 flex justify-center lg:order-1">
+      <div class="reveal order-2 lg:order-1">
         <figure
           class="overflow-hidden rounded-[var(--r-lg)] border border-hair bg-surface shadow-[var(--shadow-lg)]"
-          style="max-width:400px"
         >
           <img
-            src="/images/doorstep-signature.jpg"
-            alt="A courier capturing proof of delivery on a handheld device at the customer’s door"
-            width="908"
-            height="1360"
+            src="/images/pod-signature-capture.webp"
+            alt="A customer signing for a delivery on the driver's phone, which shows a delivery notification with a barcode and signature pad, as the courier hands over a parcel marked fragile"
+            width="1325"
+            height="885"
             loading="lazy"
             class="block w-full"
           />
@@ -270,8 +269,18 @@ const steps = [
           >More on live tracking</a
         >
       </div>
-      <div class="reveal">
+      <div class="reveal relative pb-10 sm:pb-6 lg:pb-8">
         <RouteMap />
+        <!-- The same live location, seen from the cab: a real hand on a phone
+             overlapping the tracking map to make "they can see the van" literal. -->
+        <img
+          src="/images/live-tracking-phone.jpg"
+          alt="A person in a vehicle following a delivery's live location on a map on their phone"
+          width="1000"
+          height="666"
+          loading="lazy"
+          class="absolute bottom-[-6%] left-[3%] z-10 w-[40%] max-w-[250px] -rotate-[3deg] rounded-[var(--r)] border-4 border-surface bg-surface shadow-[var(--shadow-lg)] ring-1 ring-black/5"
+        />
       </div>
     </div>
   </section>
@@ -281,29 +290,37 @@ const steps = [
        driver-app screens (onboarding + pay). -->
   <section class="section bg-surface-2">
     <div class="wrap grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-      <div class="reveal flex justify-center gap-4">
-        <figure class="w-1/2 max-w-[220px]">
+      <!-- The people running the operation (dispatch and back office) with the
+           driver app in front: the half of the job a routing tool never touches. -->
+      <div class="reveal relative pb-[15%] sm:pb-[10%] lg:pb-[8%]">
+        <figure
+          class="overflow-hidden rounded-[var(--r-lg)] border border-hair shadow-[var(--shadow-lg)]"
+        >
           <img
-            src="/images/product/app-onboarding.png"
-            alt="MLogTech driver app: guided onboarding, step 1 of 8, pick your place"
-            width="414"
-            height="852"
+            src="/images/ops-team-dispatch.jpg"
+            alt="An operations team at their desks with headsets, coordinating deliveries on screen"
+            width="1100"
+            height="733"
             loading="lazy"
-            class="w-full rounded-[var(--r)] border border-hair shadow-[var(--shadow-lg)]"
+            class="block w-full"
           />
-          <figcaption class="mt-2 text-center text-[0.8rem] text-muted">Guided onboarding</figcaption>
         </figure>
-        <figure class="mt-8 w-1/2 max-w-[220px]">
-          <img
-            src="/images/product/app-payments.png"
-            alt="MLogTech driver app: weekly driver pay with pending and paid statements"
-            width="405"
-            height="832"
-            loading="lazy"
-            class="w-full rounded-[var(--r)] border border-hair shadow-[var(--shadow-lg)]"
-          />
-          <figcaption class="mt-2 text-center text-[0.8rem] text-muted">Driver pay, in the app</figcaption>
-        </figure>
+        <img
+          src="/images/product/app-onboarding.png"
+          alt="MLogTech driver app: guided onboarding, step 1 of 8, pick your place"
+          width="414"
+          height="852"
+          loading="lazy"
+          class="absolute bottom-[-9%] left-[6%] z-10 w-[25%] max-w-[132px] -rotate-[5deg] rounded-[1.1rem] border border-hair-strong bg-surface shadow-[var(--shadow-lg)] ring-1 ring-black/5"
+        />
+        <img
+          src="/images/product/app-payments.png"
+          alt="MLogTech driver app: weekly driver pay with pending and paid statements"
+          width="405"
+          height="832"
+          loading="lazy"
+          class="absolute bottom-[-5%] left-[31%] z-20 w-[25%] max-w-[132px] rotate-[4deg] rounded-[1.1rem] border border-hair-strong bg-surface shadow-[var(--shadow-lg)] ring-1 ring-black/5"
+        />
       </div>
       <div class="reveal">
         <h2 class="h2 max-w-[20ch]">A pure router stops at the depot gate.</h2>
@@ -348,12 +365,26 @@ const steps = [
   <!-- 9. Integrations -->
   <section class="section">
     <div class="wrap">
-      <div class="reveal max-w-[60ch]">
-        <h2 class="h2">Your orders already live somewhere. Bring them in.</h2>
-        <p class="lead mt-4">
-          Import from spreadsheets today, connect your stack through the API, and use native
-          integrations as the catalogue rolls out.
-        </p>
+      <div class="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="reveal max-w-[52ch]">
+          <h2 class="h2">Your orders already live somewhere. Bring them in.</h2>
+          <p class="lead mt-4">
+            Import from spreadsheets today, connect your stack through the API, and use native
+            integrations as the catalogue rolls out.
+          </p>
+        </div>
+        <figure
+          class="reveal aspect-[3/2] overflow-hidden rounded-[var(--r-lg)] border border-hair shadow-[var(--shadow-lg)]"
+        >
+          <img
+            src="/images/integrations-network.jpg"
+            alt="A stylised 3D lorry on a glowing map, its delivery routes and stops drawn as a connected network"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            class="block h-full w-full object-cover"
+          />
+        </figure>
       </div>
       <!-- One panel, two available-now columns split by a hairline, with the
            rollout note as a footer row. Distinct from the card grids above. -->
