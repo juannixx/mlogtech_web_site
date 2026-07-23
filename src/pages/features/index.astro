@@ -26,22 +26,32 @@ const rest = featured.filter((f) => f.slug !== LEAD);
 
   <section class="pb-16">
     <div class="wrap grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Focal tile: ePOD, the capability the whole system closes on. -->
+      <!-- Focal tile: ePOD, the capability the whole system closes on.
+           Each card carries a representative photo behind a dark scrim. -->
       <a
         id={lead.slug}
         href={`/features/${lead.slug}/`}
-        class="reveal group flex flex-col justify-between rounded-[var(--r)] border border-white/12 bg-[color:var(--fixed-dark)] p-8 shadow-[var(--shadow-lg)] md:col-span-2 lg:row-span-2 lg:p-10"
+        class="reveal group relative isolate flex min-h-[280px] flex-col justify-end overflow-hidden rounded-[var(--r)] border border-white/12 p-8 shadow-[var(--shadow-lg)] transition-transform duration-200 hover:-translate-y-1 md:col-span-2 lg:row-span-2 lg:p-10"
       >
-        <div>
-          <h2 class="text-[clamp(1.4rem,2.4vw,1.9rem)] font-bold leading-tight text-[color:var(--fixed-ink)]">
-            {lead.title}
-          </h2>
-          <p class="mt-4 max-w-[42ch] text-[1.02rem] text-[color:var(--fixed-body)]">
-            Signature, photo and barcode captured at the door, stamped with time and location. The
-            proof syncs the moment it happens and keeps working when the signal does not.
-          </p>
+        <img
+          src={lead.image}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          class="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-t from-[color:var(--fixed-dark)] via-[color:var(--fixed-dark)]/85 to-[color:var(--fixed-dark)]/40"
+        >
         </div>
-        <span class="mt-8 font-semibold text-accent transition-transform duration-200 group-hover:translate-x-1">
+        <h2 class="text-[clamp(1.4rem,2.4vw,1.9rem)] font-bold leading-tight text-[color:var(--fixed-ink)]">
+          {lead.title}
+        </h2>
+        <p class="mt-4 max-w-[42ch] text-[1.02rem] text-[color:var(--fixed-body)]">
+          Signature, photo and barcode captured at the door, stamped with time and location. The
+          proof syncs the moment it happens and keeps working when the signal does not.
+        </p>
+        <span class="mt-6 font-semibold text-accent transition-transform duration-200 group-hover:translate-x-1">
           Explore electronic POD &rarr;
         </span>
       </a>
@@ -51,11 +61,21 @@ const rest = featured.filter((f) => f.slug !== LEAD);
           <a
             id={f.slug}
             href={`/features/${f.slug}/`}
-            class="reveal group flex flex-col rounded-[var(--r)] border border-hair bg-surface p-6 transition-transform duration-200 hover:-translate-y-1"
+            class="reveal group relative isolate flex min-h-[220px] flex-col justify-end overflow-hidden rounded-[var(--r)] border border-white/12 p-6 shadow-[var(--shadow-lg)] transition-transform duration-200 hover:-translate-y-1"
           >
-            <h2 class="h3">{f.title}</h2>
-            <p class="mt-2 flex-1 text-[0.95rem]">{f.short}</p>
-            <span class="textlink mt-4">Explore</span>
+            <img
+              src={f.image}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              class="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[color:var(--fixed-dark)] via-[color:var(--fixed-dark)]/85 to-[color:var(--fixed-dark)]/40" />
+            <h2 class="h3 text-[color:var(--fixed-ink)]">{f.title}</h2>
+            <p class="mt-2 text-[0.95rem] text-[color:var(--fixed-body)]">{f.short}</p>
+            <span class="mt-4 font-semibold text-accent transition-transform duration-200 group-hover:translate-x-1">
+              Explore &rarr;
+            </span>
           </a>
         ))
       }
@@ -66,7 +86,24 @@ const rest = featured.filter((f) => f.slug !== LEAD);
     <div class="wrap grid gap-12 lg:grid-cols-2">
       <div>
         <h2 class="h2 reveal">Web panel</h2>
-        <ul class="mt-6 grid gap-x-8 gap-y-2.5 text-[0.95rem] sm:grid-cols-2">
+        <div class="reveal mt-6 grid grid-cols-3 gap-3">
+          {
+            [
+              '/images/product/panel-dashboard.jpg',
+              '/images/product/panel-tracking.jpg',
+              '/images/product/panel-quality.jpg',
+            ].map((src) => (
+              <img
+                src={src}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                class="aspect-video w-full rounded-[var(--r)] border border-hair object-cover object-left-top shadow-[var(--shadow-md)]"
+              />
+            ))
+          }
+        </div>
+        <ul class="mt-8 grid gap-x-8 gap-y-2.5 text-[0.95rem] sm:grid-cols-2">
           {
             webPanel.map((item) => (
               <li class="flex gap-2.5">
@@ -81,7 +118,25 @@ const rest = featured.filter((f) => f.slug !== LEAD);
       </div>
       <div>
         <h2 class="h2 reveal">Driver app (iOS and Android)</h2>
-        <ul class="mt-6 grid gap-x-8 gap-y-2.5 text-[0.95rem] sm:grid-cols-2">
+        <div class="reveal mt-6 grid grid-cols-4 gap-3">
+          {
+            [
+              '/images/product/app-login.png',
+              '/images/product/app-address.png',
+              '/images/product/app-onboarding.png',
+              '/images/product/app-payments.png',
+            ].map((src) => (
+              <img
+                src={src}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                class="aspect-[3/4] w-full rounded-[var(--r)] border border-hair object-cover object-top shadow-[var(--shadow-md)]"
+              />
+            ))
+          }
+        </div>
+        <ul class="mt-8 grid gap-x-8 gap-y-2.5 text-[0.95rem] sm:grid-cols-2">
           {
             driverApp.map((item) => (
               <li class="flex gap-2.5">
