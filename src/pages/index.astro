@@ -16,18 +16,18 @@ const softwareSchema = {
     'Delivery management software with electronic proof of delivery, live tracking and route optimisation.',
 };
 
-const pains = [
+const solutionPoints = [
   {
-    title: 'Failed deliveries you find out about tomorrow',
-    body: 'A missed drop only surfaces when the customer complains. By then the van is back and the reroute costs double.',
+    title: 'Stop paying twice for the same delivery',
+    body: 'Routes are built around real delivery windows, and any stop at risk of missing its deadline is flagged to the driver in time to act. When one does fail, the reason and the photo reach the office while the van is still out, so you can plan the redelivery the same day.',
   },
   {
-    title: 'Paper PODs that go missing',
-    body: 'Signatures live on sheets in glove boxes. Proving a delivery for an invoice dispute means digging through paper.',
+    title: 'Proof on every parcel, in seconds',
+    body: 'Photo, signature, the name of who signed for it, location, time and barcode scan, all attached to the order automatically. Settle an invoice dispute by sending a link, instead of spending an afternoon going through gloveboxes.',
   },
   {
-    title: '"Where is my order?" calls all day',
-    body: 'Without live tracking and notifications, your office becomes a call centre for delivery status.',
+    title: 'Your customers stop calling',
+    body: 'Recipients get a tracking page branded in your client’s name, with a live ETA and an email when the parcel is out for delivery and again when it arrives. Your office stops being a call centre for delivery status.',
   },
 ];
 
@@ -69,9 +69,11 @@ const steps = [
             One system.
           </span>
         </h1>
-        <p class="lead mt-6 max-w-[46ch]">
-          Plan the route, run it through the driver app, prove every drop. One record per order,
-          from the depot to the doorstep.
+        <p class="lead mt-6 max-w-[54ch]">
+          MLogTech designs and delivers scalable software for organisations that need clarity,
+          performance and long-term reliability. The platform runs the whole delivery operation in
+          one product: route planning, a native driver app, proof of delivery, customer tracking,
+          workforce and pay, compliance, fleet and CRM.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
@@ -88,13 +90,13 @@ const steps = [
   <!-- 2. Social proof -->
   <TrustStrip />
 
-  <!-- 3. Problem -->
+  <!-- 3. Solutions -->
   <section class="section">
     <div class="wrap">
-      <h2 class="h2 reveal max-w-[24ch]">The last mile is where the plan falls apart.</h2>
+      <h2 class="h2 reveal max-w-[24ch]">Our solutions:</h2>
       <div class="mt-10 grid gap-8 md:grid-cols-3">
         {
-          pains.map((p) => (
+          solutionPoints.map((p) => (
             <div class="reveal border-t-2 border-hair-strong pt-5">
               <h3 class="h3">{p.title}</h3>
               <p class="mt-3 text-[1.02rem]">{p.body}</p>
