@@ -29,6 +29,10 @@
   --fixed-ink: #f2f6f9;
   --fixed-body: rgba(255, 255, 255, 0.82);
   --fixed-hair: rgba(242, 246, 249, 0.3);
+  /* Link/CTA colour for non-focal content on fixed-dark surfaces: steel, not
+     hi-vis, so the Signal Rule holds (hi-vis stays for buttons + focal CTAs).
+     Literal in both themes, like the other --fixed-* tokens. 6.84:1 on navy. */
+  --fixed-link: #4fa8cc;
 
   --shadow-sm: 0 1px 2px rgba(11, 39, 64, 0.06);
   --shadow-md: 0 4px 16px rgba(11, 39, 64, 0.08);
@@ -296,7 +300,22 @@
       transform: none;
     }
   }
-  
+
+  /* Global safety net: neutralise every transition and animation under
+     reduced-motion, including Tailwind hover transforms (card lift, image
+     zoom) that the specific rules above do not reach. The Hairline-First
+     system stays legible without motion; hovers apply instantly. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   /* Forms */
   .field {
     display: flex;
