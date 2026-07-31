@@ -4,7 +4,7 @@ import DashboardMock from '../../components/DashboardMock.astro';
 import PhoneMock from '../../components/PhoneMock.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import FAQ from '../../components/FAQ.astro';
-import { SIGNUP_URL, CTA_PRIMARY } from '../../data/site';
+import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../../data/site';
 import { featurePages } from '../../data/feature-pages';
 import { featured } from '../../data/features';
 
@@ -48,7 +48,13 @@ const breadcrumbs = {
         <h1 class="display mt-3 max-w-[18ch]">{page.h1}</h1>
         <p class="lead mt-5 max-w-[48ch]">{page.heroPara}</p>
         <div class="mt-8">
-          <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+          {
+            SHOW_SIGNUP_CTA ? (
+              <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+            ) : (
+              <a href="/demo/" class="btn btn-primary">{CTA_SECONDARY}</a>
+            )
+          }
         </div>
       </div>
       <div class="reveal">

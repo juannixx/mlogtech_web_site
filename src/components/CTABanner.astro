@@ -1,5 +1,5 @@
 ---
-import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../data/site';
+import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../data/site';
 
 interface Props {
   title?: string;
@@ -7,7 +7,9 @@ interface Props {
 }
 const {
   title = 'Put your next route on MLogTech.',
-  note = `Free trial, no card required. Or see it against your own data first.`,
+  note = SHOW_SIGNUP_CTA
+    ? `Free trial, no card required. Or see it against your own data first.`
+    : `See it against your own data first.`,
 } = Astro.props;
 ---
 
@@ -18,10 +20,15 @@ const {
     <h2 class="h2 reveal mx-auto max-w-[24ch] text-[color:var(--fixed-ink)]">{title}</h2>
     <p class="reveal mx-auto mt-4 max-w-[52ch] text-[color:var(--fixed-body)]">{note}</p>
     <div class="reveal mt-8 flex flex-wrap justify-center gap-3">
-      <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
+      {SHOW_SIGNUP_CTA && <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>}
       <a
         href="/demo/"
-        class="btn btn-ghost border-[color:var(--fixed-hair)] text-[color:var(--fixed-ink)] hover:border-accent"
+        class:list={[
+          'btn',
+          SHOW_SIGNUP_CTA
+            ? 'btn-ghost border-[color:var(--fixed-hair)] text-[color:var(--fixed-ink)] hover:border-accent'
+            : 'btn-primary',
+        ]}
         >{CTA_SECONDARY}</a
       >
     </div>

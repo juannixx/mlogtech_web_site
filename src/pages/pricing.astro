@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import FAQ from '../components/FAQ.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { SIGNUP_URL, CTA_PRIMARY } from '../data/site';
+import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY } from '../data/site';
 import {
   MOCK_PRICING,
   CURRENCY,
@@ -118,7 +118,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
                 </li>
               ))}
             </ul>
-            {p.cta === 'trial' ? (
+            {p.cta === 'trial' && SHOW_SIGNUP_CTA ? (
               <a href={SIGNUP_URL} class:list={['btn mt-6', p.popular ? 'btn-primary' : 'btn-ghost']}>
                 {CTA_PRIMARY}
               </a>
@@ -167,7 +167,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
               <li>All Growth features included</li>
               <li>Unlimited drivers</li>
             </ul>
-            {p.cta === 'trial' ? (
+            {p.cta === 'trial' && SHOW_SIGNUP_CTA ? (
               <a href={SIGNUP_URL} class:list={['btn mt-6', p.popular ? 'btn-primary' : 'btn-ghost']}>
                 {CTA_PRIMARY}
               </a>
