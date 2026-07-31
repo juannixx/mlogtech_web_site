@@ -4,7 +4,7 @@ import HeroDevices from '../components/HeroDevices.astro';
 import RouteMap from '../components/RouteMap.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY, SITE_NAME } from '../data/site';
+import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY, SITE_NAME } from '../data/site';
 
 const softwareSchema = {
   '@context': 'https://schema.org',
@@ -76,10 +76,10 @@ const steps = [
           workforce and pay, compliance, fleet and CRM.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
-          <a href="/demo/" class="btn btn-ghost">{CTA_SECONDARY}</a>
+          {SHOW_SIGNUP_CTA && <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>}
+          <a href="/demo/" class:list={['btn', SHOW_SIGNUP_CTA ? 'btn-ghost' : 'btn-primary']}>{CTA_SECONDARY}</a>
         </div>
-        <p class="mt-4 text-[0.9rem] text-muted">Free trial. No card required.</p>
+        {SHOW_SIGNUP_CTA && <p class="mt-4 text-[0.9rem] text-muted">Free trial. No card required.</p>}
       </div>
       <div class="reveal">
         <HeroDevices />

@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/site';
+import { SALES_EMAIL, SHOW_DEMO_VIDEOS, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/site';
 
 // Form delivery: composes an email to sales until the CRM endpoint exists.
 // [PENDENTE SPEC-04 §4/§5: endpoint HubSpot + ferramenta de agendamento]
@@ -30,7 +30,7 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
           </li>
         </ul>
 
-        <div class="mt-12 space-y-8">
+        {SHOW_DEMO_VIDEOS && <div class="mt-12 space-y-8">
           <div>
             <h2 class="h3">Prefer to watch first?</h2>
             <p class="mt-2 text-[0.95rem] text-muted">
@@ -85,7 +85,7 @@ import { SALES_EMAIL, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO } from '../data/sit
               >
             </button>
           </div>
-        </div>
+        </div>}
       </div>
 
       <div class="reveal">

@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test('home loads with the hero and primary CTA', async ({ page }) => {
+test('home loads with the hero and header login link', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('h1')).toContainText('Proof of delivery');
-  const cta = page.locator('header nav[aria-label="Main"] a.btn-primary');
-  await expect(cta).toHaveText('Try for free');
-  await expect(cta).toHaveAttribute('href', 'https://app.mlogtech.com/signup');
+  // Signup CTAs are hidden while the trial flow is not ready (SHOW_SIGNUP_CTA).
+  await expect(page.locator('header nav[aria-label="Main"] a.btn-primary')).toHaveCount(0);
+  const login = page.locator('header nav[aria-label="Main"]').getByRole('link', { name: 'Log in' });
+  await expect(login).toHaveAttribute('href', 'https://molina-express-app.web.app/client/login');
 });
 
 test('solutions dropdown opens and navigates to route planning', async ({ page }) => {

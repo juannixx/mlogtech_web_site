@@ -5,7 +5,7 @@ import PhoneMock from '../../components/PhoneMock.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import FAQ from '../../components/FAQ.astro';
-import { SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../../data/site';
+import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../../data/site';
 import { solutionPages } from '../../data/solution-pages';
 import { solutions } from '../../data/solutions';
 
@@ -49,8 +49,8 @@ const breadcrumbs = {
         <h1 class="display mt-3">{page.h1}</h1>
         <p class="lead mt-5 max-w-[48ch]">{page.heroSub}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>
-          <a href="/demo/" class="btn btn-ghost">{CTA_SECONDARY}</a>
+          {SHOW_SIGNUP_CTA && <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>}
+          <a href="/demo/" class:list={['btn', SHOW_SIGNUP_CTA ? 'btn-ghost' : 'btn-primary']}>{CTA_SECONDARY}</a>
         </div>
       </div>
       <div class="reveal">
