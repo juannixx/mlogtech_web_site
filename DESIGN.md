@@ -199,6 +199,7 @@ A cool navy-and-steel neutral system carrying a single high-visibility action co
 - **Lead** (400, 1.125rem, 1.6): Opening paragraph under a heading; max ~58ch.
 - **Body** (400, 1.0625rem/17px, 1.6): Running copy; capped 65–75ch.
 - **Label** (500 mono, 0.8rem, 0.02em): Tactical data and short markers only.
+- **Price figures** (mono, 2.1rem / 1.7rem): Pricing numerics only.
 
 ### Named Rules
 **The One Family Rule.** Archivo carries the whole hierarchy; contrast comes from weight and size, not from a second typeface. The only other face allowed is the system mono, and only for tactical figures. (The prototype's IBM Plex Mono labels were removed for exactly this reason.)

@@ -67,7 +67,6 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
             </div>
           </div>
           <button type="submit" class="btn btn-primary mt-6">Send message</button>
-          <p id="contact-status" class="mt-3 min-h-[1.4em] text-[0.95rem] text-accent-text" role="status" aria-live="polite"></p>
         </form>
 
         <!-- Success state: shown after submit, matching the demo form's pattern. -->
@@ -118,7 +117,6 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
 <script is:inline define:vars={{ SALES_EMAIL }}>
   (function () {
     var form = document.getElementById('contact-form');
-    var status = document.getElementById('contact-status');
     var success = document.getElementById('contact-success');
     if (!form || !success) return;
 
@@ -165,7 +163,6 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
       if (form.querySelector('[name="companysite"]').value) return;
       var invalid = firstInvalid();
       if (invalid) {
-        status.textContent = '';
         invalid.focus();
         return;
       }

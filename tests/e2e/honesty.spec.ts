@@ -8,6 +8,9 @@ if (!SHOW_SIGNUP_CTA) {
     '/pricing/',
     '/solutions/route-planning/',
     '/solutions/tms/',
+    '/solutions/last-mile-delivery/',
+    '/solutions/courier-dispatch/',
+    '/solutions/vehicle-checks/',
   ]) {
     test(`no trial promises in main content of ${path}`, async ({ page }) => {
       await page.goto(path);
