@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test';
+import { SHOW_SIGNUP_CTA } from '../../src/data/site';
 
 test('home loads with the hero and header login link', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('h1')).toContainText('Proof of delivery');
-  // Signup CTAs are hidden while the trial flow is not ready (SHOW_SIGNUP_CTA).
-  await expect(page.locator('header nav[aria-label="Main"] a.btn-primary')).toHaveCount(0);
+  // Signup CTA in the header follows SHOW_SIGNUP_CTA (hidden while the trial flow is not ready).
+  await expect(page.locator('header nav[aria-label="Main"] a.btn-primary')).toHaveCount(
+    SHOW_SIGNUP_CTA ? 1 : 0
+  );
   const login = page.locator('header nav[aria-label="Main"]').getByRole('link', { name: 'Log in' });
   await expect(login).toHaveAttribute('href', 'https://molina-express-app.web.app/client/login');
 });

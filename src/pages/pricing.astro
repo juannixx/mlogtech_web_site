@@ -20,7 +20,9 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
 
 <Base
   title="Pricing | Per driver or per order, no driver minimum | MLogTech"
-  description={`Simple delivery management pricing in GBP: per driver or per order, monthly or annual, ${TRIAL_DAYS}-day free trial and no driver minimum.`}
+  description={SHOW_SIGNUP_CTA
+    ? `Simple delivery management pricing in GBP: per driver or per order, monthly or annual, ${TRIAL_DAYS}-day free trial and no driver minimum.`
+    : 'Simple delivery management pricing in GBP: per driver or per order, monthly or annual, no driver minimum.'}
 >
   <section class="section pb-8">
     <div class="wrap text-center">

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { SHOW_SIGNUP_CTA } from '../../src/data/site';
+import { SHOW_SIGNUP_CTA, MEASURED_LOGIN_TO_ROUTE_CLAIM } from '../../src/data/site';
 
 const PAGES = ['/', '/features/proof-of-delivery/', '/solutions/route-planning/'];
 
@@ -10,7 +10,7 @@ const EXPECTED_CHIPS = SHOW_SIGNUP_CTA
       'Your data exports anytime',
     ]
   : [
-      'From login to a published route in under a minute',
+      MEASURED_LOGIN_TO_ROUTE_CLAIM,
       'Import orders from CSV or API',
       'Per-driver or per-order pricing',
     ];

@@ -12,6 +12,8 @@
 // "provisional pricing" badge shows in dev. Flip to true after sign-off.
 // ============================================================================
 
+import { SHOW_SIGNUP_CTA } from './site';
+
 // Kept the export name MOCK_PRICING for the page's import; semantics now =
 // "not final". True while prices await commercial sign-off.
 export const MOCK_PRICING = true;
@@ -211,10 +213,14 @@ export const billingFaq = [
     q: 'Can I cancel at any time?',
     a: 'Yes. Plans are contract-free. If you cancel, you keep access until the end of the paid period and are not billed again.',
   },
-  {
-    q: 'What happens when the free trial ends?',
-    a: `The trial runs for ${TRIAL_DAYS} days with no card required. When it ends, you pick a plan to continue; your data stays in place.`,
-  },
+  ...(SHOW_SIGNUP_CTA
+    ? [
+        {
+          q: 'What happens when the free trial ends?',
+          a: `The trial runs for ${TRIAL_DAYS} days with no card required. When it ends, you pick a plan to continue; your data stays in place.`,
+        },
+      ]
+    : []),
   {
     q: 'Which payment methods do you accept?',
     a: 'Card payments are supported. Additional methods for annual invoicing are being confirmed; talk to sales if you need a specific arrangement.',

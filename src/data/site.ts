@@ -23,6 +23,9 @@ export const OFFICES = ['London', 'Dubai', 'Brazil'];
 export const CTA_PRIMARY = 'Try for free';
 export const CTA_SECONDARY = 'Book a demo';
 
+// Claim medido (registro: docs/superpowers/plans/2026-08-01-pr-c-measurements.md).
+export const MEASURED_LOGIN_TO_ROUTE_CLAIM = 'From login to a published route in under a minute';
+
 // Demo videos from the current site (INDEX.md do scrape).
 // Decision 07/31/2026: hidden while the walkthroughs are being reworked.
 // Flip SHOW_DEMO_VIDEOS back to true to restore the "Prefer to watch first?" block.

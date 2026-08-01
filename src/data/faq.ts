@@ -1,5 +1,7 @@
 // General FAQ (/faq/), 20 questions in 4 groups (SPEC-02 §12).
 
+import { SHOW_SIGNUP_CTA } from './site';
+
 export interface FaqGroup {
   group: string;
   items: { q: string; a: string }[];
@@ -46,10 +48,14 @@ export const faqGroups: FaqGroup[] = [
         q: 'Can I import my existing data?',
         a: 'Orders come in by spreadsheet or API. Vehicles, drivers and depots are set up once in the web panel.',
       },
-      {
-        q: 'Is there a free trial?',
-        a: 'Yes, with no card required. You can run real routes during the trial and keep the data if you continue.',
-      },
+      ...(SHOW_SIGNUP_CTA
+        ? [
+            {
+              q: 'Is there a free trial?',
+              a: 'Yes, with no card required. You can run real routes during the trial and keep the data if you continue.',
+            },
+          ]
+        : []),
       {
         q: 'What happens to my data if I cancel?',
         a: 'You can export your records before the account closes. We do not hold operational data hostage.',
@@ -100,10 +106,14 @@ export const faqGroups: FaqGroup[] = [
         q: 'Do prices include VAT?',
         a: 'Prices are shown excluding VAT; tax is applied at checkout according to your billing country.',
       },
-      {
-        q: 'What does the free trial include?',
-        a: 'The features of the Growth plan, on your own data, for the trial period. No card required to start.',
-      },
+      ...(SHOW_SIGNUP_CTA
+        ? [
+            {
+              q: 'What does the free trial include?',
+              a: 'The features of the Growth plan, on your own data, for the trial period. No card required to start.',
+            },
+          ]
+        : []),
     ],
   },
 ];

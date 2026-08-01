@@ -57,3 +57,31 @@ test('invalid demo submit does not fire the event', async ({ page }) => {
   await page.locator('#demo-form button[type="submit"]').click();
   expect(await page.evaluate(() => (window as any).__umamiEvents)).toEqual([]);
 });
+
+test('valid contact submit fires the contact-submit event', async ({ page }) => {
+  await page.addInitScript(() => {
+    (window as any).__umamiEvents = [];
+    (window as any).umami = {
+      track: (name: string) => (window as any).__umamiEvents.push(name),
+    };
+  });
+  await page.goto('/contact/');
+  await page.locator('#c-first').fill('Dana');
+  await page.locator('#c-last').fill('Fields');
+  await page.locator('#c-email').fill('dana@fleetco.example');
+  await page.locator('#c-message').fill('Interested in a quote for 12 drivers.');
+  await page.locator('#contact-form button[type="submit"]').click();
+  expect(await page.evaluate(() => (window as any).__umamiEvents)).toContain('contact-submit');
+});
+
+test('invalid contact submit does not fire the event', async ({ page }) => {
+  await page.addInitScript(() => {
+    (window as any).__umamiEvents = [];
+    (window as any).umami = {
+      track: (name: string) => (window as any).__umamiEvents.push(name),
+    };
+  });
+  await page.goto('/contact/');
+  await page.locator('#contact-form button[type="submit"]').click();
+  expect(await page.evaluate(() => (window as any).__umamiEvents)).toEqual([]);
+});
