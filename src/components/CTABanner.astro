@@ -4,12 +4,24 @@ import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../data
 interface Props {
   title?: string;
   note?: string;
+  chips?: string[];
 }
 const {
   title = 'Put your next route on MLogTech.',
   note = SHOW_SIGNUP_CTA
-    ? `Free trial, no card required. Or see it against your own data first.`
+    ? `See it against your own data first, or start right away.`
     : `See it against your own data first.`,
+  chips = SHOW_SIGNUP_CTA
+    ? [
+        'Free trial, no card required',
+        'Set up in minutes, not weeks',
+        'Your data exports anytime',
+      ]
+    : [
+        'From login to a published route in under a minute',
+        'Import orders from CSV or API',
+        'Per-driver or per-order pricing',
+      ],
 } = Astro.props;
 ---
 
@@ -34,5 +46,28 @@ const {
         >{CTA_SECONDARY}</a
       >
     </div>
+    {
+      chips.length > 0 && (
+        <ul
+          data-testid="cta-chips"
+          class="reveal mx-auto mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.9rem] text-[color:var(--fixed-body)]"
+        >
+          {chips.map((chip) => (
+            <li class="flex items-center gap-2">
+              <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path
+                  d="M3 8.5 6.5 12 13 4.5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              {chip}
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </div>
 </section>

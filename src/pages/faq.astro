@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import CTABanner from '../components/CTABanner.astro';
 import { faqGroups } from '../data/faq';
+import { SHOW_SIGNUP_CTA } from '../data/site';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -67,6 +68,6 @@ const schema = {
   </section>
   <CTABanner
     title="Question we did not answer?"
-    note="A person replies within one working day. Or start the free trial and see for yourself."
+    note={SHOW_SIGNUP_CTA ? 'A person replies within one working day. Or start the free trial and see for yourself.' : undefined}
   />
 </Base>

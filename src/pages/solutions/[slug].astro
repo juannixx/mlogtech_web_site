@@ -159,7 +159,10 @@ const breadcrumbs = {
   }
 
   <!-- 7. CTA -->
-  <CTABanner title={page.ctaTitle} note={page.ctaNote} />
+  <CTABanner
+    title={page.ctaTitle}
+    note={!SHOW_SIGNUP_CTA && /free trial/i.test(page.ctaNote) ? undefined : page.ctaNote}
+  />
 
   <!-- 8. Related content: TODO blog seed (SPEC-02 §14) -->
 

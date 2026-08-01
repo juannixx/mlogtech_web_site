@@ -135,7 +135,7 @@ const breadcrumbs = {
   <!-- 4. CTA + FAQ -->
   <CTABanner
     title="See the whole platform, not just one feature."
-    note="Every feature runs off one order record. Start a free trial, no card required."
+    note={SHOW_SIGNUP_CTA ? 'Every feature runs off one order record. Start a free trial, no card required.' : undefined}
   />
   <FAQ items={page.faq} title="Common questions" />
 </Base>

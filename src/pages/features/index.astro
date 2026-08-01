@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { featured, webPanel, driverApp } from '../../data/features';
+import { SHOW_SIGNUP_CTA } from '../../data/site';
 
 // Lead with ePOD as the focal navy tile (the through-line capability, echoing
 // the home), so the grid has a hierarchy instead of nine identical cards.
@@ -154,6 +155,6 @@ const rest = featured.filter((f) => f.slug !== LEAD);
 
   <CTABanner
     title="The whole platform, on your operation."
-    note="Start a free trial, or book a walkthrough on your own data. No card required."
+    note={SHOW_SIGNUP_CTA ? 'Start a free trial, or book a walkthrough on your own data. No card required.' : undefined}
   />
 </Base>
