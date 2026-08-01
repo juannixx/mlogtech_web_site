@@ -10,7 +10,7 @@ const EXPECTED_CHIPS = SHOW_SIGNUP_CTA
       'Your data exports anytime',
     ]
   : [
-      'From login to first route in under a minute',
+      'From login to a published route in under a minute',
       'Import orders from CSV or API',
       'Per-driver or per-order pricing',
     ];
@@ -49,6 +49,7 @@ if (!SHOW_SIGNUP_CTA) {
     '/solutions/route-planning/',
     '/blog/',
     '/blog/what-is-epod/',
+    '/security/',
   ];
 
   for (const path of ALL_CTA_PAGES) {
@@ -60,6 +61,8 @@ if (!SHOW_SIGNUP_CTA) {
       const bannerText = await banner.textContent();
       expect(bannerText).not.toMatch(/free trial/i);
       expect(bannerText).not.toMatch(/no card required/i);
+      expect(bannerText).not.toMatch(/\btrial\b/i);
+      expect(bannerText).not.toMatch(/\bstart free\b/i);
     });
   }
 }

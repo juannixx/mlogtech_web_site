@@ -240,7 +240,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
   <FAQ items={billingFaq} title="Billing questions" />
 
   <CTABanner
-    title="Start free, or price it against your fleet."
+    title={SHOW_SIGNUP_CTA ? 'Start free, or price it against your fleet.' : 'Price it against your fleet.'}
     note={SHOW_SIGNUP_CTA ? 'Trial with every feature of the Growth plan. Talk to sales for volumes beyond the listed tiers.' : undefined}
   />
 </Base>
