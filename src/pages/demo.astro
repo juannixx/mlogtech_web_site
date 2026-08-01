@@ -247,6 +247,7 @@ import { SALES_EMAIL, SHOW_DEMO_VIDEOS, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO }
         invalid.focus();
         return;
       }
+      if (window.umami) window.umami.track('demo-submit');
       var name = form.querySelector('#d-name').value.trim();
       var email = form.querySelector('#d-email').value.trim();
       var phone = form.querySelector('#d-phone').value.trim();

@@ -76,8 +76,8 @@ const steps = [
           workforce and pay, compliance, fleet and CRM.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          {SHOW_SIGNUP_CTA && <a href={SIGNUP_URL} class="btn btn-primary">{CTA_PRIMARY}</a>}
-          <a href="/demo/" class:list={['btn', SHOW_SIGNUP_CTA ? 'btn-ghost' : 'btn-primary']}>{CTA_SECONDARY}</a>
+          {SHOW_SIGNUP_CTA && <a href={SIGNUP_URL} class="btn btn-primary" data-umami-event="cta-signup" data-umami-event-position="hero">{CTA_PRIMARY}</a>}
+          <a href="/demo/" class:list={['btn', SHOW_SIGNUP_CTA ? 'btn-ghost' : 'btn-primary']} data-umami-event="cta-demo" data-umami-event-position="hero">{CTA_SECONDARY}</a>
         </div>
         {SHOW_SIGNUP_CTA && <p class="mt-4 text-[0.9rem] text-muted">Free trial. No card required.</p>}
       </div>
