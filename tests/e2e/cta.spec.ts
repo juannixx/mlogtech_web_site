@@ -32,3 +32,34 @@ test('cta banner note never duplicates the free-trial chip', async ({ page }) =>
   const noteText = await banner.locator('p').first().textContent();
   expect(noteText).not.toContain('Free trial, no card required');
 });
+
+// Regression: with signup hidden, no CTA band anywhere on the site may still
+// claim a free trial or "no card required" via a page-supplied note that
+// bypasses the component's flag-aware default (see fix round 1).
+if (!SHOW_SIGNUP_CTA) {
+  const ALL_CTA_PAGES = [
+    '/',
+    '/about/',
+    '/pricing/',
+    '/integrations/',
+    '/faq/',
+    '/features/',
+    '/features/proof-of-delivery/',
+    '/solutions/',
+    '/solutions/route-planning/',
+    '/blog/',
+    '/blog/what-is-epod/',
+  ];
+
+  for (const path of ALL_CTA_PAGES) {
+    test(`cta band on ${path} makes no free-trial claim while signup is hidden`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const banner = page.locator('section:has([data-testid="cta-chips"])');
+      const bannerText = await banner.textContent();
+      expect(bannerText).not.toMatch(/free trial/i);
+      expect(bannerText).not.toMatch(/no card required/i);
+    });
+  }
+}

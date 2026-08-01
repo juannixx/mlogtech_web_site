@@ -241,7 +241,7 @@ const showMockBadge = MOCK_PRICING && import.meta.env.DEV;
 
   <CTABanner
     title="Start free, or price it against your fleet."
-    note="Trial with every feature of the Growth plan. Talk to sales for volumes beyond the listed tiers."
+    note={SHOW_SIGNUP_CTA ? 'Trial with every feature of the Growth plan. Talk to sales for volumes beyond the listed tiers.' : undefined}
   />
 </Base>
 

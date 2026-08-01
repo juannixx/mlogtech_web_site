@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { SALES_EMAIL } from '../data/site';
+import { SALES_EMAIL, SHOW_SIGNUP_CTA } from '../data/site';
 
 // Integrations hub (SPEC-02 §7). Content is now grounded in the product's
 // real integration surface (Molina/MLogTech feature catalogue, module 09):
@@ -114,6 +114,6 @@ const rollout = [
 
   <CTABanner
     title="Bring your orders in, connect the rest later."
-    note="Import today, add the API when you are ready. Free trial, no card required."
+    note={SHOW_SIGNUP_CTA ? 'Import today, add the API when you are ready. Free trial, no card required.' : undefined}
   />
 </Base>

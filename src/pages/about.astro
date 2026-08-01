@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { SALES_EMAIL, OFFICES } from '../data/site';
+import { SALES_EMAIL, OFFICES, SHOW_SIGNUP_CTA } from '../data/site';
 
 // Copy adapted from the current mlogtech.com (scrape 07/17/2026), kept
 // factual: no invented history, headcount or founding dates.
@@ -102,6 +102,6 @@ const principles = [
 
   <CTABanner
     title="Software built for how operations actually work."
-    note="Start a free trial, or talk to a person about your operation."
+    note={SHOW_SIGNUP_CTA ? 'Start a free trial, or talk to a person about your operation.' : undefined}
   />
 </Base>

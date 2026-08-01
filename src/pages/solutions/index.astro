@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { solutions } from '../../data/solutions';
+import { SHOW_SIGNUP_CTA } from '../../data/site';
 
 // Lead with the flagship (route planning) as a focal tile that carries a real
 // screenshot; the rest fill a rhythmic grid. Breaks the flat identical-card grid.
@@ -72,6 +73,6 @@ const rest = solutions.filter((s) => s.slug !== FEATURED);
   </section>
   <CTABanner
     title="Not sure which door is yours?"
-    note="Start a free trial, or book a walkthrough and we will map it to your operation."
+    note={SHOW_SIGNUP_CTA ? 'Start a free trial, or book a walkthrough and we will map it to your operation.' : undefined}
   />
 </Base>

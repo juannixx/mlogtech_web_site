@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { getCollection, render } from 'astro:content';
+import { SHOW_SIGNUP_CTA } from '../../data/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -50,7 +51,7 @@ const articleSchema = {
   </article>
   <CTABanner
     title="Put it into practice."
-    note="Run a real day of deliveries through MLogTech. Free trial, no card required."
+    note={SHOW_SIGNUP_CTA ? 'Run a real day of deliveries through MLogTech. Free trial, no card required.' : undefined}
   />
 </Base>
 
