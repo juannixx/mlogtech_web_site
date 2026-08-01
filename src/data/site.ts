@@ -29,3 +29,7 @@ export const CTA_SECONDARY = 'Book a demo';
 export const SHOW_DEMO_VIDEOS = false;
 export const VIDEO_PLATFORM_DEMO = 'https://www.youtube.com/embed/GVzrrynXtgQ';
 export const VIDEO_DRIVER_DEMO = 'https://www.youtube.com/embed/ZPMKwatRb40';
+
+// Umami Cloud analytics (spec 2026-08-01, PR A). ID vazio = script não injetado.
+export const UMAMI_WEBSITE_ID = ''; // [PENDENTE: ID real de cloud.umami.is]
+export const UMAMI_SRC = 'https://cloud.umami.is/script.js';
