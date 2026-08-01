@@ -27,6 +27,10 @@ function basePathRewrite() {
         const skip = base.slice(1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const htmlRe = new RegExp(`(href|src)="/(?!/|${skip}/)`, 'g');
         const cssRe = new RegExp(`url\\((['"]?)/(?!/|${skip}/)`, 'g');
+        // srcset holds a comma-separated URL list ("/a.jpg 1280w, /b.jpg 2560w"),
+        // so each entry needs the prefix, not just the attribute start.
+        const srcsetAttrRe = /(srcset|imagesrcset)="([^"]*)"/g;
+        const srcsetUrlRe = new RegExp(`(^|,\\s*)/(?!/|${skip}/)`, 'g');
         const { readdir, readFile, writeFile } = await import('node:fs/promises');
         const { fileURLToPath } = await import('node:url');
         const { join } = await import('node:path');
@@ -40,6 +44,10 @@ function basePathRewrite() {
               let text = await readFile(p, 'utf8');
               if (entry.name.endsWith('.html')) {
                 text = text.replace(htmlRe, `$1="${base}/`);
+                text = text.replace(
+                  srcsetAttrRe,
+                  (_m, attr, val) => `${attr}="${val.replace(srcsetUrlRe, `$1${base}/`)}"`
+                );
               } else {
                 text = text.replace(cssRe, `url($1${base}/`);
               }
