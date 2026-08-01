@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-17T19:30:00Z",
+  "generatedAt": "2026-08-01T00:00:00Z",
   "title": "Design System: MLogTech",
   "extensions": {
     "colorMeta": {
@@ -53,7 +53,9 @@
       "title": { "displayName": "Title", "purpose": "Card and sub-section headings; weight 700." },
       "lead": { "displayName": "Lead", "purpose": "Opening paragraph under a heading; max ~58ch." },
       "body": { "displayName": "Body", "purpose": "Running copy; 17px, capped 65-75ch." },
-      "label": { "displayName": "Label", "purpose": "Tactical data and short markers; system mono, 0.8rem." }
+      "label": { "displayName": "Label", "purpose": "Tactical data and short markers; system mono, 0.8rem." },
+      "priceLarge": { "displayName": "Pricing Numerics (Large)", "purpose": "Plan price figure on /pricing; system mono, 2.1rem." },
+      "priceMedium": { "displayName": "Pricing Numerics (Medium)", "purpose": "\"Let's talk\" price-slot figure on /pricing; system mono, 1.7rem." }
     },
     "shadows": [
       { "name": "shadow-sm", "value": "0 1px 2px rgba(11,39,64,0.06)", "purpose": "Barely-there lift for resting cards (light theme only)." },

@@ -77,10 +77,22 @@ typography:
     fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "0.75rem"
     lineHeight: 1.35
+  # Pricing numerics: the two plan-price figure sizes used on /pricing (mono,
+  # per the Tactical Data Font rule — these are numbers to read precisely).
+  priceLarge:
+    fontFamily: "ui-monospace, SF Mono, Cascadia Mono, Menlo, monospace"
+    fontSize: "2.1rem"
+    lineHeight: 1.1
+  priceMedium:
+    fontFamily: "ui-monospace, SF Mono, Cascadia Mono, Menlo, monospace"
+    fontSize: "1.7rem"
+    lineHeight: 1.1
 rounded:
   sm: "8px"
   md: "12px"
   lg: "20px"
+  # Focus rings use 4px — a deliberate sub-scale radius so the ring hugs the
+  # control, not part of the card/button scale above.
 spacing:
   xs: "8px"
   sm: "12px"
@@ -187,6 +199,7 @@ A cool navy-and-steel neutral system carrying a single high-visibility action co
 - **Lead** (400, 1.125rem, 1.6): Opening paragraph under a heading; max ~58ch.
 - **Body** (400, 1.0625rem/17px, 1.6): Running copy; capped 65–75ch.
 - **Label** (500 mono, 0.8rem, 0.02em): Tactical data and short markers only.
+- **Price figures** (mono, 2.1rem / 1.7rem): Pricing numerics only.
 
 ### Named Rules
 **The One Family Rule.** Archivo carries the whole hierarchy; contrast comes from weight and size, not from a second typeface. The only other face allowed is the system mono, and only for tactical figures. (The prototype's IBM Plex Mono labels were removed for exactly this reason.)

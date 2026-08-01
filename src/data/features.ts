@@ -3,6 +3,8 @@ export interface Feature {
   title: string;
   short: string;
   image: string;
+  /** Optional object-position override for the hub card's background image (crop framing). */
+  imagePosition?: string;
 }
 
 // The 9 features that get dedicated pages (SPEC-01). Until those pages ship,
@@ -13,7 +15,7 @@ export const featured: Feature[] = [
   { slug: 'live-tracking', title: 'Live tracking and ETA', short: 'Every vehicle on the map, with a branded tracking page for your customer.', image: '/images/live-tracking-phone.jpg' },
   { slug: 'notifications', title: 'Delivery notifications', short: 'Automatic email and push updates at dispatch, en route and delivered.', image: '/images/driver-van-phone.jpg' },
   { slug: 'barcode-scanner', title: 'QR and barcode scanner', short: 'Scan at loading and at the door to kill wrong-parcel deliveries.', image: '/images/phone-scan.jpg' },
-  { slug: 'cash-on-delivery', title: 'Cash on delivery', short: 'Record payments at the door and reconcile them against orders.', image: '/images/doorstep-handover.jpg' },
+  { slug: 'cash-on-delivery', title: 'Cash on delivery', short: 'Record payments at the door and reconcile them against orders.', image: '/images/doorstep-handover.jpg', imagePosition: 'center 82%' },
   { slug: 'reports', title: 'Analytics and reports', short: 'Delivery performance per driver, route and customer, exportable.', image: '/images/reports-analytics.jpg' },
   { slug: 'customer-portal', title: 'Customer portal', short: 'Let shippers and 3PL clients create orders and follow their own deliveries.', image: '/images/control-room.jpg' },
   { slug: 'shipping-labels', title: 'Shipping labels', short: 'Configurable labels generated with the route, ready to print.', image: '/images/shipping-labels-depot.jpg' },

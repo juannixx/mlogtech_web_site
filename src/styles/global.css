@@ -243,7 +243,12 @@
   .btn:active {
     transform: translateY(0);
   }
-  
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+  }
+
   .textlink {
     color: var(--accent-text);
     font-weight: 600;

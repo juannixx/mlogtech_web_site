@@ -17,15 +17,15 @@ import { SALES_EMAIL, SHOW_DEMO_VIDEOS, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO }
         <p class="lead mt-4">A 30-minute call, on your operation, not a slide deck.</p>
         <ul class="mt-8 space-y-4 text-[1.02rem]">
           <li class="flex gap-3">
-            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand" aria-hidden="true"></span>
             We map how your orders arrive and how routes are planned today.
           </li>
           <li class="flex gap-3">
-            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand" aria-hidden="true"></span>
             You watch a route go from import to optimised to dispatched, live.
           </li>
           <li class="flex gap-3">
-            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand" aria-hidden="true"></span>
             We show the driver app capturing a POD and where the record lands.
           </li>
         </ul>
@@ -141,15 +141,16 @@ import { SALES_EMAIL, SHOW_DEMO_VIDEOS, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO }
           class="hidden rounded-[var(--r-lg)] border border-hair bg-surface p-8 shadow-[var(--shadow-md)]"
           role="status"
           aria-live="polite"
+          tabindex="-1"
         >
           <span
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--ok)]"
             aria-hidden="true"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
                 d="M4 10.5L8 14.5L16 5.5"
-                stroke="var(--accent-ink)"
+                stroke="#fff"
                 stroke-width="2.4"
                 stroke-linecap="round"
                 stroke-linejoin="round"></path>
@@ -265,7 +266,7 @@ import { SALES_EMAIL, SHOW_DEMO_VIDEOS, VIDEO_PLATFORM_DEMO, VIDEO_DRIVER_DEMO }
       document.getElementById('ds-email').textContent = email;
       form.classList.add('hidden');
       success.classList.remove('hidden');
-      success.focus && success.setAttribute('tabindex', '-1');
+      success.focus();
       success.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     });
   })();
