@@ -1,6 +1,8 @@
 // Full content for the 6 solution pages (SPEC-02 §2 template).
 // One entry per page; the template lives in src/pages/solutions/[slug].astro.
 
+import { SHOW_SIGNUP_CTA } from './site';
+
 export interface Split {
   title: string;
   body: string;
@@ -124,7 +126,9 @@ export const solutionPages: SolutionPage[] = [
       },
       {
         q: 'How much does route planning software cost?',
-        a: 'Pricing is usually per driver or per order volume. MLogTech starts with a free trial and has no driver minimum, so a one-van operation pays for one driver. See the pricing page for current plans.',
+        a: SHOW_SIGNUP_CTA
+          ? 'Pricing is usually per driver or per order volume. MLogTech starts with a free trial and has no driver minimum, so a one-van operation pays for one driver. See the pricing page for current plans.'
+          : 'Pricing is usually per driver or per order volume, with no driver minimum, so a one-van operation pays for one driver. See the pricing page for current plans.',
       },
       {
         q: 'How many stops can one route have?',
@@ -437,7 +441,9 @@ export const solutionPages: SolutionPage[] = [
       },
       {
         q: 'How much does a TMS cost?',
-        a: 'MLogTech is priced per driver or per order volume, with a free trial and no driver minimum. See the pricing page for plans.',
+        a: SHOW_SIGNUP_CTA
+          ? 'MLogTech is priced per driver or per order volume, with a free trial and no driver minimum. See the pricing page for plans.'
+          : 'MLogTech is priced per driver or per order volume, with no driver minimum. See the pricing page for plans.',
       },
       {
         q: 'Can it handle multiple depots?',

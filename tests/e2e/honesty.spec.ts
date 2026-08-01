@@ -3,7 +3,12 @@ import { SHOW_SIGNUP_CTA } from '../../src/data/site';
 
 // Com signup escondido, nenhuma página de conteúdo promete trial.
 if (!SHOW_SIGNUP_CTA) {
-  for (const path of ['/faq/', '/pricing/']) {
+  for (const path of [
+    '/faq/',
+    '/pricing/',
+    '/solutions/route-planning/',
+    '/solutions/tms/',
+  ]) {
     test(`no trial promises in main content of ${path}`, async ({ page }) => {
       await page.goto(path);
       const body = (await page.locator('main').textContent()) ?? '';
