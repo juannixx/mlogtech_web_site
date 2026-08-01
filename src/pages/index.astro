@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import HeroDevices from '../components/HeroDevices.astro';
 import RouteMap from '../components/RouteMap.astro';
 import TrustStrip from '../components/TrustStrip.astro';
+import StatStrip from '../components/StatStrip.astro';
 import CTABanner from '../components/CTABanner.astro';
 import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY, SITE_NAME } from '../data/site';
 
@@ -89,6 +90,7 @@ const steps = [
 
   <!-- 2. Social proof -->
   <TrustStrip />
+  <StatStrip />
 
   <!-- 3. Solutions -->
   <section class="section">
