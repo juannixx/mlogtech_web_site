@@ -69,6 +69,47 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
           <button type="submit" class="btn btn-primary mt-6">Send message</button>
           <p id="contact-status" class="mt-3 min-h-[1.4em] text-[0.95rem] text-accent-text" role="status" aria-live="polite"></p>
         </form>
+
+        <!-- Success state: shown after submit, matching the demo form's pattern. -->
+        <div
+          id="contact-success"
+          class="hidden rounded-[var(--r-lg)] border border-hair bg-surface p-8 shadow-[var(--shadow-md)]"
+          role="status"
+          aria-live="polite"
+          tabindex="-1"
+        >
+          <span
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--ok)]"
+            aria-hidden="true"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M4 10.5L8 14.5L16 5.5"
+                stroke="#fff"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <h2 class="h3 mt-4">Message sent, <span id="cs-name">there</span>.</h2>
+          <p class="mt-2 text-[1.02rem]">
+            We have opened your email app to send it. Once it lands, we reply within one working
+            day at <span id="cs-email" class="font-semibold text-ink">your inbox</span>.
+          </p>
+          <ol class="mt-6 space-y-3 text-[0.95rem]">
+            <li class="flex gap-3">
+              <span class="data mt-0.5 text-accent-text">1</span>
+              A person reads the message, not a bot.
+            </li>
+            <li class="flex gap-3">
+              <span class="data mt-0.5 text-accent-text">2</span>
+              We reply within one working day, usually sooner.
+            </li>
+          </ol>
+          <p class="mt-6 text-[0.9rem] text-muted">
+            Nothing opened? Email <a class="textlink" href={`mailto:${SALES_EMAIL}`}>{SALES_EMAIL}</a>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -78,7 +119,8 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
   (function () {
     var form = document.getElementById('contact-form');
     var status = document.getElementById('contact-status');
-    if (!form) return;
+    var success = document.getElementById('contact-success');
+    if (!form || !success) return;
 
     // Take over validation from the browser so errors show inline, next to the
     // field, instead of as a native bubble. Without JS the native validation
@@ -134,17 +176,17 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
       var message = form.querySelector('#c-message').value.trim();
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
-      status.textContent =
-        'Opening your email app with the message. If nothing happens, write to ' +
-        SALES_EMAIL +
-        '.';
       window.location.href =
         'mailto:' + SALES_EMAIL +
         '?subject=' + encodeURIComponent('Contact: ' + first + ' ' + last) +
         '&body=' + encodeURIComponent(message + '\n\nReply to: ' + email);
-      setTimeout(function () {
-        btn.disabled = false;
-      }, 4000);
+      // Swap to the success state with the user's own details.
+      document.getElementById('cs-name').textContent = first || 'there';
+      document.getElementById('cs-email').textContent = email;
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      success.focus();
+      success.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     });
   })();
 </script>

@@ -77,10 +77,22 @@ typography:
     fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "0.75rem"
     lineHeight: 1.35
+  # Pricing numerics: the two plan-price figure sizes used on /pricing (mono,
+  # per the Tactical Data Font rule — these are numbers to read precisely).
+  priceLarge:
+    fontFamily: "ui-monospace, SF Mono, Cascadia Mono, Menlo, monospace"
+    fontSize: "2.1rem"
+    lineHeight: 1.1
+  priceMedium:
+    fontFamily: "ui-monospace, SF Mono, Cascadia Mono, Menlo, monospace"
+    fontSize: "1.7rem"
+    lineHeight: 1.1
 rounded:
   sm: "8px"
   md: "12px"
   lg: "20px"
+  # Focus rings use 4px — a deliberate sub-scale radius so the ring hugs the
+  # control, not part of the card/button scale above.
 spacing:
   xs: "8px"
   sm: "12px"

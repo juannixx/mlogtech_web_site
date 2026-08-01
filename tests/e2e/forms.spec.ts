@@ -27,6 +27,28 @@ test('valid demo submit shows the personalized success state', async ({ page }) 
   await expect(page.locator('#ds-email')).toHaveText('dana@fleetco.example');
 });
 
+test('valid demo submit moves focus to the success panel', async ({ page }) => {
+  await page.goto('/demo/');
+  await page.locator('#d-name').fill('Dana Fields');
+  await page.locator('#d-email').fill('dana@fleetco.example');
+  await page.locator('#demo-form button[type="submit"]').click();
+  await expect(page.locator('#demo-success')).toBeFocused();
+});
+
+test('valid contact submit shows a success panel matching the demo pattern', async ({ page }) => {
+  await page.goto('/contact/');
+  await page.locator('#c-first').fill('Dana');
+  await page.locator('#c-last').fill('Fields');
+  await page.locator('#c-email').fill('dana@fleetco.example');
+  await page.locator('#c-message').fill('Interested in route planning for our fleet.');
+  await page.locator('#contact-form button[type="submit"]').click();
+  await expect(page.locator('#contact-success')).toBeVisible();
+  await expect(page.locator('#contact-form')).toBeHidden();
+  await expect(page.locator('#cs-name')).toHaveText('Dana');
+  await expect(page.locator('#cs-email')).toHaveText('dana@fleetco.example');
+  await expect(page.locator('#contact-success')).toBeFocused();
+});
+
 test('contact form requires a valid email', async ({ page }) => {
   await page.goto('/contact/');
   await page.locator('#c-first').fill('Test');

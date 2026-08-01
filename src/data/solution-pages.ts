@@ -43,7 +43,7 @@ export const solutionPages: SolutionPage[] = [
     slug: 'route-planning',
     metaTitle: 'Route planning software | Optimised multi-stop routes | MLogTech',
     metaDescription:
-      'Plan and optimise multi-stop delivery routes against vehicles, shifts and time windows. Dispatch straight to a driver app with electronic proof of delivery.',
+      'Plan and optimise multi-stop delivery routes against vehicles, shifts and time windows. Dispatch straight to a driver app with electronic proof of delivery (ePOD).',
     h1: 'Route planning software for delivery fleets.',
     heroSub:
       "Turn the day's orders into optimised routes in minutes, matched to your vehicles, shifts and time windows, and dispatched straight to the driver app.",
@@ -98,7 +98,7 @@ export const solutionPages: SolutionPage[] = [
       },
       {
         title: 'The plan survives contact with the road.',
-        body: "Live tracking shows the route as it actually runs. Reassign a stop, and the driver app updates before the next turn. Every completed drop returns a POD against the order.",
+        body: "Live tracking shows the route as it actually runs. Reassign a stop, and the driver app updates before the next turn. Every completed drop returns an electronic proof of delivery (ePOD) against the order.",
         image: '/images/product/panel-tracking.jpg',
         imageAlt: 'MLogTech live tracking: vehicles and their routes plotted on the map in real time',
         shot: true,
@@ -111,10 +111,12 @@ export const solutionPages: SolutionPage[] = [
       'Route planning is the process of deciding which vehicle delivers which orders and in what sequence. Done by hand, it is a daily puzzle solved in spreadsheets and local knowledge: someone groups orders by postcode, guesses drive times and hopes the vans finish before the shift ends.',
       "Route planning software replaces the guessing with optimisation. It takes the full list of orders, the fleet's real constraints (vehicle capacity, driver shifts, delivery time windows, depot locations) and computes routes that minimise distance and time while keeping every promise the business made to the customer.",
       'The difference shows up in three places. Planning time collapses from hours to minutes, because the sequencing is computed instead of assembled by hand. Cost per delivery falls, because the same fleet completes more drops with less driving. And service improves, because arrival windows are planned rather than hoped for, and the dispatcher can see deviations while there is still time to react.',
-      'In MLogTech, planning is the first third of a longer loop: the plan dispatches to the driver app, execution reports back through live tracking, and every completed stop returns an electronic proof of delivery attached to the original order. The route is one record from spreadsheet to signature.',
+      'In MLogTech, planning is the first third of a longer loop: the plan dispatches to the driver app, execution reports back through live tracking, and every completed stop returns an ePOD attached to the original order. The route is one record from spreadsheet to signature.',
     ],
     ctaTitle: "Plan tomorrow's routes with MLogTech.",
-    ctaNote: 'Free trial with the optimiser included. No driver minimum.',
+    ctaNote: SHOW_SIGNUP_CTA
+      ? 'Free trial with the optimiser included. No driver minimum.'
+      : 'No driver minimum, and the optimiser is included from the first route.',
     faq: [
       {
         q: 'What is route planning software?',
@@ -215,11 +217,13 @@ export const solutionPages: SolutionPage[] = [
     eduParagraphs: [
       'Last mile delivery is the final movement of an order: from the depot or store to the customer’s address. It is the shortest leg of the journey and usually the most expensive one, because it is the only leg where every parcel needs its own stop, its own door and its own few minutes of a driver’s day.',
       'It is also the only leg the customer sees. A supply chain can run perfectly for a thousand miles and still fail in the last one: a missed window, a parcel left in the wrong place, a driver who cannot find the entrance. That failure is what gets remembered and reviewed.',
-      'Last mile software attacks the cost and the experience at the same time. Optimised routes reduce miles and time per drop. Live tracking and notifications remove the uncertainty that causes missed deliveries and support calls. Electronic proof of delivery closes every stop with evidence, so disputes are resolved by looking at a record instead of arguing about memory.',
+      'Last mile software attacks the cost and the experience at the same time. Optimised routes reduce miles and time per drop. Live tracking and notifications remove the uncertainty that causes missed deliveries and support calls. Electronic proof of delivery (ePOD) closes every stop with evidence, so disputes are resolved by looking at a record instead of arguing about memory.',
       'MLogTech covers the loop end to end: plan, notify, deliver, prove. One system, one record per order.',
     ],
     ctaTitle: 'Fix the mile that customers remember.',
-    ctaNote: 'Free trial, no driver minimum. See it against your own routes.',
+    ctaNote: SHOW_SIGNUP_CTA
+      ? 'Free trial, no driver minimum. See it against your own routes.'
+      : 'No driver minimum. See it against your own routes.',
     faq: [
       {
         q: 'What is last mile delivery software?',
@@ -248,7 +252,7 @@ export const solutionPages: SolutionPage[] = [
     slug: 'driver-app',
     metaTitle: 'Delivery driver app | Routes, ePOD and offline mode | MLogTech',
     metaDescription:
-      'An iOS and Android app that gives drivers their route, navigation, order details and electronic proof of delivery capture, online or offline.',
+      'An iOS and Android app that gives drivers their route, navigation, order details and electronic proof of delivery (ePOD) capture, online or offline.',
     h1: 'A delivery driver app that stays out of the way.',
     heroSub:
       'Routes, navigation, order details and proof capture in one app. Built for gloves, low signal and a hundred stops a day.',
@@ -302,11 +306,11 @@ export const solutionPages: SolutionPage[] = [
     splits: [
       {
         title: 'Proof capture built for the doorstep.',
-        body: 'Signature, photo, barcode and non-delivery reasons, stamped with time and location. The POD is in the office system before the driver is back in the van.',
+        body: 'Signature, photo, barcode and non-delivery reasons, stamped with time and location. The electronic proof of delivery (ePOD) is in the office system before the driver is back in the van.',
         image: '/images/doorstep-signature.jpg',
         imageAlt: 'A courier collecting a signature on a handheld device at the door',
         linkHref: '/features/proof-of-delivery/',
-        linkLabel: 'More on electronic POD',
+        linkLabel: 'More on ePOD',
       },
       {
         title: 'Two-way with dispatch, without phone calls.',
@@ -354,10 +358,10 @@ export const solutionPages: SolutionPage[] = [
     slug: 'tms',
     metaTitle: 'Transport management system (TMS) | Plan, dispatch, prove | MLogTech',
     metaDescription:
-      'A TMS for delivery operations: orders, routes, drivers, live tracking, proof of delivery and reporting in one system, with API access.',
+      'A TMS for delivery operations: orders, routes, drivers, live tracking, electronic proof of delivery (ePOD) and reporting in one system, with API access.',
     h1: 'A transport management system that ends at proof, not at dispatch.',
     heroSub:
-      'Orders in, optimised routes out, live execution in the middle, and a POD against every order at the end. That is the whole transport cycle in one system.',
+      'Orders in, optimised routes out, live execution in the middle, and an electronic proof of delivery (ePOD) against every order at the end. That is the whole transport cycle in one system.',
     heroMock: 'dashboard',
     benefitsTitle: 'What one system replaces.',
     sections: ['benefits', 'splits', 'steps', 'edu'],
@@ -425,7 +429,9 @@ export const solutionPages: SolutionPage[] = [
       'MLogTech is a TMS scoped to delivery operations: it deliberately ends every cycle with electronic proof of delivery, because an order without proof is not finished; it is just quiet.',
     ],
     ctaTitle: 'Run transport as one system.',
-    ctaNote: 'Free trial. Import a real day of orders and see the cycle close.',
+    ctaNote: SHOW_SIGNUP_CTA
+      ? 'Free trial. Import a real day of orders and see the cycle close.'
+      : 'Import a real day of orders and see the cycle close.',
     faq: [
       {
         q: 'What does TMS stand for?',
@@ -433,7 +439,7 @@ export const solutionPages: SolutionPage[] = [
       },
       {
         q: 'How is MLogTech different from a generic TMS?',
-        a: 'It is built for delivery operations and closes every order with electronic proof of delivery. Planning, driver app, tracking and POD are one product, not modules from different vendors.',
+        a: 'It is built for delivery operations and closes every order with electronic proof of delivery. Planning, driver app, tracking and ePOD are one product, not modules from different vendors.',
       },
       {
         q: 'Does it integrate with my ERP?',
@@ -456,7 +462,7 @@ export const solutionPages: SolutionPage[] = [
     slug: 'courier-dispatch',
     metaTitle: 'Courier dispatch software | Assign, track, invoice | MLogTech',
     metaDescription:
-      'Dispatch software for courier operations: assign jobs in seconds, track every rider and driver live, and close jobs with electronic proof of delivery.',
+      'Dispatch software for courier operations: assign jobs in seconds, track every rider and driver live, and close jobs with electronic proof of delivery (ePOD).',
     h1: 'Courier dispatch software for same-day speed.',
     heroSub:
       'Jobs come in all day; your board keeps up. Assign in seconds, watch execution live, and close every job with proof.',
@@ -526,7 +532,9 @@ export const solutionPages: SolutionPage[] = [
       'MLogTech handles both tempos in one system: planned routes for the scheduled work, live dispatch for the same-day work, and the same proof-of-delivery record closing both.',
     ],
     ctaTitle: 'Give your dispatchers a board that keeps up.',
-    ctaNote: 'Free trial. Run a real day of jobs through it.',
+    ctaNote: SHOW_SIGNUP_CTA
+      ? 'Free trial. Run a real day of jobs through it.'
+      : 'Run a real day of jobs through it.',
     faq: [
       {
         q: 'Is this for couriers or delivery fleets?',
@@ -632,7 +640,9 @@ export const solutionPages: SolutionPage[] = [
       'In MLogTech, checks are part of the same system as routes and deliveries, so a defect does not end in a drawer: it queues for the workshop, and the vehicle’s compliance history lives next to its operational history.',
     ],
     ctaTitle: 'Make the walkaround a habit, not a hope.',
-    ctaNote: 'Included in the driver app. Free trial, no driver minimum.',
+    ctaNote: SHOW_SIGNUP_CTA
+      ? 'Included in the driver app. Free trial, no driver minimum.'
+      : 'Included in the driver app, with no driver minimum.',
     faq: [
       {
         q: 'Are digital vehicle checks accepted for compliance?',

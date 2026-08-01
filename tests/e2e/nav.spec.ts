@@ -29,6 +29,28 @@ test('features dropdown links to a feature page', async ({ page }) => {
   await expect(page).toHaveURL(/\/features\/proof-of-delivery\/$/);
 });
 
+test('arrow keys move focus through an open dropdown', async ({ page }) => {
+  await page.goto('/');
+  const btn = page.getByRole('button', { name: 'Solutions' });
+  await btn.focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(btn).toHaveAttribute('aria-expanded', 'true');
+  const panel = page.locator('[data-drop]:has(button:has-text("Solutions")) .drop-panel');
+  const links = panel.locator('a');
+  await expect(links.first()).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await expect(links.nth(1)).toBeFocused();
+  await page.keyboard.press('ArrowUp');
+  await expect(links.first()).toBeFocused();
+  // Arrow-up from the first link wraps to the last link.
+  await page.keyboard.press('ArrowUp');
+  const count = await links.count();
+  await expect(links.nth(count - 1)).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(btn).toHaveAttribute('aria-expanded', 'false');
+  await expect(btn).toBeFocused();
+});
+
 test('escape closes an open dropdown', async ({ page }) => {
   await page.goto('/');
   const btn = page.getByRole('button', { name: 'Solutions' });
