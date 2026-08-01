@@ -1,5 +1,11 @@
 ---
-import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY } from '../data/site';
+import {
+  SHOW_SIGNUP_CTA,
+  SIGNUP_URL,
+  CTA_PRIMARY,
+  CTA_SECONDARY,
+  MEASURED_LOGIN_TO_ROUTE_CLAIM,
+} from '../data/site';
 
 interface Props {
   title?: string;
@@ -18,7 +24,7 @@ const {
         'Your data exports anytime',
       ]
     : [
-        'From login to a published route in under a minute',
+        MEASURED_LOGIN_TO_ROUTE_CLAIM,
         'Import orders from CSV or API',
         'Per-driver or per-order pricing',
       ],

@@ -4,7 +4,14 @@ import RouteMap from '../components/RouteMap.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import StatStrip from '../components/StatStrip.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { SHOW_SIGNUP_CTA, SIGNUP_URL, CTA_PRIMARY, CTA_SECONDARY, SITE_NAME } from '../data/site';
+import {
+  SHOW_SIGNUP_CTA,
+  SIGNUP_URL,
+  CTA_PRIMARY,
+  CTA_SECONDARY,
+  SITE_NAME,
+  MEASURED_LOGIN_TO_ROUTE_CLAIM,
+} from '../data/site';
 
 const softwareSchema = {
   '@context': 'https://schema.org',
@@ -84,7 +91,7 @@ const steps = [
           </span>
         </h1>
         <p class="lead mt-6 max-w-[54ch] text-[color:var(--fixed-body)]">
-          From login to a published route in under a minute, measured on a live
+          {MEASURED_LOGIN_TO_ROUTE_CLAIM}, measured on a live
           operation. £200k+ in driver pay and 5,600+ shifts already run through the
           same system: route planning, a native driver app, proof of delivery,
           customer tracking, workforce and pay, compliance, fleet and CRM.
