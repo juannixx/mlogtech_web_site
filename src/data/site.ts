@@ -10,6 +10,11 @@ export const SHOW_SIGNUP_CTA = false;
 export const SIGNUP_URL = 'https://app.mlogtech.com/signup';
 export const LOGIN_URL = 'https://molina-express-app.web.app/client/login';
 
+// Mobile app store listings (badges live in public/images/badges/).
+export const APP_STORE_URL = 'https://apps.apple.com/br/app/mlog-tech/id6749288842';
+export const PLAY_STORE_URL =
+  'https://play.google.com/store/apps/details?id=com.jw.molinaexpress.molinaexpressflutter&hl=pt_BR';
+
 export const SALES_EMAIL = 'sales@mlogtech.com';
 export const SUPPORT_EMAIL = 'support@mlogtech.com';
 export const OFFICES = ['London', 'Dubai', 'Brazil'];
