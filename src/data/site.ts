@@ -33,3 +33,13 @@ export const VIDEO_DRIVER_DEMO = 'https://www.youtube.com/embed/ZPMKwatRb40';
 // Umami Cloud analytics (spec 2026-08-01, PR A). ID vazio = script não injetado.
 export const UMAMI_WEBSITE_ID = ''; // [PENDENTE: ID real de cloud.umami.is]
 export const UMAMI_SRC = 'https://cloud.umami.is/script.js';
+
+// Agregados de produção verificados (tenant Molina via Firestore, 01/08/2026).
+// Regras de honestidade e pisos: docs/superpowers/specs/2026-08-01-lp-quickwins-verion-design.md.
+// São pisos "X+": só alterar com nova verificação na fonte.
+export const PROOF_STATS = [
+  { value: 200, prefix: '£', suffix: 'k+', label: 'in driver payments processed' },
+  { value: 5600, prefix: '', suffix: '+', label: 'shifts scheduled' },
+  { value: 160, prefix: '', suffix: '+', label: 'drivers managed' },
+  { value: 80, prefix: '', suffix: '+', label: 'vehicles in one operation' },
+] as const;
