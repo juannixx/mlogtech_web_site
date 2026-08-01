@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import HeroDevices from '../components/HeroDevices.astro';
 import RouteMap from '../components/RouteMap.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import StatStrip from '../components/StatStrip.astro';
@@ -57,20 +56,34 @@ const steps = [
   description="Plan optimised routes, run deliveries with a driver app, capture electronic proof of delivery and give customers live tracking. Built by MLogTech."
   jsonLd={[softwareSchema]}
 >
-  <!-- 1. Hero: the "One system." payoff is the dominant beat; the three
-       capabilities set it up. Emphasis by size/weight only (no hi-vis on text). -->
-  <section class="section pt-12 lg:pt-16">
-    <div class="wrap grid items-center gap-12 lg:grid-cols-[1.08fr_1fr]">
-      <div class="reveal">
+  <!-- 1. Hero: the "One system." payoff is the dominant beat, now set over the
+       depot photograph (the fleet the software runs). Fixed navy scrim keeps the
+       text at AA in both themes; the fixed-* tokens are the same ones the CTA
+       band uses. Emphasis by size/weight only (no hi-vis on text). -->
+  <section class="hero-photo relative overflow-hidden border-b border-hair">
+    <img
+      src="/images/hero-depot-2560.jpg"
+      srcset="/images/hero-depot-1280.jpg 1280w, /images/hero-depot-2560.jpg 2560w"
+      sizes="100vw"
+      alt=""
+      width="2560"
+      height="853"
+      fetchpriority="high"
+      decoding="async"
+      class="hero-photo-img absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="hero-scrim absolute inset-0" aria-hidden="true"></div>
+    <div class="wrap relative flex min-h-[560px] items-center py-20 lg:min-h-[640px] lg:py-24">
+      <div class="reveal max-w-[640px]">
         <h1 class="text-balance">
-          <span class="block text-[clamp(1.5rem,2.6vw,2.15rem)] font-semibold leading-tight text-body">
+          <span class="block text-[clamp(1.5rem,2.6vw,2.15rem)] font-semibold leading-tight text-[color:var(--fixed-body)]">
             Proof of delivery, live tracking, optimised routes.
           </span>
-          <span class="mt-3 block font-extrabold leading-[0.98] tracking-[-0.03em] text-ink text-[clamp(3.25rem,8vw,5.5rem)]">
+          <span class="mt-3 block font-extrabold leading-[0.98] tracking-[-0.03em] text-[color:var(--fixed-ink)] text-[clamp(3.25rem,8vw,5.5rem)]">
             One system.
           </span>
         </h1>
-        <p class="lead mt-6 max-w-[54ch]">
+        <p class="lead mt-6 max-w-[54ch] text-[color:var(--fixed-body)]">
           From login to a published route in under a minute, measured on a live
           operation. £200k+ in driver pay and 5,600+ shifts already run through the
           same system: route planning, a native driver app, proof of delivery,
@@ -78,12 +91,19 @@ const steps = [
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           {SHOW_SIGNUP_CTA && <a href={SIGNUP_URL} class="btn btn-primary" data-umami-event="cta-signup" data-umami-event-position="hero">{CTA_PRIMARY}</a>}
-          <a href="/demo/" class:list={['btn', SHOW_SIGNUP_CTA ? 'btn-ghost' : 'btn-primary']} data-umami-event="cta-demo" data-umami-event-position="hero">{CTA_SECONDARY}</a>
+          <a
+            href="/demo/"
+            class:list={[
+              'btn',
+              SHOW_SIGNUP_CTA
+                ? 'btn-ghost border-[color:var(--fixed-hair)] text-[color:var(--fixed-ink)] hover:border-accent'
+                : 'btn-primary',
+            ]}
+            data-umami-event="cta-demo"
+            data-umami-event-position="hero"
+          >{CTA_SECONDARY}</a>
         </div>
-        {SHOW_SIGNUP_CTA && <p class="mt-4 text-[0.9rem] text-muted">Free trial. No card required.</p>}
-      </div>
-      <div class="reveal">
-        <HeroDevices />
+        {SHOW_SIGNUP_CTA && <p class="mt-4 text-[0.9rem] text-[color:var(--fixed-body)]">Free trial. No card required.</p>}
       </div>
     </div>
   </section>
@@ -448,3 +468,36 @@ const steps = [
   <!-- 10. Final CTA -->
   <CTABanner />
 </Base>
+
+<style>
+  /* Fixed navy scrim over the depot photo: dense behind the text column,
+     easing off toward the sunrise so the photograph still reads. Literal
+     colors (like the CTA band), identical in light and dark themes. */
+  .hero-scrim {
+    background: linear-gradient(
+      96deg,
+      rgba(7, 20, 32, 0.9) 0%,
+      rgba(7, 20, 32, 0.74) 36%,
+      rgba(7, 20, 32, 0.36) 64%,
+      rgba(7, 20, 32, 0.14) 100%
+    );
+  }
+  .hero-photo-img {
+    object-position: 50% 50%;
+  }
+  /* Portrait crop of a 3:1 photograph: favour the driver and the sunrise,
+     and let the scrim run top-down since the text spans the full width. */
+  @media (max-width: 1023px) {
+    .hero-photo-img {
+      object-position: 66% 50%;
+    }
+    .hero-scrim {
+      background: linear-gradient(
+        180deg,
+        rgba(7, 20, 32, 0.88) 0%,
+        rgba(7, 20, 32, 0.66) 60%,
+        rgba(7, 20, 32, 0.4) 100%
+      );
+    }
+  }
+</style>
