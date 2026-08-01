@@ -127,6 +127,7 @@ import { SALES_EMAIL, SUPPORT_EMAIL, OFFICES } from '../data/site';
         invalid.focus();
         return;
       }
+      if (window.umami) window.umami.track('contact-submit');
       var first = form.querySelector('#c-first').value.trim();
       var last = form.querySelector('#c-last').value.trim();
       var email = form.querySelector('#c-email').value.trim();
