@@ -80,7 +80,7 @@ const steps = [
       class="hero-photo-img absolute inset-0 h-full w-full object-cover"
     />
     <div class="hero-scrim absolute inset-0" aria-hidden="true"></div>
-    <div class="wrap relative flex min-h-[560px] items-center py-20 lg:min-h-[640px] lg:py-24">
+    <div class="wrap relative flex min-h-[560px] items-center py-20 lg:justify-end lg:min-h-[640px] lg:py-24">
       <div class="reveal max-w-[640px]">
         <h1 class="text-balance">
           <span class="block text-[clamp(1.5rem,2.6vw,2.15rem)] font-semibold leading-tight text-[color:var(--fixed-body)]">
@@ -477,20 +477,23 @@ const steps = [
 </Base>
 
 <style>
-  /* Fixed navy scrim over the depot photo: dense behind the text column,
-     easing off toward the sunrise so the photograph still reads. Literal
-     colors (like the CTA band), identical in light and dark themes. */
+  /* Fixed navy scrim over the depot photo: dense behind the text column on
+     the right (the bright sunset side), easing off toward the truck so the
+     fleet still reads. Literal colors (like the CTA band), identical in
+     light and dark themes. */
   .hero-scrim {
     background: linear-gradient(
-      96deg,
-      rgba(7, 20, 32, 0.9) 0%,
-      rgba(7, 20, 32, 0.74) 36%,
+      264deg,
+      rgba(7, 20, 32, 0.92) 0%,
+      rgba(7, 20, 32, 0.78) 36%,
       rgba(7, 20, 32, 0.36) 64%,
-      rgba(7, 20, 32, 0.14) 100%
+      rgba(7, 20, 32, 0.1) 100%
     );
   }
+  /* Partial crops (container narrower than 3:1) keep the truck in frame on
+     the left; the text column sits over the sky on the right. */
   .hero-photo-img {
-    object-position: 50% 50%;
+    object-position: 80% 50%;
   }
   /* Portrait crop of a 3:1 photograph: favour the driver and the sunrise,
      and let the scrim run top-down since the text spans the full width. */
