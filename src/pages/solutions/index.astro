@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CTABanner from '../../components/CTABanner.astro';
+import PhotoHero from '../../components/PhotoHero.astro';
 import { solutions } from '../../data/solutions';
 import { SHOW_SIGNUP_CTA } from '../../data/site';
 
@@ -15,15 +16,19 @@ const rest = solutions.filter((s) => s.slug !== FEATURED);
   title="Solutions | Delivery software by operation type | MLogTech"
   description="Route planning, last mile delivery, driver app, TMS, courier dispatch and vehicle checks: pick the MLogTech solution that matches your operation."
 >
+  <!-- Hero: the fleet on the road at dusk; text sits over the sea and sky on
+       the left, the truck reads on the right. -->
+  <PhotoHero name="hero-road" pos="62% 50%" posMobile="60% 50%">
+    <h1 class="display max-w-[20ch] text-[color:var(--fixed-ink)]">One platform, six ways in.</h1>
+    <p class="lead mt-4 max-w-[60ch] text-[color:var(--fixed-body)]">
+      Every operation enters through a different door: routes, the driver app, compliance.
+      They all land on the same system.
+    </p>
+  </PhotoHero>
+
   <section class="section">
     <div class="wrap">
-      <h1 class="display max-w-[20ch]">One platform, six ways in.</h1>
-      <p class="lead mt-4 max-w-[60ch]">
-        Every operation enters through a different door: routes, the driver app, compliance.
-        They all land on the same system.
-      </p>
-
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <!-- Focal tile: the flagship solution, with the real dispatch board. -->
         <a
           id={featured.slug}

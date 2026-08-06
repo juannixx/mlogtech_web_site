@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CTABanner from '../../components/CTABanner.astro';
+import PhotoHero from '../../components/PhotoHero.astro';
 import { featured, webPanel, driverApp } from '../../data/features';
 import { SHOW_SIGNUP_CTA } from '../../data/site';
 
@@ -15,17 +16,19 @@ const rest = featured.filter((f) => f.slug !== LEAD);
   title="Features | Web panel and driver app | MLogTech"
   description="Everything in the MLogTech delivery platform: route optimisation, electronic proof of delivery, live tracking, notifications, reports and a driver app that works offline."
 >
-  <section class="section pb-8">
-    <div class="wrap">
-      <h1 class="display max-w-[22ch]">Everything the route needs, listed.</h1>
-      <p class="lead mt-4 max-w-[60ch]">
-        The web panel plans and watches the operation; the driver app executes it. These are the
-        pieces, with the nine most asked-about first.
-      </p>
-    </div>
-  </section>
+  <!-- Hero: the dock working at night; text sits over the dark corridor on
+       the left, the loaded trailer reads on the right. -->
+  <PhotoHero name="hero-dock" pos="58% 50%" posMobile="62% 50%">
+    <h1 class="display max-w-[22ch] text-[color:var(--fixed-ink)]">
+      Everything the route needs, listed.
+    </h1>
+    <p class="lead mt-4 max-w-[60ch] text-[color:var(--fixed-body)]">
+      The web panel plans and watches the operation; the driver app executes it. These are the
+      pieces, with the nine most asked-about first.
+    </p>
+  </PhotoHero>
 
-  <section class="pb-16">
+  <section class="pt-14 pb-16">
     <div class="wrap grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <!-- Focal tile: ePOD, the capability the whole system closes on.
            Each card carries a representative photo behind a dark scrim. -->
