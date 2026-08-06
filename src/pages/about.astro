@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CTABanner from '../components/CTABanner.astro';
+import PhotoHero from '../components/PhotoHero.astro';
 import { SALES_EMAIL, OFFICES, SHOW_SIGNUP_CTA } from '../data/site';
 
 // Copy adapted from the current mlogtech.com (scrape 07/17/2026), kept
@@ -31,39 +32,29 @@ const principles = [
   title="About | Technology for real operations | MLogTech"
   description="MLogTech is a software technology company building practical, scalable systems for delivery and logistics operations, with offices in London, Dubai and Brazil."
 >
-  <section class="section">
-    <div class="wrap grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-      <div class="reveal">
-        <h1 class="display max-w-[20ch]">Technology designed for real business operations.</h1>
-        <div class="mt-6 space-y-4 text-[1.02rem]">
-          <p>
-            MLogTech is a software technology company focused on building practical and scalable
-            systems for modern organisations. We work closely with businesses to understand how
-            they operate, and translate that understanding into reliable software.
-          </p>
-          <p>
-            Our delivery management platform is that philosophy applied to logistics: route
-            planning, a driver app, electronic proof of delivery and live tracking, built as one
-            system because that is how the work actually flows.
-          </p>
-          <p>
-            Our approach prioritises usability, clarity and long-term value rather than
-            unnecessary complexity.
-          </p>
-        </div>
-      </div>
-      <div class="reveal">
-        <img
-          src="/images/about-operations.jpg"
-          alt="A delivery operation in the field: parcels loaded and handed off from the van"
-          width="1400"
-          height="934"
-          loading="eager"
-          class="h-[320px] w-full rounded-[var(--r-lg)] border border-hair object-cover shadow-[var(--shadow-md)] lg:h-[440px]"
-        />
-      </div>
+  <!-- Hero: the crew loading at first light; text sits over the pallet racks
+       on the left, the branded truck and the second loader read on the right. -->
+  <PhotoHero name="hero-loading" pos="60% 50%" posMobile="58% 50%">
+    <h1 class="display max-w-[20ch] text-[color:var(--fixed-ink)]">
+      Technology designed for real business operations.
+    </h1>
+    <div class="mt-6 space-y-4 text-[1.02rem] text-[color:var(--fixed-body)]">
+      <p>
+        MLogTech is a software technology company focused on building practical and scalable
+        systems for modern organisations. We work closely with businesses to understand how
+        they operate, and translate that understanding into reliable software.
+      </p>
+      <p>
+        Our delivery management platform is that philosophy applied to logistics: route
+        planning, a driver app, electronic proof of delivery and live tracking, built as one
+        system because that is how the work actually flows.
+      </p>
+      <p>
+        Our approach prioritises usability, clarity and long-term value rather than
+        unnecessary complexity.
+      </p>
     </div>
-  </section>
+  </PhotoHero>
 
   <section class="section bg-surface-2">
     <div class="wrap">

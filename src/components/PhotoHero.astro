@@ -1,0 +1,87 @@
+---
+// Full-bleed photograph hero for hub pages (Solutions, Features, About).
+// Same fixed navy scrim system as the home hero, sized for interior pages:
+// literal colors (like the CTA band), identical in light and dark themes.
+// Pages put their heading/lead in the slot using the fixed-* text tokens.
+interface Props {
+  /** Image base name: resolves /images/<name>-2560.jpg and -1280.jpg */
+  name: string;
+  /** Which side the text column (and dense scrim end) sits on, lg+ */
+  align?: 'left' | 'right';
+  /** object-position on lg+ (keep the photo's subject in frame) */
+  pos?: string;
+  /** object-position below lg (portrait crops of a wide photo) */
+  posMobile?: string;
+}
+const { name, align = 'left', pos = '50% 50%', posMobile = pos } = Astro.props;
+---
+
+<section
+  class="photo-hero relative overflow-hidden border-b border-hair"
+  data-align={align}
+  style={`--pos: ${pos}; --pos-m: ${posMobile}`}
+>
+  <img
+    src={`/images/${name}-2560.jpg`}
+    srcset={`/images/${name}-1280.jpg 1280w, /images/${name}-2560.jpg 2560w`}
+    sizes="100vw"
+    alt=""
+    width="2560"
+    height="1097"
+    fetchpriority="high"
+    decoding="async"
+    class="photo-hero-img absolute inset-0 h-full w-full object-cover"
+  />
+  <div class="photo-hero-scrim absolute inset-0" aria-hidden="true"></div>
+  <div
+    class:list={[
+      'wrap relative flex min-h-[440px] items-center py-16 lg:min-h-[520px] lg:py-20',
+      align === 'right' && 'lg:justify-end',
+    ]}
+  >
+    <div class="reveal max-w-[640px]">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .photo-hero-img {
+    object-position: var(--pos, 50% 50%);
+  }
+  /* Dense behind the text column, easing off so the photograph still reads. */
+  .photo-hero-scrim {
+    background: linear-gradient(
+      96deg,
+      rgba(7, 20, 32, 0.92) 0%,
+      rgba(7, 20, 32, 0.76) 36%,
+      rgba(7, 20, 32, 0.34) 64%,
+      rgba(7, 20, 32, 0.1) 100%
+    );
+  }
+  [data-align='right'] .photo-hero-scrim {
+    background: linear-gradient(
+      264deg,
+      rgba(7, 20, 32, 0.92) 0%,
+      rgba(7, 20, 32, 0.76) 36%,
+      rgba(7, 20, 32, 0.34) 64%,
+      rgba(7, 20, 32, 0.1) 100%
+    );
+  }
+  /* Portrait crop of a wide photograph: the text spans the full width, so
+     the scrim runs top-down instead of sideways. */
+  @media (max-width: 1023px) {
+    .photo-hero-img {
+      object-position: var(--pos-m, var(--pos, 50% 50%));
+    }
+    .photo-hero-scrim,
+    [data-align='right'] .photo-hero-scrim {
+      background: linear-gradient(
+        180deg,
+        rgba(7, 20, 32, 0.88) 0%,
+        rgba(7, 20, 32, 0.66) 60%,
+        rgba(7, 20, 32, 0.4) 100%
+      );
+    }
+  }
+</style>
