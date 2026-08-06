@@ -43,3 +43,8 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Pages processing has taken 5+ minutes on slow days (the default
+          # 10-minute timeout aborted three deploys on 08/06/2026); give the
+          # queue 30 minutes before giving up.
+          timeout: 1800000
