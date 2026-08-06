@@ -39,12 +39,24 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment-retry.outputs.page_url || steps.deployment-retry-2.outputs.page_url }}
     steps:
+      # deploy-pages hard-caps timeout at 600000ms (10 minutes; larger values
+      # are clamped with a warning). On slow Pages days (08/06/2026) a single
+      # window is not enough, so retry: up to three 10-minute attempts.
       - id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
         with:
-          # Pages processing has taken 5+ minutes on slow days (the default
-          # 10-minute timeout aborted three deploys on 08/06/2026); give the
-          # queue 30 minutes before giving up.
-          timeout: 1800000
+          timeout: 600000
+      - id: deployment-retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+        with:
+          timeout: 600000
+      - id: deployment-retry-2
+        if: steps.deployment.outcome == 'failure' && steps.deployment-retry.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 600000
