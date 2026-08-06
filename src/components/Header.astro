@@ -50,6 +50,11 @@ import { featured } from '../data/features';
               </a>
             ))
           }
+          <a
+            href="/solutions/"
+            class="mt-1 block rounded-md border-t border-hair px-3 py-2.5 font-semibold text-accent-text"
+            >See all solutions</a
+          >
         </div>
       </div>
 
@@ -87,6 +92,7 @@ import { featured } from '../data/features';
         >Pricing</a
       >
       <a href="/demo/" class="inline-flex min-h-[44px] items-center rounded-md px-3 text-[0.95rem] text-body hover:text-ink">Demo</a>
+      <a href="/about/" class="inline-flex min-h-[44px] items-center rounded-md px-3 text-[0.95rem] text-body hover:text-ink">About</a>
 
       <a href={LOGIN_URL} class="ml-2 inline-flex min-h-[44px] items-center rounded-md px-3 text-[0.95rem] font-semibold text-ink"
         >Log in</a
@@ -117,11 +123,15 @@ import { featured } from '../data/features';
           </a>
         ))
       }
+      <a href="/solutions/" class="rounded-md px-3 py-2.5 font-semibold text-accent-text"
+        >All solutions</a
+      >
       <a href="/features/" class="mt-1 border-t border-hair px-3 py-3 font-semibold text-ink"
         >Features</a
       >
       <a href="/pricing/" class="border-t border-hair px-3 py-3 font-semibold text-ink">Pricing</a>
       <a href="/demo/" class="border-t border-hair px-3 py-3 font-semibold text-ink">Demo</a>
+      <a href="/about/" class="border-t border-hair px-3 py-3 font-semibold text-ink">About</a>
       <a href={LOGIN_URL} class="border-t border-hair px-3 py-3 font-semibold text-ink">Log in</a>
       {SHOW_SIGNUP_CTA && <a href={SIGNUP_URL} class="btn btn-primary my-4" data-umami-event="cta-signup" data-umami-event-position="header-mobile">{CTA_PRIMARY}</a>}
     </nav>
