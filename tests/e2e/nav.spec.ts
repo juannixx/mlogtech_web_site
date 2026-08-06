@@ -22,6 +22,27 @@ test('solutions dropdown opens and navigates to route planning', async ({ page }
   await expect(page.locator('h1')).toContainText('Route planning software');
 });
 
+test('solutions dropdown reaches the solutions hub page', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Solutions' }).click();
+  await page.getByRole('link', { name: 'See all solutions' }).click();
+  await expect(page).toHaveURL(/\/solutions\/$/);
+  await expect(page.locator('h1')).toContainText('One platform');
+});
+
+test('features dropdown reaches the features hub page', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Features' }).click();
+  await page.getByRole('link', { name: 'See all features' }).click();
+  await expect(page).toHaveURL(/\/features\/$/);
+});
+
+test('header links to the about page', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('header nav[aria-label="Main"]').getByRole('link', { name: 'About' }).click();
+  await expect(page).toHaveURL(/\/about\/$/);
+});
+
 test('features dropdown links to a feature page', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Features' }).click();
